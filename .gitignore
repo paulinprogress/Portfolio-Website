@@ -2,8 +2,7 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=hugo
 
 ### Hugo ###
-# Generated files by hugo
-/public/
+# Generated files by hugo (not ignoring public/ so that it publishes to GitHub Pages)
 /resources/_gen/
 /assets/jsconfig.json
 hugo_stats.json
