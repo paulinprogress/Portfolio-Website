@@ -1,0 +1,358 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>paulhofmann.dev – Portfolios</title>
+    <link>https://www.paulhofmann.dev/portfolio/</link>
+    <description>Recent content in Portfolios on paulhofmann.dev</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 04 Jul 2025 11:51:04 +0000</lastBuildDate>
+    
+	  <atom:link href="https://www.paulhofmann.dev/portfolio/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>(2025) Last Block Standing (PULS GAME JAM)</title>
+      <link>https://www.paulhofmann.dev/portfolio/2025-last-block-standing-puls-game-jam/</link>
+      <pubDate>Fri, 04 Jul 2025 11:51:04 +0000</pubDate>
+      
+      <guid>https://www.paulhofmann.dev/portfolio/2025-last-block-standing-puls-game-jam/</guid>
+      <description>
+        
+        
+        &lt;p&gt;%%Key features:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Random projectile spawner with increasing difficulty&lt;/li&gt;
+&lt;li&gt;Grid-snapping wall placement&lt;/li&gt;
+&lt;li&gt;8-directional player movement &amp;amp; sprite animation handling%%&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1&gt;&lt;a href=&#34;https://itch.io/jam/puls-game-jam&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PULS GAME JAM&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;Start: [[2025-03-14]], 19:00 Uhr
+Ende: [[2025-03-16]], 19:00 Uhr&lt;/p&gt;
+&lt;p&gt;Theme: &lt;em&gt;Kaputt&lt;/em&gt;&lt;/p&gt;
+&lt;h2&gt;Idee&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;idee&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#idee&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Super simples Top-Down 2D game in [[Pixel Art]]&lt;/li&gt;
+&lt;li&gt;Man spawnt auf einer kleinen Platform, umzingelt von Mauern&lt;/li&gt;
+&lt;li&gt;Außerhalb der Platform (Void) kommen aus zufälligen Richtungen kleine Projectiles, die bei Kontakt mit den Mauer-Blöcken Schaden anrichten &amp;amp; diese schließlich ganz zerstören – wodurch sie zum Spieler gelangen und ihn eliminieren können&lt;/li&gt;
+&lt;li&gt;Während des Spiels spawnen kleine Pick-ups, mit denen man neue Mauern platzieren kann&lt;/li&gt;
+&lt;li&gt;Die Menge an Projectiles steigt stetig, wodurch es immer mehr ums ausweichen geht, und um gute Platzierungen der Mauern&lt;/li&gt;
+&lt;li&gt;Im Prinzip: Endless-Spielmodus mit Highscore&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Umsetzung&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;umsetzung&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#umsetzung&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Erste [[Game Art|Art Assets]] zusammensuchen
+&lt;ul&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Plattform&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Player (von 4 Seiten)
+&lt;ul&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Idle&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Walking&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Dying&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Walls
+&lt;ul&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Normal&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Geschädigt&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[-] Projectiles&lt;/li&gt;
+&lt;li&gt;[-] UI&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; [[Game Programmierung]]
+&lt;ul&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Gameplay basics
+&lt;ul&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Platform tilegrid&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Player movement &amp;amp; animation&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Wall prefab with damage&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Projectile prefab&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Game manager with continuous projectile spawning, increasing speed&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Player hit &amp;amp; game over&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Wall placing mechanic with highlighting&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Wall pickup with timed respawn after picking up&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Limit movement to platform&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Score
+&lt;ul&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Timer display&lt;/li&gt;
+&lt;li&gt;[-] Highscore display&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Intro animation
+&lt;ul&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Camera zoom-in&lt;/li&gt;
+&lt;li&gt;[-] Audio cue&lt;/li&gt;
+&lt;li&gt;[-] Show controls&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Game Over animation
+&lt;ul&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Death animation&lt;/li&gt;
+&lt;li&gt;[-] Audio cue&lt;/li&gt;
+&lt;li&gt;[-] Text&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Small fixes &amp;amp; improvements
+&lt;ul&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Make sure wall pickups don’t respawn until wall has been placed&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Make sure wall pickups don’t spawn into walls&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Make sure you can’t place walls inside other walls&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Fade in timer text&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Polishing
+&lt;ul&gt;
+&lt;li&gt;[-] Flat shapes with pixelate shader?&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Better art for projectiles&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Pixel font for timer&lt;/li&gt;
+&lt;li&gt;[-] Audio&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Submission&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;submission&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#submission&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;==&lt;a href=&#34;https://ghostsnglitter.itch.io/protect-the-walls&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Last Block Standing&lt;/a&gt;== (&lt;a href=&#34;https://github.com/PaulToast/Last-Block-Standing&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub-Repo&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;![[Last Block Standing.png]]&lt;/p&gt;
+&lt;p&gt;Assets:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Tileset:&lt;/strong&gt; &lt;em&gt;Pattern Pack Pixel 16x16&lt;/em&gt; from &lt;a href=&#34;https://kenney.nl/assets/1-bit-input-prompts-pixel-16&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Kenney&lt;/a&gt; &lt;em&gt;(CC0)&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Character Sprite:&lt;/strong&gt; &lt;em&gt;Top-Down Prototype Character&lt;/em&gt; by &lt;a href=&#34;https://snoblin.itch.io/pixel-rpg-free-npc&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Snoblin&lt;/a&gt; (Used under creator&amp;rsquo;s license)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Font:&lt;/strong&gt; &lt;em&gt;Pixelify Sans&lt;/em&gt; from &lt;a href=&#34;https://fonts.google.com/specimen/Pixelify&amp;#43;Sans&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Google Fonts&lt;/a&gt; &lt;em&gt;(SIL Open Font License 1.1)&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Retro&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;retro&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#retro&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Allgemein:
+&lt;ul&gt;
+&lt;li&gt;War erstmal etwas deprimierend: trotzdem ich nach ein wenig Brainstorming eine gute, überschaubare, &lt;em&gt;sehr&lt;/em&gt; simple Idee gefunden habe, habe ich &lt;em&gt;echt&lt;/em&gt; sehr damit gekämpft, sie umzusetzen – sowohl aus programmiertechnischen als auch aus zeitlichen Gründen. Dabei kamen immer weitere kleine To-dos hinzu, die ich vorher überhaupt nicht im Kopf hatte (inkl. der Erstellung einer halbwegs anschaulichen Projektseite auf Itch.io). Es war also gewissermaßen eine ziemlich demütigende Erfahrung.&lt;/li&gt;
+&lt;li&gt;Aber: Ich habe mich durchgekämpft, weitergemacht, und hatte am Ende dann &lt;em&gt;doch&lt;/em&gt; noch Zeit ein paar Kleinigkeiten zu fixen und zu verbessern – auch wenn vieles wie Audio gestrichen werden musste&lt;/li&gt;
+&lt;li&gt;Sofort nach Einreichung wurde mir das Ganze dann als totales Erfolgserlebnis klar; Ja, es war stressig und etwas demütigend, aber auch eine sehr intensive Lernerfahrung. Ich war gezwungen, &lt;em&gt;wirklich&lt;/em&gt; einmal alles von vorne bis hinten durchzugehen. Genau diese Art von Herausforderung stellt meinen [[Perfektionismus]] richtig auf die Probe und bringt mich tatsächlich vorran, wenn es darum geht, meine [[Effektivität]] als Spieleentwickler zu trainieren und die kreative [[Closing the gap|“gap”]] zu schließen.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Im Detail:
+&lt;ul&gt;
+&lt;li&gt;[[GitHub Copilot]] ([[Künstliche Intelligenz|KI]]-Unterstützung beim [[Game Programmierung|Coden]]) hat mir wirklich enorm geholfen… Ich will dem Vormarsch von KI-Tools nicht unkritisch gegenüberstehen, aber muss eingestehen, dass ich den massiven Widerstand im Bereich Code nicht ganz verstehen kann. Die [[Datenschutz]]-Problematik erschließt sich mir noch nicht zu 100%, möchte ich mir aber nochmal genauer anschauen…&lt;/li&gt;
+&lt;li&gt;UI/Menus, [[Tutorialization]], etc. in diesem Fall komplett ignoriert, ist aber ein &lt;em&gt;ziemlich&lt;/em&gt; umfangreicheres Aufgabenpaket, das man einfach vergessen kann – ist aber für Polishing usw. natürlich nicht trivial&lt;/li&gt;
+&lt;li&gt;Auch für Sound Design blieb hier gar keine Zeit; Könnte einiges einfacher machen, wenn man dafür Leute in einem Team hat&lt;/li&gt;
+&lt;li&gt;==Obsidian-Template erstellen:== [[(+) projects (Game Jam)]]&lt;/li&gt;
+&lt;li&gt;Ich möchte auch unbedingt anfangen, eine ==[[Game Art|Asset]]-Library zu erstellen==, vor allem für einfache, free-to-use Assets, um schneller loslegen zu können&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Post-Submission&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;post-submission&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#post-submission&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;(Small update, just to round things off)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Update repository name to “Last Block Standing”&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Make block respawns more frequent, especially as time goes on&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Place blocks on grid?&lt;/li&gt;
+&lt;li&gt;[-] Add some basic sounds?&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>(2025, NFTS) Unity 2D Project (Gem Valley)</title>
+      <link>https://www.paulhofmann.dev/portfolio/2025-nfts-unity-2d-project-gem-valley/</link>
+      <pubDate>Fri, 04 Jul 2025 11:50:27 +0000</pubDate>
+      
+      <guid>https://www.paulhofmann.dev/portfolio/2025-nfts-unity-2d-project-gem-valley/</guid>
+      <description>
+        
+        
+        &lt;p&gt;%%Key Features:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;[[Level Design]] with [[Tilemaps]]&lt;/li&gt;
+&lt;li&gt;Collecting gems &amp;amp; power-ups&lt;/li&gt;
+&lt;li&gt;Using timelines &amp;amp; animations for intro, game over, etc.&lt;/li&gt;
+&lt;li&gt;Audio implementation, including randomized footstep sounds&lt;/li&gt;
+&lt;li&gt;Main menu &amp;amp; other basic UI elements%%&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1&gt;Unity 2D Project: Gem Valley&lt;/h1&gt;&lt;p&gt;&lt;a href=&#34;https://paultoast.itch.io/gem-valley&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Play on Itch.io&lt;/a&gt;
+&lt;a href=&#34;https://github.com/PaulToast/Gem-Valley&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Code on GitHub&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Sessions&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;sessions&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#sessions&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;[[(2025-01-25, NFTS) Saturday Workshop with Ellie Silkstone]]&lt;/li&gt;
+&lt;li&gt;[[(2025-02-08, NFTS) Saturday Workshop with Ellie Silkstone]]&lt;/li&gt;
+&lt;li&gt;[[(2025-02-15, NFTS) Saturday Workshop with Ellie Silkstone]]&lt;/li&gt;
+&lt;li&gt;[[(2025-02-22, NFTS) Saturday Workshop with Ellie Silkstone]]&lt;/li&gt;
+&lt;li&gt;[[(2025-03-01, NFTS) Saturday Workshop with Ellie Silkstone]]&lt;/li&gt;
+&lt;li&gt;[[(2025-03-15, NFTS) Saturday Workshop with Ellie Silkstone]]&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Retro&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;retro&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#retro&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Größten Learnings (in [[Unity]]):
+&lt;ul&gt;
+&lt;li&gt;Tilemaps/Tilesets (auch nice um Titelbilder zu erstellen)&lt;/li&gt;
+&lt;li&gt;Guter Workflow für Input System&lt;/li&gt;
+&lt;li&gt;Animations &amp;amp; Timelines für Zwischensequenzen&lt;/li&gt;
+&lt;li&gt;UI Basics&lt;/li&gt;
+&lt;li&gt;Sound Design mit 8-bit Sound Generator&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Lief gut:
+&lt;ul&gt;
+&lt;li&gt;Saturday workshops haben guten Rhythmus vorgegeben&lt;/li&gt;
+&lt;li&gt;[[Portfolio]] war gute Motivation, um Ende nochmal alles zu polishen&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Geht besser:
+&lt;ul&gt;
+&lt;li&gt;[[Pixel Art]]-Workflow mit Pixel Perfect Camera noch nicht so richtig rausbekommen (zumindest snapping aber mit smooth camera)&lt;/li&gt;
+&lt;li&gt;…&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>(2024) Bachelorarbeit (BA)</title>
+      <link>https://www.paulhofmann.dev/portfolio/2024-bachelorarbeit-ba/</link>
+      <pubDate>Fri, 04 Jul 2025 11:50:06 +0000</pubDate>
+      
+      <guid>https://www.paulhofmann.dev/portfolio/2024-bachelorarbeit-ba/</guid>
+      <description>
+        
+        
+        &lt;h1&gt;Bachelorarbeit&lt;/h1&gt;&lt;p&gt;← [[(2024) Aktueller Stand synthetischer Datenaugmentation]]
+← [[(2024) Praktikumsbericht]]&lt;/p&gt;
+&lt;p&gt;“[[Contrastive Learning]] mit [[Stable Diffusion]]-basierter [[Datenaugmentation]]: Verbesserung der [[Bildklassifikation]] durch [[Synthetische Daten]]”&lt;/p&gt;
+&lt;p&gt;Erstprüferin: Prof. Dr. [[Larissa Putzar]]
+Zweitprüfer: Prof. Dr. [[Jan Neuhöfer]]&lt;/p&gt;
+&lt;p&gt;Abgabe: [[2024-09-23]]
+Bachelorkolloquium: [[2024-12-02]]&lt;/p&gt;
+&lt;p&gt;→ [[Portfolio]]&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Vorbereitung&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;vorbereitung&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#vorbereitung&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; [[(2024-01-25, BA) Erstes Gespräch zur Fragestellung]]&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; [[(2024, BA) Thema festlegen]]&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; [[(2024, BA) Formale Anforderungen]]&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; [[(2024, BA) Exposé]]&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Offizielle Anmeldung auf HAW-Seite&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Forschungsarbeit&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;forschungsarbeit&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#forschungsarbeit&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Setup
+&lt;ul&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; &lt;a href=&#34;https://outlook.office365.com/mail/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Online-Outlook&lt;/a&gt; (Mail)
+&lt;ul&gt;
+&lt;li&gt;Mit “Projekt”-Mail: &lt;a href=&#34;mailto:paul.hofmann@ipk-projekt.fraunhofer.de&#34; &gt;paul.hofmann@ipk-projekt.fraunhofer.de&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Neu gesetztes Passwort &amp;amp; SSO&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; VPN-Zugang auf [[Linux]]-Rechner
+&lt;ul&gt;
+&lt;li&gt;Dazu &lt;a href=&#34;https://openvpn.net/community-downloads/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;OpenVPN&lt;/a&gt; herunterladen &amp;amp; installieren (&lt;em&gt;nicht&lt;/em&gt; OpenVPN Connect)&lt;/li&gt;
+&lt;li&gt;Mail von Paul Koch: &lt;strong&gt;config&lt;/strong&gt;-Dateien herunterladen und unter &lt;code&gt;C:\Program Files\OpenVPN\config&lt;/code&gt; speichern&lt;/li&gt;
+&lt;li&gt;OpenVPN öffnen, in Symbolleiste rechtsklick &amp;amp; “Verbinden”&lt;/li&gt;
+&lt;li&gt;Mit Fraunhofer-Zugang anmelden: Zugriff aus &lt;strong&gt;VisionLab&lt;/strong&gt;-Netz&lt;/li&gt;
+&lt;li&gt;Dann &lt;strong&gt;Remotedesktopverbindung&lt;/strong&gt; aktivieren:
+&lt;ul&gt;
+&lt;li&gt;Rechner-IP: &lt;code&gt;172.17.21.23&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;user: &lt;code&gt;hofmpaul&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;password: &lt;code&gt;hofmpaul&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Entwicklungsumgebung einrichten
+&lt;ul&gt;
+&lt;li&gt;[[SSH]]-Key für den Linux-Rechner erstellen&lt;/li&gt;
+&lt;li&gt;[[Git]]-Verbindung herstellen &amp;amp; Repository herunterladen&lt;/li&gt;
+&lt;li&gt;Die notwendigen Erweiterungen für VSCode installieren
+&lt;ul&gt;
+&lt;li&gt;[[Python]]&lt;/li&gt;
+&lt;li&gt;…&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Zugriff auf Fraunhofer-Datensatz
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;+ Other Locations/4,0 TB Volume/MVIP/...&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Eigenes &lt;a href=&#34;https://github.com/PaulToast/Bachelorarbeit-Synthetische-Daten&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub-Repository&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;[b] [[(2024, BA) Literaturrecherche]]
+&lt;ul&gt;
+&lt;li&gt;[b] [[(2024, BA) Verwandte Arbeiten.canvas|(BA, 2024) Verwandte Arbeiten]] (Canvas)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; [[(2024, BA) DA-Fusion einrichten]]
+&lt;ul&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; [[(2024, BA) Synthetische Datengenerierung mit DA-Fusion]]&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; [[(2024, BA) SupCon einrichten]]
+&lt;ul&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; [[(2024, BA) Eigene Contrastive Learning-Methode entwickeln]]&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; [[(2024, BA) Trainings- und Testdurchläufe]]&lt;/li&gt;
+&lt;li&gt;[-] (BA, 2024) Analyse der Ergebnisse&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Schreibarbeit&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;schreibarbeit&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#schreibarbeit&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; [[(2024, BA) Anfang und Einleitung]]&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; [[(2024, BA) Theoretische Grundlagen]]&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; [[(2024, BA) Methodisches Vorgehen]]&lt;/li&gt;
+&lt;li&gt;[-] (BA, 2024) Entwurf&lt;/li&gt;
+&lt;li&gt;[-] (BA, 2024) Implementierung&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; [[(2024, BA) Ergebnisse]]&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; [[(2024, BA) Diskussion]]&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; [[(2024, BA) Fazit und Ausblick]]&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; [[(2024, BA) Anhang]]&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Finalisierung &amp;amp; Abschluss&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;finalisierung--abschluss&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#finalisierung--abschluss&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; [[(2024, BA) Review]]&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; [[(2024, BA) Finalisierung und Druck]]&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Abgabe&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; [[(2024, BA) Bachelorkolloquium]]&lt;/li&gt;
+&lt;li&gt;&lt;input checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; Nachbereitung&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Review&lt;span class=&#34;hx:absolute hx:-mt-20&#34; id=&#34;review&#34;&gt;&lt;/span&gt;
+    &lt;a href=&#34;#review&#34; class=&#34;subheading-anchor&#34; aria-label=&#34;Permalink for this section&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Erfolge
+&lt;ul&gt;
+&lt;li&gt;[[Zettelkasten]]-System zum [[Lernen]]&lt;/li&gt;
+&lt;li&gt;[[Obsidian]] zur [[Selbstorganisation]] allgemein&lt;/li&gt;
+&lt;li&gt;Stichpunktartige Strukturierung&lt;/li&gt;
+&lt;li&gt;Stressmanagement? (mehr oder weniger…)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Herausforderungen
+&lt;ul&gt;
+&lt;li&gt;Eingrenzung des Themas&lt;/li&gt;
+&lt;li&gt;Formalen Anforderungen verstehen&lt;/li&gt;
+&lt;li&gt;Verspäteter VPN-Zugang &amp;amp; Zeitdruck&lt;/li&gt;
+&lt;li&gt;Anwendung komplexer Code-Implementierungen mit wenig Dokumentation&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Lernerfahrungen
+&lt;ul&gt;
+&lt;li&gt;[[LaTeX]]&lt;/li&gt;
+&lt;li&gt;Patterns in der [[Machine Learning]]-[[Programmierung]]&lt;/li&gt;
+&lt;li&gt;[[Beständigkeit statt objektiver Fortschritt]]&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>
