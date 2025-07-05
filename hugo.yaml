@@ -1,0 +1,31 @@
+# Base configuration
+baseURL: 'https://www.paulhofmann.dev/'
+title: 'paulhofmann.dev'
+languageCode: 'en-us'
+
+# Output/publish directory
+publishDir: "docs" # Needs to be "docs" for GitHub Pages
+
+# Theme settings
+theme: 'hextra'
+
+menu:
+  main:
+    - name: Portfolio
+      pageRef: /portfolio
+      weight: 1
+    - name: Garden
+      pageRef: /docs
+      weight: 2
+    - name: About
+      pageRef: /about
+      weight: 3
+    - name: Search
+      weight: 4
+      params:
+        type: search
+    - name: GitHub
+      weight: 5
+      url: "https://github.com/paulinprogress/Portfolio-Website"
+      params:
+        icon: github
