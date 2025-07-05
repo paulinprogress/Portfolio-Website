@@ -9,13 +9,21 @@ publishDir: "docs" # Needs to be "docs" for GitHub Pages
 # Theme settings
 theme: 'hextra'
 
+params:
+  navbar:
+    displayTitle: true
+    displayLogo: false
+  theme: # light | dark | system
+    default: system
+    displayToggle: false
+
 menu:
   main:
     - name: Portfolio
       pageRef: /portfolio
       weight: 1
     - name: Garden
-      pageRef: /docs
+      pageRef: /blog
       weight: 2
     - name: About
       pageRef: /about
