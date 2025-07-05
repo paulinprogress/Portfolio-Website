@@ -1,12 +1,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>paulhofmann.dev – paulhofmann.dev</title>
-    <link>https://paulinprogress.github.io/Portfolio-Website/</link>
+    <link>https://paulhofmann.dev/</link>
     <description>Recent content on paulhofmann.dev</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	  <atom:link href="https://paulinprogress.github.io/Portfolio-Website/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="https://paulhofmann.dev/index.xml" rel="self" type="application/rss+xml" />
     
     
       

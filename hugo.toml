@@ -1,4 +1,4 @@
-baseURL = 'https://paulinprogress.github.io/Portfolio-Website/'
+baseURL = 'https://paulhofmann.dev/'
 languageCode = 'en-us'
 title = 'paulhofmann.dev'
 theme = 'hextra'
