@@ -1,4 +1,4 @@
-baseURL = 'https://paulhofmann.dev/'
+baseURL = 'https://www.paulhofmann.dev/'
 languageCode = 'en-us'
 title = 'paulhofmann.dev'
 theme = 'hextra'
