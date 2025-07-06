@@ -19,14 +19,14 @@ params:
 
 menu:
   main:
+    - name: About me
+      pageRef: /about-me
+      weight: 1
     - name: Portfolio
       pageRef: /portfolio
-      weight: 1
-    - name: Garden
-      pageRef: /blog
       weight: 2
-    - name: About
-      pageRef: /about
+    - name: Posts
+      pageRef: /blog
       weight: 3
     - name: Search
       weight: 4
