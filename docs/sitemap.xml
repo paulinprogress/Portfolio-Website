@@ -2,38 +2,38 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://www.paulhofmann.dev/blog/art-from-the-start/</loc>
+    <loc>http://localhost:1313/blog/art-from-the-start/</loc>
     <lastmod>2025-07-05T19:34:10+00:00</lastmod>
   </url><url>
-    <loc>https://www.paulhofmann.dev/blog/</loc>
+    <loc>http://localhost:1313/blog/</loc>
     <lastmod>2025-07-05T19:34:10+00:00</lastmod>
   </url><url>
-    <loc>https://www.paulhofmann.dev/</loc>
+    <loc>http://localhost:1313/</loc>
     <lastmod>2025-07-05T19:34:10+00:00</lastmod>
   </url><url>
-    <loc>https://www.paulhofmann.dev/portfolio/2025-last-block-standing-puls-game-jam/</loc>
+    <loc>http://localhost:1313/portfolio/2025-last-block-standing-puls-game-jam/</loc>
     <lastmod>2025-07-04T11:51:04+00:00</lastmod>
   </url><url>
-    <loc>https://www.paulhofmann.dev/portfolio/</loc>
+    <loc>http://localhost:1313/portfolio/</loc>
     <lastmod>2025-07-04T11:51:04+00:00</lastmod>
   </url><url>
-    <loc>https://www.paulhofmann.dev/portfolio/2025-nfts-unity-2d-project-gem-valley/</loc>
+    <loc>http://localhost:1313/portfolio/2025-nfts-unity-2d-project-gem-valley/</loc>
     <lastmod>2025-07-04T11:50:27+00:00</lastmod>
   </url><url>
-    <loc>https://www.paulhofmann.dev/portfolio/2024-bachelorarbeit-ba/</loc>
+    <loc>http://localhost:1313/portfolio/2024-bachelorarbeit-ba/</loc>
     <lastmod>2025-07-04T11:50:06+00:00</lastmod>
   </url><url>
-    <loc>https://www.paulhofmann.dev/blog/assoziationen-im-zettelkasten-sollten-explizit-ausformuliert-sein/</loc>
+    <loc>http://localhost:1313/blog/assoziationen-im-zettelkasten-sollten-explizit-ausformuliert-sein/</loc>
     <lastmod>2025-06-23T11:04:43+00:00</lastmod>
   </url><url>
-    <loc>https://www.paulhofmann.dev/blog/alles-vergn%C3%BCgen-kommt-durch-das-entladen-von-spannung/</loc>
+    <loc>http://localhost:1313/blog/alles-vergn%C3%BCgen-kommt-durch-das-entladen-von-spannung/</loc>
     <lastmod>2025-06-23T11:04:09+00:00</lastmod>
   </url><url>
-    <loc>https://www.paulhofmann.dev/blog/alle-die-etwas-kreatives-machen-m%C3%B6chten-sollten-sich-darin-%C3%BCben-vor-anderen-menschen-aufzuf%C3%BChren/</loc>
+    <loc>http://localhost:1313/blog/alle-die-etwas-kreatives-machen-m%C3%B6chten-sollten-sich-darin-%C3%BCben-vor-anderen-menschen-aufzuf%C3%BChren/</loc>
     <lastmod>2025-06-23T11:03:52+00:00</lastmod>
   </url><url>
-    <loc>https://www.paulhofmann.dev/categories/</loc>
+    <loc>http://localhost:1313/categories/</loc>
   </url><url>
-    <loc>https://www.paulhofmann.dev/tags/</loc>
+    <loc>http://localhost:1313/tags/</loc>
   </url>
 </urlset>

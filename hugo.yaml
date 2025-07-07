@@ -6,34 +6,46 @@ languageCode: 'en-us'
 # Output/publish directory
 publishDir: "docs" # Needs to be "docs" for GitHub Pages
 
-# Theme settings
+# Markdown configuration
+markup:
+  defaultMarkdownHandler: goldmark
+  goldmark:
+    renderer:
+      hardWraps: false
+      unsafe: true
+      xhtml: false
+
+# Theme configuration
 theme: 'hextra'
 
 params:
   navbar:
-    displayTitle: true
+    displayTitle: false
     displayLogo: false
   theme: # light | dark | system
     default: system
     displayToggle: false
 
-menu:
-  main:
-    - name: About me
-      pageRef: /about-me
-      weight: 1
-    - name: Portfolio
-      pageRef: /portfolio
-      weight: 2
-    - name: Posts
-      pageRef: /blog
-      weight: 3
-    - name: Search
-      weight: 4
-      params:
-        type: search
-    - name: GitHub
-      weight: 5
-      url: "https://github.com/paulinprogress/Portfolio-Website"
-      params:
-        icon: github
+#menu:
+#  main:
+#    - name: About me
+#      pageRef: /about-me
+#      weight: 1
+#    - name: Portfolio
+#      pageRef: /portfolio
+#      weight: 2
+#    - name: Notes
+#      pageRef: /notes
+#      weight: 3
+#    - name: Posts
+#      pageRef: /blog
+#      weight: 4
+#    - name: Search
+#      weight: 5
+#      params:
+#        type: search
+#    - name: GitHub
+#      weight: 6
+#      url: "https://github.com/paulinprogress/Portfolio-Website"
+#      params:
+#        icon: github

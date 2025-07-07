@@ -1,13 +1,13 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>paulhofmann.dev – Portfolios</title>
-    <link>https://www.paulhofmann.dev/portfolio/</link>
+    <link>http://localhost:1313/portfolio/</link>
     <description>Recent content in Portfolios on paulhofmann.dev</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 04 Jul 2025 11:51:04 +0000</lastBuildDate>
     
-	  <atom:link href="https://www.paulhofmann.dev/portfolio/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="http://localhost:1313/portfolio/index.xml" rel="self" type="application/rss+xml" />
     
     
       
@@ -17,10 +17,10 @@
     
     <item>
       <title>(2025) Last Block Standing (PULS GAME JAM)</title>
-      <link>https://www.paulhofmann.dev/portfolio/2025-last-block-standing-puls-game-jam/</link>
+      <link>http://localhost:1313/portfolio/2025-last-block-standing-puls-game-jam/</link>
       <pubDate>Fri, 04 Jul 2025 11:51:04 +0000</pubDate>
       
-      <guid>https://www.paulhofmann.dev/portfolio/2025-last-block-standing-puls-game-jam/</guid>
+      <guid>http://localhost:1313/portfolio/2025-last-block-standing-puls-game-jam/</guid>
       <description>
         
         
@@ -160,10 +160,10 @@ Ende: [[2025-03-16]], 19:00 Uhr&lt;/p&gt;
     
     <item>
       <title>(2025, NFTS) Unity 2D Project (Gem Valley)</title>
-      <link>https://www.paulhofmann.dev/portfolio/2025-nfts-unity-2d-project-gem-valley/</link>
+      <link>http://localhost:1313/portfolio/2025-nfts-unity-2d-project-gem-valley/</link>
       <pubDate>Fri, 04 Jul 2025 11:50:27 +0000</pubDate>
       
-      <guid>https://www.paulhofmann.dev/portfolio/2025-nfts-unity-2d-project-gem-valley/</guid>
+      <guid>http://localhost:1313/portfolio/2025-nfts-unity-2d-project-gem-valley/</guid>
       <description>
         
         
@@ -217,10 +217,10 @@ Ende: [[2025-03-16]], 19:00 Uhr&lt;/p&gt;
     
     <item>
       <title>(2024) Bachelorarbeit (BA)</title>
-      <link>https://www.paulhofmann.dev/portfolio/2024-bachelorarbeit-ba/</link>
+      <link>http://localhost:1313/portfolio/2024-bachelorarbeit-ba/</link>
       <pubDate>Fri, 04 Jul 2025 11:50:06 +0000</pubDate>
       
-      <guid>https://www.paulhofmann.dev/portfolio/2024-bachelorarbeit-ba/</guid>
+      <guid>http://localhost:1313/portfolio/2024-bachelorarbeit-ba/</guid>
       <description>
         
         
