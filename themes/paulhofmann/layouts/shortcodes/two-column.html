@@ -1,0 +1,11 @@
+{{ $left := .Get "left" | default "Left Column" }}
+{{ $right := .Get "right" | default "Right Column" }}
+
+<div class="twocol">
+  <p>
+    {{ .Get "left" | markdownify }}
+  </p>
+  <p>
+    {{ .Get "right" | markdownify }}
+  </p>
+</div>

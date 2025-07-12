@@ -1,0 +1,6 @@
+{{ with .TableOfContents }}
+  <div class="listings-title"><i>On this page</i></div>
+  <div class="listings-items toc">
+    {{ . | safeHTML }}
+  </div>
+{{ end }}

@@ -1,0 +1,9 @@
+{{ $title := .Get "title" }}
+{{ $matches := where site.RegularPages "Title" $title }}
+{{ $page := index (first 1 $matches) 0 }}
+
+{{ if $page }}
+  <a href="{{ $page.RelPermalink }}">{{ $title }}</a>
+{{ else }}
+  <a class="missing" href="#">{{ $title }}</a>
+{{ end }}

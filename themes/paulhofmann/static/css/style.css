@@ -1,0 +1,435 @@
+:root {
+  /* Color options */
+  --bg: #fffdf8;
+  --text: #1e1e1e;
+  --link: #282d43;
+  --link-underline: #2729385a;
+  --link-hover: #292b3dbb;
+  --link-hover-underline: #292b3d79;
+  --link-faded: #3537518b;
+  --link-faded-hover: #353751b3;
+  --dividers: #ccc;
+  --footer: #888;
+  /* Font & text options */
+  --font-size: 14px; /* 13.5px */
+  --line-height: 1.1;
+  --indentation: 6ch; /* For lists, blockquotes, etc. */
+  /* Layout options */
+  --header-height: 6rem;
+  --col-width-left: 25%; /* 25% */
+  --col-width-center: 45%; /* 45% | 38 */
+  --col-width-right: 30%; /* 30% */
+  --show-hdivider: 0; /* Horizontal divider(s) under header; show/hide */
+  --show-vdivider: 0; /* Vertical divider between left and center column; show/hide */
+  /* Other options */
+  --img-radius: 4px;
+}
+
+/* Reset & Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html, body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  scrollbar-gutter: stable; /* Prevents layout shift when scrollbar appears */
+}
+body {
+  /* Colors */
+  background-color: var(--bg);
+  /* Font options */
+  font-family: 'Geist Mono', monospace;
+  /*
+    Mono:
+      Reddit, Roboto, IBM Plex, Noto Sans, Geist, JetBrains, Plaid S
+    Sans:
+      Inter, Geist, Bricolage Grotesque, Hanken Grotesk, Spline Sans
+  */
+  font-size: var(--font-size);
+  color: var(--text);
+  line-height: var(--line-height);
+}
+
+/* Main layout */
+main {
+  flex: 1; /* Fills remaining space */
+}
+.page {
+  display: flex;
+  padding-top: var(--header-height); /* Space for fixed header */
+}
+
+/* Header & Navigation */
+header {
+  position: fixed;
+  width: 100%;
+  background-color: var(--bg);
+  padding-top: 1rem;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+}
+.nav-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+}
+.nav-left, .nav-right {
+  display: flex;
+  flex-direction: column;
+  height: var(--header-height);
+}
+.nav-left {
+  flex-basis: 25%;
+  padding-right: 1rem;
+}
+.nav-right {
+  flex-basis: 75%;
+}
+.nav-right-items {
+  display: flex;
+  flex-basis: 75%;
+  flex-direction: row;
+  gap: 2rem; /* Gap between navigation items */
+  justify-content: flex-start;
+}
+.nav-right a {
+  text-decoration: none; /* Remove default underline if not current page */
+}
+.nav-right a.active {
+  text-decoration: underline; /* Underline current page link */
+}
+.header-divider {
+  border-bottom: 1px solid var(--dividers);
+  border-bottom-color: rgba(204, 204, 204, var(--show-hdivider));
+  height: 100%;
+  width: 100%;
+}
+
+/* The three main columns */
+.col {
+  display: flex;
+  flex-direction: column;
+  padding-top: 2rem;
+  min-height: 0; /* Important for scrollable columns */
+}
+
+.left {
+  width: var(--col-width-left);
+  height: calc(100vh - var(--header-height) - 0.7rem);
+  position: sticky;
+  top: var(--header-height);
+  padding-bottom: 2rem;
+  overflow-y: auto; /* Enable scrolling if content overflows */
+  
+  /* Hide scrollbar */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer and Edge */
+} /* Hide scrollbar (continued) */
+.left::-webkit-scrollbar {
+  display: none;                 /* Chrome, Safari, Opera */
+}
+.center {
+  width: var(--col-width-center);
+}
+.right {
+  width: var(--col-width-right);
+  position: fixed;
+  right: calc(100% - (var(--col-width-left) + var(--col-width-center) + var(--col-width-right)));
+}
+
+.nav-left, .col.left { /* Padding on left column & left header */
+  padding-left: 1rem;
+  /* Border on right side of left column & left header */
+  border-right: 1px solid var(--dividers);
+  border-right-color: rgba(204, 204, 204, var(--show-vdivider));
+}
+.col.left {
+  padding-right: 2rem;
+}
+.nav-right, .col.center { /* Padding on center column & "right" header (also center) */
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.col.right { /* Padding on right column */
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+article {
+  margin-bottom: 6rem; /* Space below articles */
+}
+
+/* Footer */
+footer {
+  position: fixed;
+  width: 24%;
+  background-color: var(--bg);
+  bottom: 0;
+  padding-left: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  color: var(--footer); /* Grayed out */
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-size: var(--font-size);
+  font-weight: normal;
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-color: var(--link-underline);
+}
+
+/* Reset counters at each heading level */
+h1 {
+  margin-bottom: 2lh;
+  counter-reset: h2;
+}
+h2 {
+  margin-top: 1lh;
+  margin-bottom: 1lh;
+  counter-increment: h2;
+  counter-reset: h3;
+}
+h3 {
+  margin-top: 1lh;
+  margin-bottom: 1lh;
+  counter-increment: h3;
+  counter-reset: h4;
+}
+h4 {
+  margin-top: 1lh;
+  margin-bottom: 1lh;
+  counter-increment: h4;
+  counter-reset: h5;
+}
+h5 {
+  margin-top: 1lh;
+  margin-bottom: 1lh;
+  counter-increment: h5;
+  counter-reset: h6;
+}
+h6 {
+  margin-top: 1lh;
+  margin-bottom: 1lh;
+  counter-increment: h6;
+}
+/* Numbering for each heading level */
+h2::before {
+  content: counter(h2) ". ";
+}
+h3::before {
+  content: counter(h2) "." counter(h3) ". ";
+}
+h4::before {
+  content: counter(h2) "." counter(h3) "." counter(h4) ". ";
+}
+h5::before {
+  content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) ". ";
+}
+h6::before {
+  content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) "." counter(h6) ". ";
+}
+/* Heading anchors */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  scroll-margin-top: calc(var(--header-height) + 2rem);
+}
+h1:hover .heading-anchor,
+h2:hover .heading-anchor,
+h3:hover .heading-anchor,
+h4:hover .heading-anchor,
+h5:hover .heading-anchor,
+h6:hover .heading-anchor {
+  opacity: 1;
+}
+.heading-anchor {
+  font-weight: normal;
+  text-decoration: none;
+  color: var(--link-faded);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+/* Frontmatter */
+.frontmatter {
+  color: var(--link-faded);
+  /*margin-top: 1lh;*/
+  margin-bottom: 1lh;
+}
+.frontmatter-row {
+  display: flex;
+}
+.frontmatter-label {
+  min-width: 10ch;
+  text-align: left;
+}
+.frontmatter-value {
+  flex: 1;
+}
+
+/* Paragraphs */
+p {
+  margin-bottom: 1lh; /* One line below */
+  text-indent: 0; /* No indent on first line */
+}
+
+/* Blockquotes */
+blockquote {
+  padding-left: var(--indentation); /* Indent by two character widths */
+  /*border-left: 1px solid var(--dividers);*/ /* Left border */
+}
+
+/* List indentation */
+ul, ol {
+  list-style-position: outside;  /* Bullet/number outside, text aligns with grid */
+  margin: 0;   /* Remove browser default */
+  padding-left: var(--indentation);  /* Indent by multiple of character widths */
+}
+li {
+  text-indent: 0; /* No extra indent on wrapped lines */
+}
+
+/* Horizontal rules */
+hr {
+  border: none; /* Remove default border */
+  border-top: 1px solid var(--dividers); /* Custom horizontal rule */
+  margin: 2lh 0; /* Two lines above and below */
+}
+
+/* Links */
+a {
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-color: var(--link-underline);
+  text-decoration-thickness: 1px;
+}
+a:hover {
+  color: var(--link-hover);
+  text-decoration-color: var(--link-hover-underline);
+}
+a.external::after {
+  content: " ↗";
+}
+a.missing {
+  color: var(--link-faded);
+  text-decoration: underline dotted 1px;
+}
+a.missing:hover {
+  color: var(--link-faded-hover);
+}
+
+/* Images */
+img {
+  border-radius: var(--img-radius);
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Portfolio */
+.feature {
+  margin-bottom: 1lh;
+}
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 3ch;
+  padding-bottom: 1lh;
+}
+.thumb {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--img-radius);
+  background-color: #f0f0f0; /* Placeholder background */
+}
+.thumb img {
+  width: 100%;
+  height: 17lh;;
+  object-fit: contain; /* Cover the entire area */
+  object-position: center; /* Center the image */
+}
+.title {
+  padding-top: 1lh;
+  padding-bottom: 1lh;
+}
+
+/* Grouped index (in sidebar in right column) */
+/*.grouped-index {
+  padding-top: 1lh;
+}*/
+.grouped-index details summary {
+  list-style: none;
+  cursor: pointer;
+  user-select: none;
+}
+.grouped-index details summary::-webkit-details-marker {
+  display: none; /* Hide default triangle for webkit browser */
+}
+.grouped-index details summary::marker {
+  content: none; /* Hide default triangle for firefox */
+}
+.grouped-index details summary::before {
+  content: "+ ";
+  color: var(--link);
+  position: relative;
+  bottom: 0.1ch; /* Adjust vertical position */
+  user-select: none;
+}
+.grouped-index details[open] summary::before {
+  content: "− ";
+  color: var(--link);
+  position: relative;
+  bottom: 0.2ch;
+  user-select: none;
+}
+.grouped-index details summary:hover::before {
+  color: var(--link-hover);
+}
+.grouped-index ul {
+  list-style: none; /* No bullets */
+}
+
+/* Listings (as sidebar in right column) */
+.listings-title {
+  padding-bottom: 1lh;
+}
+.listings-items {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  gap: 0.3lh;
+  padding-right: 3rem;
+}
+.listings-divider {
+  border-top: 1px solid var(--dividers);
+  margin-top: 1lh;
+  margin-bottom: 1lh;
+}
+.toc ul { /* Table of contents */
+  list-style: none;
+}
+.toc ul li ul {
+  margin-left: 4ch;
+}
+
+/* Two-column layout for center page */
+.twocol {
+  display: flex;
+  justify-content: space-between;
+  gap: 3ch;
+}
+.twocol > p {
+    width: 50%;
+}
+
+/* Utilities */
+.spacer {
+  height: 3em;
+}

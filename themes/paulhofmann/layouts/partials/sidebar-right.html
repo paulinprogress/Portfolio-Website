@@ -1,0 +1,26 @@
+<aside class="col right">
+  {{ $section := .Section }}
+
+  {{ if .Content }}
+  
+    <!-- Show "recent" listing on home page -->
+    {{ if .IsHome }}
+      {{ partial "listings/recent.html" . }}
+
+    <!-- Show "toc" listing in portfolio & posts sub-pages -->
+    {{ else if and (or (eq $section "portfolio") (eq $section "posts")) (not .IsSection) }}
+      {{ partial "listings/toc.html" . }}
+
+      <!-- Also show "backlinks" listing on posts sub-pages -->
+      {{ if eq $section "posts" }}
+        <div class="listings-divider"></div>
+        {{ partial "listings/backlinks.html" . }}
+      {{ end }}
+
+    <!-- Show only "backlinks" listing on notes sub-pages -->
+    {{ else if and (eq $section "notes") (not .IsSection) }}
+      {{ partial "listings/backlinks.html" . }}
+    {{ end }}
+
+  {{ end }}
+</aside>

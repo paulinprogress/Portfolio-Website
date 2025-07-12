@@ -1,0 +1,19 @@
+<div class="listings-title">
+  <i>Recent posts</i>
+</div>
+<ul class="listings-items">
+  {{ range first 3 (where .Site.RegularPages "Section" "posts") }}
+  <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+  {{ end }}
+</ul>
+
+<div class="listings-divider"></div>
+
+<div class="listings-title">
+  <i>Recent notes</i>
+</div>
+<ul class="listings-items">
+  {{ range first 10 (where .Site.RegularPages "Section" "notes") }}
+  <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+  {{ end }}
+</ul>

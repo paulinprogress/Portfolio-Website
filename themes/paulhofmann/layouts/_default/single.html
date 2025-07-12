@@ -1,0 +1,12 @@
+{{ define "main" }}
+<section class="col center">
+  <article>
+    {{ if .Content }}
+      <!-- {{ partial "frontmatter-metadata.html" . }} -->
+      {{ partial "content-parsed-wikilinks.html" . }}
+    {{ else }}
+      <p>📌 This page is being worked on...</p>
+    {{ end }}
+  </article>
+</section>
+{{ end }}

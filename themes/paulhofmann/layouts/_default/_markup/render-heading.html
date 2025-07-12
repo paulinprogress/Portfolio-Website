@@ -1,0 +1,21 @@
+<!-- Add anchor link with copy URL functionality -->
+
+{{- $heading := . -}}
+{{- if not $heading.Anchor -}}
+  {{- $heading = $heading | merge (dict "Anchor" (printf "%s-%d" (urlize $heading.Text) (now.Unix))) -}}
+{{- end -}}
+
+{{- $level := .Level -}}
+<h{{ $level }} id="{{ .Anchor | safeURL }}">{{ .Text | safeHTML }}<a class="heading-anchor" href="#{{ .Anchor }}" aria-label="Link to heading">#</a></h{{ $level }}>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".heading-anchor").forEach(link => {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        const url = `${location.origin}${location.pathname}${link.getAttribute("href")}`;
+        navigator.clipboard.writeText(url);
+      });
+    });
+  });
+</script>

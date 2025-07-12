@@ -1,8 +1,8 @@
-# Created by https://www.toptal.com/developers/gitignore/api/hugo
-# Edit at https://www.toptal.com/developers/gitignore?templates=hugo
+# Based on: https://www.toptal.com/developers/gitignore/api/hugo
 
 ### Hugo ###
-# Generated files by hugo (not ignoring public/ so that it publishes to GitHub Pages)
+
+# Generated files by hugo (not ignoring docs/ so that it publishes to GitHub Pages)
 /resources/_gen/
 /assets/jsconfig.json
 hugo_stats.json
@@ -15,4 +15,5 @@ hugo.linux
 # Temporary lock file while building
 /.hugo_build.lock
 
-# End of https://www.toptal.com/developers/gitignore/api/hugo
+### Temporary/Local files ###
+_temp/

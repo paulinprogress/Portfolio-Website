@@ -1,0 +1,32 @@
+{{ $project := .Get "project"}}
+{{ $description := .Get "description" | default "*Bark Barque Baroque*, with John R. Nash (1925-2006)" }}
+{{ $twocol := .Get "twocol" | default "true" }}
+
+{{ $matches := where site.RegularPages "Params.title" $project }}
+{{ $page := index (first 1 $matches) 0 }}
+
+{{ if not $page }}
+  <em>Didn't find a project with this title.</em>
+{{ end }}
+
+<div class="feature">
+    {{ with $page }}
+    <a href="{{ .RelPermalink }}">
+        <p><img src="{{ .Params.image }}" alt="{{ .Title }}"></p>
+        {{ if eq $twocol "true" }}
+            <div class="twocol">
+                <p>
+                    {{ .Title }}
+                </p>
+                <p>
+                    {{ $description | markdownify }}
+                </p>
+            </div>
+        {{ else }}
+            <p>
+                {{ $description | markdownify }}
+            </p>
+        {{ end }}
+    </a>
+    {{ end }}
+</div>

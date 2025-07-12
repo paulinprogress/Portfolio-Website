@@ -1,0 +1,37 @@
+{{- $section := .Section -}}
+
+<div class="frontmatter">
+
+  {{ with .Params.anchors }}
+    <div class="frontmatter-row">
+      <div class="frontmatter-label">Tagged:</div>
+      <div class="frontmatter-value">
+        {{ $joined := delimit . ", " }}
+        {{ partial "content-parsed-wikilinks.html" (dict "Content" $joined) }}
+      </div>
+    </div>
+  {{ end }}
+
+  {{ if eq $section "portfolio" }}
+    {{ with .Params.year }}
+      <div class="frontmatter-row">
+        <div class="frontmatter-label">Year:</div>
+        <div class="frontmatter-value">{{ . }}</div>
+      </div>
+    {{ end }}
+  {{ else if or (eq $section "notes") (eq $section "posts") }}
+    {{ with .Params.created }}
+      <div class="frontmatter-row">
+        <div class="frontmatter-label">Created:</div>
+        <div class="frontmatter-value">{{ replaceRE `^\[\[(.*?)\]\]$` "$1" . }}</div>
+      </div>
+    {{ end }}
+    {{ with index .Params "last updated" }}
+      <div class="frontmatter-row">
+        <div class="frontmatter-label">Updated:</div>
+        <div class="frontmatter-value">{{ replaceRE `^\[\[(.*?)\]\]$` "$1" . }}</div>
+      </div>
+    {{ end }}
+  {{ end }}
+
+</div>

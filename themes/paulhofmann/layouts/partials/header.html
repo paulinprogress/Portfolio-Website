@@ -1,0 +1,23 @@
+<header>
+  <div class="nav-row">
+    
+    <div class="nav-left">
+      <a href="{{ "/" | relURL }}">PAUL HOFMANN</a>
+      <div class="header-divider"></div>
+    </div>
+    
+    <div class="nav-right">
+      <div class="nav-right-items">
+        {{ $sections := slice "portfolio" "notes" "posts" }}
+        {{ range $sections }}
+        <a href="/{{ . }}/"
+          class="{{ if eq $.Section . }}active{{ end }}">
+          {{ upper . }}
+        </a>
+      {{ end }}
+      </div>
+      <div class="header-divider"></div>
+    </div>
+    
+  </div>
+</header>

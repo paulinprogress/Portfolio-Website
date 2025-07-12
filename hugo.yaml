@@ -11,20 +11,25 @@ markup:
   defaultMarkdownHandler: goldmark
   goldmark:
     renderer:
-      hardWraps: false
+      hardWraps: true
       unsafe: true
       xhtml: false
+      parser:
+        autoHeadingID: true
+  tableOfContents:
+    startLevel: 2
+    endLevel: 4
 
 # Theme configuration
-theme: 'hextra'
+theme: 'paulhofmann'
 
-params:
-  navbar:
-    displayTitle: false
-    displayLogo: false
-  theme: # light | dark | system
-    default: system
-    displayToggle: false
+#params:
+#  navbar:
+#    displayTitle: false
+#    displayLogo: false
+#  theme: # light | dark | system
+#    default: system
+#    displayToggle: false
 
 #menu:
 #  main:

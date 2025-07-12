@@ -1,0 +1,8 @@
+<!-- Add arrow symbol to external links -->
+
+{{ $url := .Destination }}
+{{ $isExternal := or (strings.HasPrefix $url "http") (strings.HasPrefix $url "mailto:") }}
+
+<a href="{{ $url }}" 
+   {{ if $isExternal }}target="_blank" rel="noopener noreferrer"{{ end }}
+   class="{{ if $isExternal }}external{{ end }}">{{ .Text }}</a>
