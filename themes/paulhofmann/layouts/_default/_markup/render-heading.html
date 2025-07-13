@@ -6,7 +6,7 @@
 {{- end -}}
 
 {{- $level := .Level -}}
-<h{{ $level }} id="{{ .Anchor | safeURL }}">{{ .Text | safeHTML }}<a class="heading-anchor" href="#{{ .Anchor }}" aria-label="Link to heading">#</a></h{{ $level }}>
+<h{{ $level }} id="{{ .Anchor | safeURL }}">{{ .Text | safeHTML }}<a class="heading-anchor" href="#{{ .Anchor }}" aria-label="Link to heading"></a></h{{ $level }}>
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {

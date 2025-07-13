@@ -1,7 +1,7 @@
 <aside class="col left">
   <div>
     {{ $section := .Section | default "home" }}
-    {{ with site.GetPage (printf "sidebars/%s" $section) }}
+    {{ with site.GetPage (printf "sidebars-left/%s" $section) }}
       {{ .Content }}
     {{ end }}
   </div>

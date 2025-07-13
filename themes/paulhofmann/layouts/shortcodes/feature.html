@@ -1,5 +1,5 @@
 {{ $project := .Get "project"}}
-{{ $description := .Get "description" | default "*Bark Barque Baroque*, with John R. Nash (1925-2006)" }}
+{{ $description := .Get "description" | default "*Bark Barque Baroque*, with John R. Nash<br>Soia Institute (1925-2006)" }}
 {{ $twocol := .Get "twocol" | default "true" }}
 
 {{ $matches := where site.RegularPages "Params.title" $project }}
