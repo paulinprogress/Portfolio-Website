@@ -16,4 +16,4 @@ hugo.linux
 /.hugo_build.lock
 
 ### Temporary/Local files ###
-_temp/
+_local/
