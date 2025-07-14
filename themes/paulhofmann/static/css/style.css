@@ -179,6 +179,12 @@ footer {
   padding-bottom: 0.5rem;
   color: var(--footer); /* Grayed out */
 }
+footer > a {
+  color: var(--footer);
+}
+footer > a.external {
+  color: var(--footer);
+}
 
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
