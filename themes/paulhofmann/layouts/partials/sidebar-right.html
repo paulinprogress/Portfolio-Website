@@ -9,12 +9,12 @@
     
     {{ else if not .IsSection }}
 
-      <!-- Show "toc" listing for portfolio & feed -->
+      <!-- Show "toc" listing for portfolio & posts -->
       {{ if or (eq $section "portfolio") (eq $section "posts") }}
         {{ partial "listings/toc.html" . }}
 
-        <!-- Also show "backlinks" listing for feed -->
-        {{ if eq $section "feed" }}
+        <!-- Also show "backlinks" listing for posts -->
+        {{ if eq $section "posts" }}
           <div class="listings-divider"></div>
           {{ partial "listings/backlinks.html" . }}
         {{ end }}
