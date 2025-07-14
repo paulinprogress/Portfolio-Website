@@ -6,20 +6,26 @@
     <!-- Show "recent" listing on home page -->
     {{ if .IsHome }}
       {{ partial "listings/recent.html" . }}
+    
+    {{ else if not .IsSection }}
 
-    <!-- Show "toc" listing in portfolio & posts sub-pages -->
-    {{ else if and (or (eq $section "portfolio") (eq $section "posts")) (not .IsSection) }}
-      {{ partial "listings/toc.html" . }}
+      <!-- Show "toc" listing for portfolio & feed -->
+      {{ if or (eq $section "portfolio") (eq $section "posts") }}
+        {{ partial "listings/toc.html" . }}
 
-      <!-- Also show "backlinks" listing on posts sub-pages -->
-      {{ if eq $section "posts" }}
-        <div class="listings-divider"></div>
+        <!-- Also show "backlinks" listing for feed -->
+        {{ if eq $section "feed" }}
+          <div class="listings-divider"></div>
+          {{ partial "listings/backlinks.html" . }}
+        {{ end }}
+
+      <!-- Show only "backlinks" listing for notes -->
+      {{ else if eq $section "notes" }}
         {{ partial "listings/backlinks.html" . }}
       {{ end }}
 
-    <!-- Show only "backlinks" listing on notes sub-pages -->
-    {{ else if and (eq $section "notes") (not .IsSection) }}
-      {{ partial "listings/backlinks.html" . }}
+    {{ else }}
+      {{ partial "groups/grouped-index.html" (dict "section" .Section "groupBy" "year" "Site" .Site) }}
     {{ end }}
 
   {{ end }}

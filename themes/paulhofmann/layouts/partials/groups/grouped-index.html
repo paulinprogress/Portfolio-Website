@@ -1,0 +1,34 @@
+{{- $section := .section | default "portfolio" -}}
+{{- $groupBy := .groupBy | default "year" -}}
+
+{{- $pages := where .Site.RegularPages "Section" $section -}}
+
+{{- $groups := slice -}}
+{{- range $pages }}
+  {{- $value := .Param $groupBy -}}
+  {{- if and $value (not (in $groups $value)) -}}
+    {{- $groups = $groups | append $value -}}
+  {{- end -}}
+{{- end -}}
+{{- $groups = sort $groups -}}
+
+{{ $reversed := slice }}
+{{ $lastIndex := sub (len $groups) 1 }}
+{{ range $i, $_ := $groups }}
+  {{ $reversed = $reversed | append (index $groups (sub $lastIndex $i)) }}
+{{ end }}
+{{ $groups = $reversed }}
+
+<div class="grouped-index">
+  <p>All projects:</p>
+  {{- range $group := $groups }}
+    <details>
+      <summary>{{ $group }}</summary>
+      <ul>
+        {{- range where $pages (printf "Params.%s" $groupBy) $group }}
+          <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+        {{- end }}
+      </ul>
+    </details>
+  {{- end }}
+</div>

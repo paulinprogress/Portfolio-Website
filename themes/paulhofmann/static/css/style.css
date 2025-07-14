@@ -6,8 +6,11 @@
   --link-underline: #2729385a;
   --link-hover: #292b3dbb;
   --link-hover-underline: #292b3d79;
-  --link-faded: #3537518b;
-  --link-faded-hover: #353751b3;
+  --link-highlight: #3d71e2;
+  --link-highlight-underline: #3d71e2b3;
+  --link-highlight-hover: #3d71e2e6;
+  --link-highlight-faded: #3537518b;
+  --link-highlight-faded-hover: #353751b3;
   --dividers: #ccc;
   --footer: #888;
   /* Font & text options */
@@ -102,7 +105,7 @@ header {
   text-decoration: none; /* Remove default underline if not current page */
 }
 .nav-right a.active {
-  text-decoration: underline; /* Underline current page link */
+  text-decoration: underline; /* Underline for current page */
 }
 .header-divider {
   border-bottom: 1px solid var(--dividers);
@@ -162,7 +165,7 @@ header {
 }
 
 article {
-  margin-bottom: 6rem; /* Space below articles */
+  padding-bottom: 6rem; /* Space below articles */
 }
 
 /* Footer */
@@ -188,6 +191,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Reset counters at each heading level */
 h1 {
+  text-align: center;
   margin-bottom: 2lh;
   counter-reset: h2;
 }
@@ -241,7 +245,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
   scroll-margin-top: calc(var(--header-height) + 2rem);
 }
-h1:hover .heading-anchor,
+/*h1:hover .heading-anchor,*/
 h2:hover .heading-anchor,
 h3:hover .heading-anchor,
 h4:hover .heading-anchor,
@@ -279,6 +283,7 @@ h6:hover .heading-anchor {
 
 /* Paragraphs */
 p {
+  margin-top: 1lh; /* One line above */
   margin-bottom: 1lh; /* One line below */
   text-indent: 0; /* No indent on first line */
 }
@@ -289,24 +294,32 @@ blockquote {
   /*border-left: 1px solid var(--dividers);*/ /* Left border */
 }
 
-/* List indentation */
+/* Lists */
 ul, ol {
   list-style-position: outside;  /* Bullet/number outside, text aligns with grid */
-  margin: 0;   /* Remove browser default */
   padding-left: var(--indentation);  /* Indent by multiple of character widths */
+  margin-bottom: 1lh;
 }
 li {
   text-indent: 0; /* No extra indent on wrapped lines */
+}
+li ul, li ol { /* Nested lists */
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 /* Horizontal rules */
 hr {
   border: none; /* Remove default border */
   border-top: 1px solid var(--dividers); /* Custom horizontal rule */
-  margin: 2lh 0; /* Two lines above and below */
+  margin: 2lh 0;
 }
 
-/* Links */
+/* Links
+- default: ...
+- wikilink: bright
+- external: bright
+*/
 a {
   color: var(--link);
   text-decoration: underline;
@@ -317,34 +330,53 @@ a:hover {
   color: var(--link-hover);
   text-decoration-color: var(--link-hover-underline);
 }
-a.external::after {
-  content: " ↗";
+/*a.wikilink, a.external {
+  color: var(--link-highlight);
+  text-decoration: underline;
+  text-decoration-color: var(--link-highlight-underline);
 }
-a.missing {
-  color: var(--link-faded);
+a.wikilink:hover, a.external:hover {
+  color: var(--link-highlight-hover);
+  text-decoration-color: var(--link-highlight-underline);
+}*/
+a.wikilink-missing {
+  color: var(--link-highlight-faded);
   text-decoration: underline dotted 1px;
 }
-a.missing:hover {
-  color: var(--link-faded-hover);
+a.wikilink-missing:hover {
+  color: var(--link-highlight-faded-hover);
+}
+a.external::after {
+  content: " ↗";
 }
 
 /* Images */
 img {
   border-radius: var(--img-radius);
   display: block;
-  max-width: 100%;
+  width: 100%;
   height: auto;
+  margin-top: 1lh;
+  margin-bottom: 1lh;
 }
 
 /* Portfolio */
 .feature {
-  margin-bottom: 1lh;
+  margin-bottom: 2lh;
+}
+.feature .twocol {
+  margin-top: 1lh;
 }
 .portfolio-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   column-gap: 3ch;
-  padding-bottom: 1lh;
+  row-gap: 1lh;
+  margin-top: 1lh;
+  margin-bottom: 2lh;
+}
+.portfolio-item {
+  margin: 0;
 }
 .thumb {
   position: relative;
@@ -353,14 +385,14 @@ img {
   background-color: #f0f0f0; /* Placeholder background */
 }
 .thumb img {
+  margin: 0;
   width: 100%;
   height: 17lh;;
-  object-fit: contain; /* Cover the entire area */
+  object-fit: cover; /* Cover the entire area */
   object-position: center; /* Center the image */
 }
 .title {
-  padding-top: 1lh;
-  padding-bottom: 1lh;
+  margin-top: 1lh;
 }
 
 /* Grouped index (in sidebar in right column) */
@@ -415,8 +447,9 @@ img {
   margin-top: 1lh;
   margin-bottom: 1lh;
 }
-.toc ul { /* Table of contents */
-  list-style: none;
+/* Table of contents */
+.toc ul {
+  list-style: outside;
 }
 .toc ul li ul {
   margin-left: 4ch;
@@ -427,9 +460,15 @@ img {
   display: flex;
   justify-content: space-between;
   gap: 3ch;
+  margin-top: 1lh;
+  margin-bottom: 1lh;
 }
 .twocol > p {
-    width: 50%;
+  width: 50%;
+  margin: 0; /* Remove default margin */
+}
+.twocol > p > img {
+  margin: 0; /* Remove default margin */
 }
 
 /* Utilities */

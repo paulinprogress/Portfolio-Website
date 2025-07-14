@@ -1,8 +1,8 @@
 <aside class="col left">
-  <div>
-    {{ $section := .Section | default "home" }}
-    {{ with site.GetPage (printf "sidebars-left/%s" $section) }}
-      {{ .Content }}
-    {{ end }}
-  </div>
+  {{ $section := .Section | default "home" }}
+
+  {{ with site.GetPage (printf "sidebars-left/%s" $section) }}
+    <div>{{ partial "content-parsed-wikilinks.html" . }}</div>
+  {{ end }}
+  
 </aside>

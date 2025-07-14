@@ -2,7 +2,7 @@
   <i>Recent posts</i>
 </div>
 <ul class="listings-items">
-  {{ range first 3 (where .Site.RegularPages "Section" "posts") }}
+  {{ range first 3 (where .Site.RegularPages "Section" "feed") }}
   <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
   {{ end }}
 </ul>

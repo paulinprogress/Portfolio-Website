@@ -18,10 +18,10 @@
   {{ end }}
 
   {{ if $page }}
-    {{ $link := printf `<a href="%s">%s</a>` $page.RelPermalink $text }}
+    {{ $link := printf `<a href="%s" class="wikilink">%s</a>` $page.RelPermalink $text }}
     {{ $out = replace $out $match $link }}
   {{ else }}
-    {{ $link := printf `<a class="missing" href="#">%s</a>` $text }}
+    {{ $link := printf `<a class="wikilink-missing" href="#">%s</a>` $text }}
     {{ $out = replace $out $match $link }}
   {{ end }}
 {{ end }}
