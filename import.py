@@ -12,16 +12,19 @@ ALLOWED_KEYS = {"anchors", "created", "last updated", "year", "published",
 
 SOURCES = [
     {
+        "publish": True,
         "source": OBSIDIAN_ROOT / "projects" / "portfolio",
         "target_subdir": "portfolio",
         "include_subdirs": True,
     },
     {
+        "publish": False,
         "source": OBSIDIAN_ROOT / "z",
         "target_subdir": "notes",
         "include_subdirs": False,
     },
     {
+        "publish": False,
         "source": OBSIDIAN_ROOT / "projects" / "posts",
         "target_subdir": "feed",
         "include_subdirs": False,
@@ -82,30 +85,32 @@ def export_notes():
         # Clean target directory, preserving specific files
         preserve = ["_index.md", "sidebars-left/*"]
         clean_target_dir(dst_root, preserve)
+        print(f"Cleaned target directory: {dst_root.relative_to(CONTENT_ROOT)}")
 
-        for file in collect_md_files(src):
-            rel_path = file.relative_to(src)
-            post = frontmatter.load(file)
+        if group["publish"]:
+            for file in collect_md_files(src):
+                rel_path = file.relative_to(src)
+                post = frontmatter.load(file)
 
-            # Clean body and frontmatter
-            post.content = clean_comments(post.content)
-            post = filter_frontmatter(post)
-            post = ensure_frontmatter(post, file)
+                # Clean body and frontmatter
+                post.content = clean_comments(post.content)
+                post = filter_frontmatter(post)
+                post = ensure_frontmatter(post, file)
 
-            if post.metadata.get("publish", False):
-                if group["include_subdirs"]:
-                    target_file = dst_root / rel_path
+                if post.metadata.get("publish", False):
+                    if group["include_subdirs"]:
+                        target_file = dst_root / rel_path
+                    else:
+                        target_file = dst_root / file.name
+
+                    target_file.parent.mkdir(parents=True, exist_ok=True)
+
+                    with open(target_file, "w", encoding="utf-8") as f:
+                        f.write(frontmatter.dumps(post))
+
+                    print(f"Exported: {file.relative_to(OBSIDIAN_ROOT)} → {target_file.relative_to(CONTENT_ROOT)}")
                 else:
-                    target_file = dst_root / file.name
-
-                target_file.parent.mkdir(parents=True, exist_ok=True)
-
-                with open(target_file, "w", encoding="utf-8") as f:
-                    f.write(frontmatter.dumps(post))
-
-                print(f"Exported: {file.relative_to(OBSIDIAN_ROOT)} → {target_file.relative_to(CONTENT_ROOT)}")
-            else:
-                print(f"Skipped (publish: false): {file.relative_to(OBSIDIAN_ROOT)}")
+                    print(f"Skipped (publish: false): {file.relative_to(OBSIDIAN_ROOT)}")
 
 if __name__ == "__main__":
     export_notes()
