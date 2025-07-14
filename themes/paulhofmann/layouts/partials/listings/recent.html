@@ -1,19 +1,27 @@
-<div class="listings-title">
-  <i>Recent posts</i>
-</div>
-<ul class="listings-items">
-  {{ range first 3 (where .Site.RegularPages "Section" "feed") }}
-  <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
-  {{ end }}
-</ul>
+{{- $posts := where .Site.RegularPages "Section" "feed" }}
+{{- $notes := where .Site.RegularPages "Section" "notes" }}
 
-<div class="listings-divider"></div>
-
-<div class="listings-title">
-  <i>Recent notes</i>
-</div>
-<ul class="listings-items">
-  {{ range first 10 (where .Site.RegularPages "Section" "notes") }}
-  <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+{{ if $posts }}
+  <div class="listings-title">
+    <i>Recent posts</i>
+  </div>
+  <ul class="listings-items">
+    {{ range first 3 $posts }}
+    <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+    {{ end }}
+  </ul>
+  {{ if $notes }}
+    <div class="listings-divider"></div>
   {{ end }}
-</ul>
+{{ end }}
+
+{{ if $notes }}
+  <div class="listings-title">
+    <i>Recent notes</i>
+  </div>
+  <ul class="listings-items">
+    {{ range first 10 $notes }}
+    <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+    {{ end }}
+  </ul>
+{{ end }}
