@@ -1,0 +1,49 @@
+{{- $content := .Content -}}
+{{- $patternWikilink := `\[\[([^\|\]]+)(\|([^\]]+))?\]\]` -}}
+{{- $patternHighlightedLink := `==\[(.*?)\]\((.*?)\)==` -}} <!-- Highlighted Links -->
+{{- $patternHighlightedText := `==([^=\[][^=]+?)==` -}} <!-- Highlighted Text -->
+
+{{- $out := $content -}}
+
+<!-- 1. Wikilinks -->
+{{ range findRE $patternWikilink $out }}
+  {{ $match := . }}
+  {{ $target := replaceRE $patternWikilink "$1" $match }}
+  {{ $alias := replaceRE $patternWikilink "${3}" $match }}
+  {{ $text := cond (ne $alias "") $alias $target }}
+
+  {{ $normalizedTarget := lower (plainify $target) }}
+  {{ $page := "" }}
+  {{ range site.RegularPages }}
+    {{ if eq (lower (plainify .Title)) $normalizedTarget }}
+      {{ $page = . }}
+    {{ end }}
+  {{ end }}
+
+  {{ if $page }}
+    {{ $link := printf `<a href="%s" class="wikilink">%s</a>` $page.RelPermalink $text }}
+    {{ $out = replace $out $match $link }}
+  {{ else }}
+    {{ $link := printf `<a class="wikilink-missing" href="#">%s</a>` $text }}
+    {{ $out = replace $out $match $link }}
+  {{ end }}
+{{ end }}
+
+<!-- 2. Highlighted ==[Links](url)== -->
+{{ range findRE $patternHighlightedLink $out }}
+  {{ $match := . }}
+  {{ $text := replaceRE $patternHighlightedLink "$1" $match }}
+  {{ $url  := replaceRE $patternHighlightedLink "$2" $match }}
+  {{ $replacement := printf `<mark><a href="%s">%s</a></mark>` $url $text }}
+  {{ $out = replace $out $match $replacement }}
+{{ end }}
+
+<!-- 3. Highlighted ==Text== -->
+{{ range findRE $patternHighlightedText $out }}
+  {{ $match := . }}
+  {{ $text := replaceRE $patternHighlightedText "$1" $match }}
+  {{ $replacement := printf "<mark>%s</mark>" $text }}
+  {{ $out = replace $out $match $replacement }}
+{{ end }}
+
+{{ $out | safeHTML }}

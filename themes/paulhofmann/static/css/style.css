@@ -11,6 +11,7 @@
   --link-highlight-hover: #3d71e2e6;
   --link-highlight-faded: #3537518b;
   --link-highlight-faded-hover: #353751b3;
+  --highlight-bg: #8879ff33;
   --dividers: #ccc;
   --footer: #888;
   /* Font & text options */
@@ -312,6 +313,11 @@ li {
 li ul, li ol { /* Nested lists */
   margin-top: 0;
   margin-bottom: 0;
+}
+
+/* Highlighted text */
+mark {
+  background-color: var(--highlight-bg);
 }
 
 /* Horizontal rules */

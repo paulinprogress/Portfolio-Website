@@ -7,7 +7,7 @@
       <div class="frontmatter-label">Tagged:</div>
       <div class="frontmatter-value">
         {{ $joined := delimit . ", " }}
-        {{ partial "content-parsed-wikilinks.html" (dict "Content" $joined) }}
+        {{ partial "content-parsed.html" (dict "Content" $joined) }}
       </div>
     </div>
   {{ end }}
