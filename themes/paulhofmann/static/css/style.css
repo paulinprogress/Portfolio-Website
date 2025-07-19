@@ -21,7 +21,7 @@
   /* Layout options */
   --header-height: 6rem;
   --col-width-left: 25%; /* 25% */
-  --col-width-center: 45%; /* 45% | 38 */
+  --col-width-center: 40%; /* 45% | 38% */
   --col-width-right: 25%; /* 30% */
   --show-vdivider: 1; /* Divider between left and center column; show/hide */
   --show-hdivider: 0; /* Divider(s) under header; show/hide */
