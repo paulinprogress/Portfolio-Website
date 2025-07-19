@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>paulhofmann.dev</title>
+    <link>https://www.paulhofmann.dev/</link>
+    <description>Recent content on paulhofmann.dev</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <atom:link href="https://www.paulhofmann.dev/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://www.paulhofmann.dev/sidebars-left/home/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://www.paulhofmann.dev/sidebars-left/home/</guid>
+      <description>&lt;p&gt;&#xA;&#xA;&#xA;&#xA;&#xA;&lt;a href=&#34;mailto:mail@paulhofmann.dev&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&#xA;   class=&#34;external&#34;&gt;mail@paulhofmann.dev&lt;/a&gt;&#xA;&lt;br&gt;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&lt;a href=&#34;https://www.linkedin.com/in/paul-markus-hofmann/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&#xA;   class=&#34;external&#34;&gt;LinkedIn&lt;/a&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;Hey, I&amp;rsquo;m Paul! I&amp;rsquo;m a game designer and programmer with a background in media technology, interested in creating surreal, atmospheric games with inventive core mechanics. Currently based in Lund, Sweden.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>https://www.paulhofmann.dev/sidebars-left/notes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://www.paulhofmann.dev/sidebars-left/notes/</guid>
+      <description>&lt;p&gt;&lt;em&gt;Hey, you&amp;rsquo;re in my notes section!&lt;/em&gt; Please note that I usually write all of my notes in German, so this is an &lt;em&gt;auto-translated&lt;/em&gt; version you&amp;rsquo;re reading.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>https://www.paulhofmann.dev/sidebars-left/portfolio/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://www.paulhofmann.dev/sidebars-left/portfolio/</guid>
+      <description>&lt;p&gt;&#xA;&#xA;&#xA;&#xA;&#xA;&lt;a href=&#34;mailto:mail@paulhofmann.dev&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&#xA;   class=&#34;external&#34;&gt;mail@paulhofmann.dev&lt;/a&gt;&#xA;&lt;br&gt;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&lt;a href=&#34;https://www.linkedin.com/in/paul-markus-hofmann/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&#xA;   class=&#34;external&#34;&gt;LinkedIn&lt;/a&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;Hey, I&amp;rsquo;m Paul! I&amp;rsquo;m a game designer and programmer with a background in media technology, interested in creating surreal, atmospheric games with inventive core mechanics. Currently based in Lund, Sweden.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>https://www.paulhofmann.dev/sidebars-left/posts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://www.paulhofmann.dev/sidebars-left/posts/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Gem Valley</title>
+      <link>https://www.paulhofmann.dev/portfolio/2025-nfts-unity-2d-project-gem-valley/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://www.paulhofmann.dev/portfolio/2025-nfts-unity-2d-project-gem-valley/</guid>
+      <description>&lt;h1 id=&#34;gem-valley&#34;&gt;Gem Valley&lt;a class=&#34;heading-anchor&#34; href=&#34;#gem-valley&#34; aria-label=&#34;Link to heading&#34;&gt;&lt;/a&gt;&lt;/h1&gt;&#xA;&#xA;&lt;script&gt;&#xA;  document.addEventListener(&#34;DOMContentLoaded&#34;, function () {&#xA;    document.querySelectorAll(&#34;.heading-anchor&#34;).forEach(link =&gt; {&#xA;      link.addEventListener(&#34;click&#34;, function (e) {&#xA;        e.preventDefault();&#xA;        const url = `${location.origin}${location.pathname}${link.getAttribute(&#34;href&#34;)}`;&#xA;        navigator.clipboard.writeText(url);&#xA;      });&#xA;    });&#xA;  });&#xA;&lt;/script&gt;&lt;p&gt;A short 2D [[platformer]] built in [[Unity]] as part of a workshop during my NFTS indie game development certificate course (early 2025).&lt;/p&gt;&#xA;&lt;p&gt;The goal was to practice core Unity systems – like tilemaps, timelines, and animation. I took some time afterwards to finish the level and add some polish.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Last Block Standing</title>
+      <link>https://www.paulhofmann.dev/portfolio/2025-puls-game-jam-last-block-standing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://www.paulhofmann.dev/portfolio/2025-puls-game-jam-last-block-standing/</guid>
+      <description>&lt;h1 id=&#34;last-block-standing&#34;&gt;Last Block Standing&lt;a class=&#34;heading-anchor&#34; href=&#34;#last-block-standing&#34; aria-label=&#34;Link to heading&#34;&gt;&lt;/a&gt;&lt;/h1&gt;&#xA;&#xA;&lt;script&gt;&#xA;  document.addEventListener(&#34;DOMContentLoaded&#34;, function () {&#xA;    document.querySelectorAll(&#34;.heading-anchor&#34;).forEach(link =&gt; {&#xA;      link.addEventListener(&#34;click&#34;, function (e) {&#xA;        e.preventDefault();&#xA;        const url = `${location.origin}${location.pathname}${link.getAttribute(&#34;href&#34;)}`;&#xA;        navigator.clipboard.writeText(url);&#xA;      });&#xA;    });&#xA;  });&#xA;&lt;/script&gt;&lt;p&gt;A simple [[bullet hell]] game where you place blocks to shield yourself from incoming projectiles.&lt;/p&gt;&#xA;&lt;p&gt;![[last-block-standing.gif]]&lt;/p&gt;&#xA;&lt;p&gt;Created solo in 48 hours for the &#xA;&#xA;&#xA;&#xA;&#xA;&lt;a href=&#34;https://itch.io/jam/puls-game-jam&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&#xA;   class=&#34;external&#34;&gt;PULS GAME JAM&lt;/a&gt;&#xA;, under the theme &lt;em&gt;Kaputt&lt;/em&gt;. Given the limited time, I focused on building a simple but escalating challenge, with a core mechanic that encourages quick thinking and spatial strategy.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

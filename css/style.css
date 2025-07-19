@@ -1,0 +1,489 @@
+:root {
+  /* Color options */
+  --bg: #fffdf8;
+  --text: #1e1e1e;
+  --link: #282d43;
+  --link-underline: #2729385a;
+  --link-hover: #292b3dbb;
+  --link-hover-underline: #292b3d79;
+  --link-highlight: #3d71e2;
+  --link-highlight-underline: #3d71e2b3;
+  --link-highlight-hover: #3d71e2e6;
+  --link-highlight-faded: #3537518b;
+  --link-highlight-faded-hover: #353751b3;
+  --highlight-bg: #8879ff33;
+  --dividers: #ccc;
+  --footer: #888;
+  /* Font & text options */
+  --font-size: 14px; /* 13.5px */
+  --line-height: 1.1;
+  --indentation: 6ch; /* For lists, blockquotes, etc. */
+  /* Layout options */
+  --header-height: 6rem;
+  --col-width-left: 25%; /* 25% */
+  --col-width-center: 40%; /* 45% | 38% */
+  --col-width-right: 25%; /* 30% */
+  --show-vdivider: 1; /* Divider between left and center column; show/hide */
+  --show-hdivider: 0; /* Divider(s) under header; show/hide */
+  /* Other options */
+  --img-radius: 4px;
+}
+
+/* Reset & Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html, body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  scrollbar-gutter: stable; /* Prevents layout shift when scrollbar appears */
+}
+body {
+  /* Colors */
+  background-color: var(--bg);
+  /* Font options */
+  font-family: 'Reddit Mono', monospace;
+  /* 'Geist Mono', monospace;
+    Mono:
+      Reddit, Geist, Roboto, IBM Plex, Noto Sans, JetBrains, Plaid S
+    Sans:
+      Inter, Geist, Bricolage Grotesque, Hanken Grotesk, Spline Sans
+  */
+  font-size: var(--font-size);
+  color: var(--text);
+  line-height: var(--line-height);
+}
+
+/* Main layout */
+main {
+  flex: 1; /* Fills remaining space */
+}
+.page {
+  display: flex;
+  padding-top: var(--header-height); /* Space for fixed header */
+}
+
+/* Header & Navigation */
+header {
+  position: fixed;
+  width: 100%;
+  background-color: var(--bg);
+  padding-top: 1rem;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+}
+.nav-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+}
+.nav-left, .nav-right {
+  display: flex;
+  flex-direction: column;
+  height: var(--header-height);
+}
+.nav-left {
+  flex-basis: 25%;
+  padding-right: 1rem;
+}
+.nav-right {
+  flex-basis: 75%;
+}
+.nav-right-items {
+  display: flex;
+  flex-basis: 75%;
+  flex-direction: row;
+  gap: 2rem; /* Gap between navigation items */
+  justify-content: flex-start;
+}
+.nav-right a {
+  text-decoration: none; /* Remove default underline if not current page */
+}
+.nav-right a.active {
+  text-decoration: underline; /* Underline for current page */
+}
+.header-divider {
+  border-bottom: 1px solid var(--dividers);
+  border-bottom-color: rgba(204, 204, 204, var(--show-hdivider));
+  height: 100%;
+  width: 100%;
+}
+
+/* The three main columns */
+.col {
+  display: flex;
+  flex-direction: column;
+  padding-top: 2rem;
+  min-height: 0; /* Important for scrollable columns */
+}
+
+.left {
+  width: var(--col-width-left);
+  height: calc(100vh - var(--header-height) - 0.7rem);
+  position: sticky;
+  top: var(--header-height);
+  padding-bottom: 2rem;
+  overflow-y: auto; /* Enable scrolling if content overflows */
+  
+  /* Hide scrollbar */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer and Edge */
+} /* Hide scrollbar (continued) */
+.left::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+.center {
+  width: var(--col-width-center);
+}
+.right {
+  width: var(--col-width-right);
+  position: fixed;
+  right: calc(100% - (var(--col-width-left) + var(--col-width-center) + var(--col-width-right)));
+}
+
+.nav-left, .col.left { /* Padding on left column & left header */
+  padding-left: 1rem;
+  /* Border on right side of left column & left header */
+  border-right: 1px solid var(--dividers);
+  border-right-color: rgba(204, 204, 204, var(--show-vdivider));
+}
+.col.left {
+  padding-right: 2rem;
+}
+.nav-right, .col.center { /* Padding on center column & "right" header (also center) */
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.col.right { /* Padding on right column */
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+article {
+  padding-bottom: 6rem; /* Space below articles */
+}
+
+/* Footer */
+footer {
+  position: fixed;
+  width: 24%;
+  background-color: var(--bg);
+  bottom: 0;
+  padding-left: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  color: var(--footer); /* Grayed out */
+}
+footer > a {
+  color: var(--footer);
+}
+footer > a.external {
+  color: var(--footer);
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-size: var(--font-size);
+  font-weight: normal;
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-color: var(--link-underline);
+}
+
+/* Reset counters at each heading level */
+h1 {
+  text-align: center;
+  margin-bottom: 2lh;
+  counter-reset: h2;
+}
+h2 {
+  margin-top: 1lh;
+  margin-bottom: 1lh;
+  counter-increment: h2;
+  counter-reset: h3;
+}
+h3 {
+  margin-top: 1lh;
+  margin-bottom: 1lh;
+  counter-increment: h3;
+  counter-reset: h4;
+}
+h4 {
+  margin-top: 1lh;
+  margin-bottom: 1lh;
+  counter-increment: h4;
+  counter-reset: h5;
+}
+h5 {
+  margin-top: 1lh;
+  margin-bottom: 1lh;
+  counter-increment: h5;
+  counter-reset: h6;
+}
+h6 {
+  margin-top: 1lh;
+  margin-bottom: 1lh;
+  counter-increment: h6;
+}
+/* Numbering for each heading level */
+h2::before {
+  content: counter(h2) ". ";
+}
+h3::before {
+  content: counter(h2) "." counter(h3) ". ";
+}
+h4::before {
+  content: counter(h2) "." counter(h3) "." counter(h4) ". ";
+}
+h5::before {
+  content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) ". ";
+}
+h6::before {
+  content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) "." counter(h6) ". ";
+}
+/* Heading anchors */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  scroll-margin-top: calc(var(--header-height) + 2rem);
+}
+/*h1:hover .heading-anchor,*/
+h2:hover .heading-anchor,
+h3:hover .heading-anchor,
+h4:hover .heading-anchor,
+h5:hover .heading-anchor,
+h6:hover .heading-anchor {
+  opacity: 1;
+}
+.heading-anchor {
+  font-weight: normal;
+  text-decoration: none;
+  color: var(--link-faded);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.heading-anchor::before {
+  content: " #";
+}
+
+/* Frontmatter */
+.frontmatter {
+  color: var(--link-faded);
+  /*margin-top: 1lh;*/
+  margin-bottom: 1lh;
+}
+.frontmatter-row {
+  display: flex;
+}
+.frontmatter-label {
+  min-width: 10ch;
+  text-align: left;
+}
+.frontmatter-value {
+  flex: 1;
+}
+
+/* Paragraphs */
+p {
+  margin-top: 1lh; /* One line above */
+  margin-bottom: 1lh; /* One line below */
+  text-indent: 0; /* No indent on first line */
+}
+
+/* Blockquotes */
+blockquote {
+  padding-left: var(--indentation); /* Indent by two character widths */
+  /*border-left: 1px solid var(--dividers);*/ /* Left border */
+}
+
+/* Lists */
+ul, ol {
+  list-style-position: outside;  /* Bullet/number outside, text aligns with grid */
+  padding-left: var(--indentation);  /* Indent by multiple of character widths */
+  margin-bottom: 1lh;
+}
+li {
+  text-indent: 0; /* No extra indent on wrapped lines */
+}
+li ul, li ol { /* Nested lists */
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Highlighted text */
+mark {
+  background-color: var(--highlight-bg);
+}
+
+/* Horizontal rules */
+hr {
+  border: none; /* Remove default border */
+  border-top: 1px solid var(--dividers); /* Custom horizontal rule */
+  margin: 2lh 0;
+}
+
+/* Links
+- default: ...
+- wikilink: bright
+- external: bright
+*/
+a {
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-color: var(--link-underline);
+  text-decoration-thickness: 1px;
+}
+a:hover {
+  color: var(--link-hover);
+  text-decoration-color: var(--link-hover-underline);
+}
+/*a.wikilink, a.external {
+  color: var(--link-highlight);
+  text-decoration: underline;
+  text-decoration-color: var(--link-highlight-underline);
+}
+a.wikilink:hover, a.external:hover {
+  color: var(--link-highlight-hover);
+  text-decoration-color: var(--link-highlight-underline);
+}*/
+a.wikilink-missing {
+  color: var(--link-highlight-faded);
+  text-decoration: underline dotted 1px;
+}
+a.wikilink-missing:hover {
+  color: var(--link-highlight-faded-hover);
+}
+a.external::after {
+  content: " ↗";
+}
+
+/* Images */
+img {
+  border-radius: var(--img-radius);
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: 1lh;
+  margin-bottom: 1lh;
+}
+
+/* Portfolio */
+.feature {
+  margin-bottom: 2lh;
+}
+.feature .twocol {
+  margin-top: 1lh;
+}
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 3ch;
+  row-gap: 1lh;
+  margin-top: 1lh;
+  margin-bottom: 2lh;
+}
+.portfolio-item {
+  margin: 0;
+}
+.thumb {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--img-radius);
+  background-color: #f0f0f0; /* Placeholder background */
+}
+.thumb img {
+  margin: 0;
+  width: 100%;
+  height: 17lh;;
+  object-fit: cover; /* Cover the entire area */
+  object-position: center; /* Center the image */
+}
+.title {
+  margin-top: 1lh;
+}
+
+/* Grouped index (in sidebar in right column) */
+/*.grouped-index {
+  padding-top: 1lh;
+}*/
+.grouped-index details summary {
+  list-style: none;
+  cursor: pointer;
+  user-select: none;
+}
+.grouped-index details summary::-webkit-details-marker {
+  display: none; /* Hide default triangle for webkit browser */
+}
+.grouped-index details summary::marker {
+  content: none; /* Hide default triangle for firefox */
+}
+.grouped-index details summary::before {
+  content: "+ ";
+  color: var(--link);
+  position: relative;
+  bottom: 0.1ch; /* Adjust vertical position */
+  user-select: none;
+}
+.grouped-index details[open] summary::before {
+  content: "− ";
+  color: var(--link);
+  position: relative;
+  bottom: 0.2ch;
+  user-select: none;
+}
+.grouped-index details summary:hover::before {
+  color: var(--link-hover);
+}
+.grouped-index ul {
+  list-style: none; /* No bullets */
+}
+
+/* Listings (as sidebar in right column) */
+.listings-title {
+  padding-bottom: 1lh;
+}
+.listings-items {
+  display: flex;
+  flex-direction: column;
+  /*list-style: none;
+  gap: 0.3lh;*/
+  padding-right: 3rem;
+}
+.listings-divider {
+  border-top: 1px solid var(--dividers);
+  margin-top: 1lh;
+  margin-bottom: 1lh;
+}
+/* Table of contents */
+.toc ul {
+  list-style: outside;
+}
+.toc ul li ul {
+  margin-left: 4ch;
+}
+
+/* Two-column layout for center page */
+.twocol {
+  display: flex;
+  justify-content: space-between;
+  gap: 3ch;
+  margin-top: 1lh;
+  margin-bottom: 1lh;
+}
+.twocol > p {
+  width: 50%;
+  margin: 0; /* Remove default margin */
+}
+.twocol > p > img {
+  margin: 0; /* Remove default margin */
+}
+
+/* Utilities */
+.spacer {
+  height: 3em;
+}
