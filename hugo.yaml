@@ -4,7 +4,7 @@ title: 'paulhofmann.dev'
 languageCode: 'en-us'
 
 # Output/publish directory
-publishDir: "docs" # Needs to be "docs" for GitHub Pages
+publishDir: "public" # Needs to be "docs" when using GitHub Pages publish from branch
 
 # Markdown configuration
 markup:

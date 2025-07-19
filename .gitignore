@@ -2,11 +2,8 @@
 
 ### Hugo ###
 
-# Don't track source files (since we're pushing the whole generated site for GitHub Pages anyway)
-content/
-static/
-
-# Generated files by hugo (not ignoring docs/ so that it's used by GitHub Pages to publish the site)
+# Generated files by hugo
+public/
 /resources/_gen/
 /assets/jsconfig.json
 hugo_stats.json
@@ -19,5 +16,6 @@ hugo.linux
 # Temporary lock file while building
 /.hugo_build.lock
 
-### Local files ###
+### Some other local/temp files ###
 _local/
+static/images/test
