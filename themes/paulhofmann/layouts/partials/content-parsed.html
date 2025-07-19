@@ -2,10 +2,19 @@
 {{- $patternWikilink := `\[\[([^\|\]]+)(\|([^\]]+))?\]\]` -}}
 {{- $patternHighlightedLink := `==\[(.*?)\]\((.*?)\)==` -}} <!-- Highlighted Links -->
 {{- $patternHighlightedText := `==([^=\[][^=]+?)==` -}} <!-- Highlighted Text -->
+{{- $patternImg := `!\[\[([^\]]+?)\]\]` -}}
 
 {{- $out := $content -}}
 
-<!-- 1. Wikilinks -->
+<!-- Image Wikilinks -->
+{{ range findRE $patternImg $out }}
+  {{ $match := . }}
+  {{ $img := replaceRE $patternImg "$1" $match }}
+  {{ $replacement := printf `<img src="/images/attachments/%s"></img>` $img }}
+  {{ $out = replace $out $match $replacement }}
+{{ end }}
+
+<!-- Regular Wikilinks -->
 {{ range findRE $patternWikilink $out }}
   {{ $match := . }}
   {{ $target := replaceRE $patternWikilink "$1" $match }}
@@ -29,7 +38,7 @@
   {{ end }}
 {{ end }}
 
-<!-- 2. Highlighted ==[Links](url)== -->
+<!-- Highlighted ==[Links](url)== -->
 {{ range findRE $patternHighlightedLink $out }}
   {{ $match := . }}
   {{ $text := replaceRE $patternHighlightedLink "$1" $match }}
@@ -38,7 +47,7 @@
   {{ $out = replace $out $match $replacement }}
 {{ end }}
 
-<!-- 3. Highlighted ==Text== -->
+<!-- Highlighted ==Text== -->
 {{ range findRE $patternHighlightedText $out }}
   {{ $match := . }}
   {{ $text := replaceRE $patternHighlightedText "$1" $match }}
