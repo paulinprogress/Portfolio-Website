@@ -13,9 +13,9 @@
         <a href="/{{ . }}/" class="{{ if eq $.Section . }}active{{ end }}">{{ upper . }}</a>
       {{ end }}
       </div>
-      {{ if and (not .IsHome) (not .IsSection) .Section }}
+      <!-- {{ if and (not .IsHome) (not .IsSection) .Section }}
         <br><br><br><a href="{{ printf "/%s/" .Section | relURL }}" class="active">⬑ Back</a>
-      {{ end }}
+      {{ end }} -->
       <div class="header-divider"></div>
     </div>
     
