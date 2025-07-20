@@ -1,3 +1,2 @@
 ---
 ---
-{{< feature project="Gem Valley">}}

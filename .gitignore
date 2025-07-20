@@ -17,5 +17,5 @@ hugo.linux
 /.hugo_build.lock
 
 ### Some other local/temp files ###
-_local/
+_temp/
 static/images/test
