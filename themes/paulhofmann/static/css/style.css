@@ -130,7 +130,6 @@ header {
   top: var(--header-height);
   padding-bottom: 2rem;
   overflow-y: auto; /* Enable scrolling if content overflows */
-  
   /* Hide scrollbar */
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* Internet Explorer and Edge */
@@ -293,6 +292,9 @@ p {
   margin-top: 1lh; /* One line above */
   margin-bottom: 1lh; /* One line below */
   text-indent: 0; /* No indent on first line */
+}
+.col.left > div > p {
+  margin-top: 0;
 }
 
 /* Blockquotes */
