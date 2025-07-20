@@ -30,7 +30,7 @@ SOURCES = [
     {
         "publish": False,
         "source_dir": OBSIDIAN_ROOT / "projects" / "posts",
-        "target_dir": CONTENT_ROOT / "feed",
+        "target_dir": CONTENT_ROOT / "posts",
         "include_subdirs": False,
     },
 ]
