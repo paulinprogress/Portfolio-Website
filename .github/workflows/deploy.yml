@@ -9,13 +9,11 @@ permissions:
   contents: write
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
 
     steps:
-    - name: Checkout
+    - name: Checkout repo
       uses: actions/checkout@v4
       with:
         submodules: true
@@ -25,8 +23,13 @@ jobs:
       with:
         hugo-version: '0.147.9'
 
-    - name: Build
+    - name: Build site
       run: hugo #-D
+
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v2
+      with:
+        path: ./public
 
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
@@ -34,3 +37,14 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./public
         publish_branch: gh-pages
+
+  deploy:
+      needs: build
+      runs-on: ubuntu-latest
+      environment:
+        name: github-pages
+        url: ${{ steps.deployment.outputs.page_url }}
+      steps:
+        - name: Deploy to GitHub Pages
+          id: deployment
+          uses: actions/deploy-pages@v2
