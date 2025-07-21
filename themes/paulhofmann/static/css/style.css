@@ -145,7 +145,7 @@ header {
   width: var(--col-width-right);
   position: fixed;
   right: calc(100% - (var(--col-width-left) + var(--col-width-center) + var(--col-width-right)));
-  color: var(--footer); /* Grayed out */
+  color: var(--link);
 }
 
 .nav-left, .col.left { /* Padding on left column & left header */
@@ -271,6 +271,11 @@ h6:hover .heading-anchor {
 .heading-anchor::before {
   content: " #";
 }
+/* Solo headings */
+h1.solo-heading {
+  text-align: left;
+  margin-bottom: 1lh;
+}
 
 /* Frontmatter */
 .frontmatter {
@@ -378,11 +383,17 @@ img {
 
 /* Portfolio */
 .feature {
+  padding-top: 0;
+  margin-top: 0;
   margin-bottom: 2lh;
+}
+.feature img {
+  margin-top: 0;
 }
 .feature .twocol {
   margin-top: 1lh;
 }
+
 .portfolio-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -536,7 +547,7 @@ img {
   .col.left {
     position: relative;
     top: 0;
-    padding-bottom: 0.5rem;
+    padding-bottom: 1lh;
   }
   /* Add new divider below "left"/top column (on list/home pages) */
   .list {
@@ -546,10 +557,6 @@ img {
   /* Remove left/top column entirely on single pages */
   .single {
     display: none;
-  }
-  /* Adjust padding for center column */
-  .col.center {
-    padding-top: 0.5rem;
   }
   /* Disable regular dividers */
   .nav-left, .col.left {

@@ -19,16 +19,16 @@
 
 <div class="feature">
     {{ with $page }}
-    <a href="{{ .RelPermalink }}">
-        <img src="{{ .Params.image }}" alt="{{ .Title }}">
-        {{ if eq $twocol "true" }}
-            <div class="twocol">
-                <p>{{ .Title }}</p>
-                <p>{{ $description | markdownify }}</p>
-            </div>
-        {{ else }}
-            <p>{{ $description | markdownify }}</p>
-        {{ end }}
-    </a>
+      <a href="{{ .RelPermalink }}">
+          <img src="{{ .Params.image }}" alt="{{ .Title }}">
+          {{ if eq $twocol "true" }}
+              <div class="twocol">
+                  <p>{{ .Title }}</p>
+                  <p>{{ $description | markdownify }}</p>
+              </div>
+          {{ else }}
+              <p>{{ $description | markdownify }}</p>
+          {{ end }}
+      </a>
     {{ end }}
 </div>
