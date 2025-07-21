@@ -271,7 +271,7 @@ h6:hover .heading-anchor {
 .heading-anchor::before {
   content: " #";
 }
-/* Solo headings */
+/* Solo h1 headings */
 h1.solo-heading {
   text-align: left;
   margin-bottom: 1lh;
