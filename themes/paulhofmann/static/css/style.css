@@ -459,9 +459,6 @@ img {
 }
 
 /* Listings (as sidebar in right column) */
-.listings-title {
-  padding-bottom: 1lh;
-}
 .listings-items {
   display: flex;
   flex-direction: column;

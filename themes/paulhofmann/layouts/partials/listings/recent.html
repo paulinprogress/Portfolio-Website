@@ -2,9 +2,7 @@
 {{- $notes := where .Site.RegularPages "Section" "notes" }}
 
 {{ if $posts }}
-  <div class="listings-title">
-    <i>Recent posts</i>
-  </div>
+  <h1 class="solo-heading">Recent posts</h1>
   <ul class="listings-items">
     {{ range first 3 $posts }}
     <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
@@ -16,8 +14,7 @@
 {{ end }}
 
 {{ if $notes }}
-  <div class="listings-title">
-    <i>Recent notes</i>
+  <h1 class="solo-heading">Recent notes</h1>
   </div>
   <ul class="listings-items">
     {{ range first 10 $notes }}
