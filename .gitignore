@@ -16,6 +16,7 @@ hugo.linux
 # Temporary lock file while building
 /.hugo_build.lock
 
-### Some other local/temp files ###
+### Other ###
 _temp/
+archetypes/
 static/images/test
