@@ -542,11 +542,11 @@ img {
   }
   /* Make left column/sidebar non-sticky → scroll normally, less bottom padding */
   .col.left {
-    position: relative;
+    position: sticky;
     top: 0;
     padding-bottom: 1lh;
   }
-  /* Add new divider below "left"/top column (on list/home pages) */
+  /* Add new divider below "left"/top column (only on list/home pages) */
   .list {
     border-bottom: 1px solid var(--dividers);
     border-bottom-color: rgb(204, 204, 204);
@@ -578,5 +578,17 @@ img {
     margin-right: 1rem;
     border-top: 1px solid var(--dividers);
     border-top-color: rgb(204, 204, 204);
+  }
+
+  /* Make h1 headings left aligned with full-width underline on mobile */
+  h1 {
+    text-align: left;
+    /*position: sticky;
+    top: calc(var(--header-height) + 1rem);*/
+    text-decoration: none;
+    border-bottom: 1px solid var(--dividers);
+    border-bottom-color: rgb(204, 204, 204);
+    background-color: var(--bg);
+    margin-bottom: 1lh;
   }
 }
