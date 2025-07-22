@@ -108,6 +108,10 @@ header {
 }
 .nav-right a.active {
   text-decoration: underline; /* Underline for current page */
+  text-decoration-color: var(--link-underline);
+}
+.nav-right a.active :hover {
+  text-decoration-color: var(--link-hover-underline);
 }
 .header-divider {
   border-bottom: 1px solid var(--dividers);
@@ -542,7 +546,7 @@ img {
   }
   /* Make left column/sidebar non-sticky → scroll normally, less bottom padding */
   .col.left {
-    position: sticky;
+    position: relative;
     top: 0;
     padding-bottom: 1lh;
   }
