@@ -4,32 +4,47 @@ from pathlib import Path
 import shutil
 from datetime import datetime
 
+"""
+This script imports markdown files from an Obsidian vault into a Hugo-based portfolio website.
+
+- Cleans up target directories before import (removing all files)
+- Exports Markdown files from specified Obsidian directories, given that `publish` is set to true
+- Cleans up frontmatter (allowing only specified keys, ensuring required fields)
+- Removes comments from content (%% ... %%)
+- Collects and copies linked images to a static directory
+- Sets new filename (and thus URL) based on the "title" frontmatter property
+"""
+
 # Define directories
 OBSIDIAN_ROOT = Path("~/Obsidian/Notebook").expanduser()
-CONTENT_ROOT = Path("~/Repositories/Website/content").expanduser()
+WEBSITE_ROOT = Path("~/Repositories/Portfolio-Website").expanduser()
 
-ATTACHMENTS_SOURCE_DIR = OBSIDIAN_ROOT / "+" / "attachments"
+CONTENT_DIR = WEBSITE_ROOT / "content"
 
-ATTACHMENTS_TARGET_DIR = Path("~/Repositories/Website/static/images/attachments").expanduser()
+ATTACHMENTS_SOURCE_DIR = OBSIDIAN_ROOT / "+" / "media"
+ATTACHMENTS_TARGET_DIR = WEBSITE_ROOT / "static" / "images" / "attachments"
 
 # Define content to be imported
 SOURCES = [
     {
+        # PORTFOLIO
         "publish": True,
         "source_dir": OBSIDIAN_ROOT / "projects" / "portfolio",
-        "target_dir": CONTENT_ROOT / "portfolio",
+        "target_dir": CONTENT_DIR / "portfolio",
         "include_subdirs": True,
     },
     {
-        "publish": False,
+        # NOTES
+        "publish": True,
         "source_dir": OBSIDIAN_ROOT / "z",
-        "target_dir": CONTENT_ROOT / "notes",
+        "target_dir": CONTENT_DIR / "notes",
         "include_subdirs": False,
     },
     {
+        # POSTS
         "publish": False,
-        "source_dir": OBSIDIAN_ROOT / "projects" / "posts",
-        "target_dir": CONTENT_ROOT / "posts",
+        "source_dir": OBSIDIAN_ROOT / "projects" / "writing",
+        "target_dir": CONTENT_DIR / "posts",
         "include_subdirs": False,
     },
 ]
@@ -135,9 +150,9 @@ def find_and_copy_images(filenames):
     for filename in filenames:
         # Recursively look through attachments folder to find file
         for path in ATTACHMENTS_SOURCE_DIR.rglob(filename):
-            target_path = ATTACHMENTS_TARGET_DIR / path.name
+            target_path = ATTACHMENTS_TARGET_DIR / filename
             shutil.copy2(path, target_path)
-            print(f"→ Bild kopiert: {path.name}")
+            print(f"→ Image copied: {filename}")
             break  # Only copy first match
 
 
@@ -171,11 +186,17 @@ def export_notes():
                 post = filter_frontmatter(post)
                 post = ensure_frontmatter(post, file)
 
+                # Gerenrate new file names from "title" property
+                safe_title = post.metadata["title"].strip().lower().replace(" ", "-")
+                safe_title = re.sub(r"[^\w\-]", "", safe_title)  # Nur Buchstaben, Zahlen, - und _
+                target_file = dst_root / f"{safe_title}.md"
+
                 if post.metadata.get("publish", False):
                     if group["include_subdirs"]:
-                        target_file = dst_root / rel_path
+                        rel_path = file.relative_to(src)
+                        target_file = dst_root / rel_path.parent / f"{safe_title}.md"
                     else:
-                        target_file = dst_root / file.name
+                        target_file = dst_root / f"{safe_title}.md"
 
                     target_file.parent.mkdir(parents=True, exist_ok=True)
 
@@ -185,10 +206,9 @@ def export_notes():
                     with open(target_file, "w", encoding="utf-8") as f:
                         f.write(frontmatter.dumps(post))
 
-                    print(f"Exported: {file.relative_to(OBSIDIAN_ROOT)} → {target_file.relative_to(CONTENT_ROOT)}")
+                    print(f"Exported: {file.relative_to(OBSIDIAN_ROOT)} → {target_file.relative_to(CONTENT_DIR)}")
                 else:
                     print(f"Skipped (publish: false): {file.relative_to(OBSIDIAN_ROOT)}")
-
 
 
 if __name__ == "__main__":
