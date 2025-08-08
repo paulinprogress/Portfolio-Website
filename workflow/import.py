@@ -3,10 +3,9 @@ import re
 from pathlib import Path
 import shutil
 from datetime import datetime
-import re
 
 # Define directories
-OBSIDIAN_ROOT = Path("D:/Meine Ablage/Notebook")
+OBSIDIAN_ROOT = Path("~/Obsidian/Notebook").expanduser()
 CONTENT_ROOT = Path("~/Repositories/Website/content").expanduser()
 
 ATTACHMENTS_SOURCE_DIR = OBSIDIAN_ROOT / "+" / "attachments"
