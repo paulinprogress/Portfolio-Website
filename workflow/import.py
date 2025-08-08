@@ -35,7 +35,7 @@ SOURCES = [
     },
     {
         # NOTES
-        "publish": True,
+        "publish": False,
         "source_dir": OBSIDIAN_ROOT / "z",
         "target_dir": CONTENT_DIR / "notes",
         "include_subdirs": False,
