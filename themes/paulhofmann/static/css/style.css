@@ -381,8 +381,11 @@ img {
   display: block;
   width: 100%;
   height: auto;
-  margin-top: 1lh;
-  margin-bottom: 1lh;
+  margin-top: 2lh;
+  margin-bottom: 2lh;
+  /* Center */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Portfolio */
@@ -392,7 +395,7 @@ img {
   margin-bottom: 2lh;
 }
 .feature img {
-  margin-top: 0;
+  margin: 0; /* Remove default margin */
 }
 .feature .twocol {
   margin-top: 1lh;
@@ -416,7 +419,7 @@ img {
   background-color: #f0f0f0; /* Placeholder background */
 }
 .thumb img {
-  margin: 0;
+  margin: 0; /* Remove default margin */
   width: 100%;
   height: 17lh;;
   object-fit: cover; /* Cover the entire area */
@@ -593,6 +596,7 @@ img {
     border-bottom: 1px solid var(--dividers);
     border-bottom-color: rgb(204, 204, 204);
     background-color: var(--bg);
+    height: 2lh; /* More space for underline */
     margin-bottom: 1lh;
   }
 }
