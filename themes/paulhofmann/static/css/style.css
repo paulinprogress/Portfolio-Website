@@ -21,8 +21,8 @@
   /* Layout options */
   --header-height: 6rem;
   --col-width-left: 25%; /* 25% */
-  --col-width-center: 40%; /* 45% | 38% */
-  --col-width-center-transition: 55%; /* When transitioning to mobile layout (before it gets full-width) */
+  --col-width-center: 30%; /* 45% | 38% */
+  --col-width-center-transition: 50%; /* When transitioning to mobile layout (before it gets full-width) */
   --col-width-right: 25%; /* 30% */
   --show-vdivider: 1; /* Divider between left and center column; show/hide */
   --show-hdivider: 0; /* Divider(s) under header; show/hide */
@@ -130,7 +130,7 @@ header {
 
 .left {
   width: var(--col-width-left);
-  height: calc(100vh - var(--header-height) - 0.7rem);
+  height: calc(100vh - var(--header-height) - 1rem);
   position: sticky;
   top: var(--header-height);
   padding-bottom: 2rem;
@@ -182,7 +182,7 @@ footer {
   bottom: 0;
   padding-left: 1rem;
   padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  padding-bottom: 1rem;
   color: var(--footer); /* Grayed out */
 }
 footer > a {
@@ -203,10 +203,19 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Reset counters at each heading level */
 h1 {
+  text-align: left;
+  text-decoration: none;
+  border-bottom: 1px solid var(--dividers);
+  border-bottom-color: rgb(204, 204, 204);
+  background-color: var(--bg);
+  height: 2lh; /* More space for underline */
+  margin-bottom: 1lh;
+}
+/*h1 {
   text-align: center;
   margin-bottom: 2lh;
   counter-reset: h2;
-}
+}*/
 h2 {
   margin-top: 1lh;
   margin-bottom: 1lh;
@@ -587,16 +596,14 @@ img {
     border-top-color: rgb(204, 204, 204);
   }
 
-  /* Make h1 headings left aligned with full-width underline on mobile */
+  /* (Default now in all layouts) Make h1 headings left aligned with full-width underline on mobile
   h1 {
     text-align: left;
-    /*position: sticky;
-    top: calc(var(--header-height) + 1rem);*/
     text-decoration: none;
     border-bottom: 1px solid var(--dividers);
     border-bottom-color: rgb(204, 204, 204);
     background-color: var(--bg);
-    height: 2lh; /* More space for underline */
+    height: 2lh;
     margin-bottom: 1lh;
-  }
+  }*/
 }
