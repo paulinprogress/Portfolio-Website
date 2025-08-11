@@ -515,43 +515,23 @@ img {
     height: auto;
     padding: 0;
   }
-  /* Make left column/sidebar non-sticky → scroll normally, less bottom padding */
+  /* Make left column/sidebar non-sticky → scroll normally */
   .col.left {
     position: relative;
     top: 0;
-    padding-bottom: 1lh;
-  }
-  /* Add new divider below "left"/top column (only on list/home pages) */
-  .list {
     border-bottom: 1px solid var(--dividers);
-    border-bottom-color: rgb(204, 204, 204);
+    border-right: none;
+    margin-bottom: 1lh;
   }
-  /* Remove left/top column entirely on single pages */
-  .single {
+  header {
+    height: auto;
+    margin-bottom: 2lh;
+  }
+  .header-divider {
     display: none;
   }
-  /* Disable regular dividers */
-  .nav-left, .col.left {
-    border-right: 0;
-  }
-
-  /* Header: Change spacing from fixed 25/75 split to auto to avoid wrapping on left title */
-  .nav-left {
-    flex-basis: auto;
-  }
-  .nav-right {
-    flex-basis: auto;
-  }
-  /* Footer: Make relative, fix padding/margins */
-  footer {
-    position: relative;
-    width: auto;
-    padding: 0;
-    padding-bottom: 1rem;
-    padding-top: 1rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    border-top: 1px solid var(--dividers);
-    border-top-color: rgb(204, 204, 204);
+  /* Hide */
+  .mobile-hidden {
+    display: none;
   }
 }

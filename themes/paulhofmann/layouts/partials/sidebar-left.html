@@ -1,4 +1,9 @@
-<aside class="col left">
+{{ $class := "col left" }}
+{{ if not .IsHome }}
+  {{ $class = "col left mobile-hidden" }}
+{{ end }}
+
+<aside class="{{ $class }}">
 
   <header>
     <a href="{{ "/" | relURL }}">PAUL HOFMANN</a>
@@ -9,7 +14,7 @@
       <div>{{ partial "content-parsed.html" . }}</div>
   {{ end }}
 
-  <footer>
+  <footer class="mobile-hidden">
     &copy; {{ now.Year }} Paul Hofmann, <a href="https://github.com/paulinprogress/Portfolio-Website"
     target="_blank" rel="noopener noreferrer" class="external">GitHub</a>
   </footer>
