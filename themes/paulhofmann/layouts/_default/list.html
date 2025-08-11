@@ -1,5 +1,12 @@
 {{ define "main" }}
 <section class="col center">
+  {{ $section := .Section | default "home" }}
+
+  <header>
+    {{ $section | upper }}
+    <div class="header-divider"></div>
+  </header>
+
   <article>
     {{ if .Content }}
       {{ partial "content-parsed.html" . }}

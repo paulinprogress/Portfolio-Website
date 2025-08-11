@@ -1,5 +1,10 @@
 {{ define "main" }}
 <section class="col center">
+
+  <header class="header-right">
+    <a href="{{ "/" | relURL }}">⬑ BACK</a>
+  </header>
+
   <article>
     {{ if .Content }}
       {{ partial "content-parsed.html" . }}

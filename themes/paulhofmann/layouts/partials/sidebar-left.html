@@ -1,16 +1,17 @@
 <aside class="col left">
-  {{ $class := "single" }}
 
-  {{ if or (.IsSection) (.IsHome) }}
-    {{ $class = "list" }}
-  {{ else }}
-    {{ $class = "single" }}
+  <header>
+    <a href="{{ "/" | relURL }}">PAUL HOFMANN</a>
+    <div class="header-divider"></div>
+  </header>
+  
+  {{ with site.GetPage "sidebar" }}
+      <div>{{ partial "content-parsed.html" . }}</div>
   {{ end }}
 
-  {{ $section := .Section | default "home" }}
-
-  {{ with site.GetPage (printf "sidebars-left/%s" $section) }}
-      <div class={{ $class }}>{{ partial "content-parsed.html" . }}</div>
-  {{ end }}
+  <footer>
+    &copy; {{ now.Year }} Paul Hofmann, <a href="https://github.com/paulinprogress/Portfolio-Website"
+    target="_blank" rel="noopener noreferrer" class="external">GitHub</a>
+  </footer>
   
 </aside>
