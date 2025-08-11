@@ -19,7 +19,7 @@
   --line-height: 1.1;
   --indentation: 6ch; /* For lists, blockquotes, etc. */
   /* Layout options */
-  --header-height: 6rem;
+  --header-height: 5rem;
   --col-width-left: 25%; /* 25% */
   --col-width-center: 30%; /* 45% | 38% */
   --col-width-center-transition: 50%; /* When transitioning to mobile layout (before it gets full-width) */
