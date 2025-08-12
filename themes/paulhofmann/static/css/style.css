@@ -21,9 +21,9 @@
   /* Layout options */
   --header-height: 5rem;
   --col-width-left: 25%; /* 25% */
-  --col-width-center: 30%; /* 45% | 38% */
+  --col-width-center: 45%; /* 45% | 38% */
   --col-width-center-transition: 50%; /* When transitioning to mobile layout (before it gets full-width) */
-  --col-width-right: 25%; /* 30% */
+  --col-width-right: 20%; /* 30% */
   --show-vdivider: 1; /* Divider between left and center column; show/hide */
   --show-hdivider: 1; /* Divider(s) under header; show/hide */
   /* Other options */
@@ -73,9 +73,11 @@ header {
   height: var(--header-height);
   margin-bottom: 1lh;
 }
+.header-center {
+  flex-direction: row;
+}
 .header-right {
-  /* So that h1 with underline is on same level... */
-  height: calc(var(--header-height) - 3lh);
+  height: calc(var(--header-height) - 2lh);
 }
 .header-divider {
   border-bottom: 1px solid var(--dividers);
@@ -134,7 +136,7 @@ header {
 }
 
 article {
-  padding-bottom: 4rem; /* Space below articles */
+  padding-bottom: 6rem; /* Space below articles */
 }
 
 /* Footer */
@@ -519,16 +521,11 @@ img {
   .col.left {
     position: relative;
     top: 0;
-    border-bottom: 1px solid var(--dividers);
     border-right: none;
     margin-bottom: 1lh;
   }
   header {
-    height: auto;
-    margin-bottom: 2lh;
-  }
-  .header-divider {
-    display: none;
+    height: 4rem;
   }
   /* Hide */
   .mobile-hidden {

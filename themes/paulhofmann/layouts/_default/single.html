@@ -1,8 +1,13 @@
 {{ define "main" }}
 <section class="col center">
 
-  <header class="header-right">
-    <a href="{{ "/" | relURL }}">⬑ BACK</a>
+  <header>
+    <div class="header-center">
+    <a href="{{ "/" | relURL }}">PORTFOLIO</a>
+    /
+    {{ .Title }}
+    </div>
+    <div class="header-divider"></div>
   </header>
 
   <article>

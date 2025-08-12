@@ -14,9 +14,6 @@ publish: true
 title: Gem Valley
 year: '2025'
 ---
-
-# Gem Valley
-
 This is a short 2D [[platformer]] built in [[Unity]] as part of a workshop during my NFTS indie game development certificate course (early 2025).
 
 The goal was to practice core Unity systems – like tilemaps, timelines, and animation. I took some time afterwards to finish the level and add some polish.
