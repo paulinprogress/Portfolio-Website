@@ -366,6 +366,15 @@ img {
   margin-top: 0;
   margin-bottom: 2lh;
 }
+.feature a {
+  text-decoration: none;
+  color: var(--link);
+}
+.feature a:hover {
+  color: var(--link-hover);
+  text-decoration: underline;
+  text-decoration-color: var(--link-hover-underline);
+}
 .feature img {
   margin: 0; /* Remove default margin */
 }
@@ -383,6 +392,15 @@ img {
 }
 .portfolio-item {
   margin: 0;
+}
+.portfolio-item a {
+  text-decoration: none;
+  color: var(--link);
+}
+.portfolio-item a:hover {
+  color: var(--link-hover);
+  text-decoration: underline;
+  text-decoration-color: var(--link-hover-underline);
 }
 .thumb {
   position: relative;

@@ -5,7 +5,7 @@
   {{ $pages := where site.RegularPages "Section" "portfolio" }}
 
   {{ if $type }}
-    {{ $pages = where $pages "Params.type" $type }}
+    {{ $pages = where $pages "Params.project-type" "intersect" (slice $type) }}
   {{ end }}
 
   {{ range first $limit $pages }}
