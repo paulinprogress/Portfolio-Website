@@ -1,11 +1,7 @@
 {{ define "main" }}
 <section class="col center">
-  {{ $section := .Section | default "home" }}
 
-  <header>
-    {{ $section | upper }}
-    <div class="header-divider"></div>
-  </header>
+  {{ partial "header-list.html" . }}
 
   <article>
     {{ if .Content }}
@@ -14,5 +10,6 @@
       <div>📌 This page is being worked on...</div>
     {{ end }}
   </article>
+  
 </section>
 {{ end }}

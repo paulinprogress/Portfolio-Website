@@ -5,18 +5,12 @@
 
 <aside class="{{ $class }}">
 
-  <header>
-    <a href="{{ "/" | relURL }}">PAUL HOFMANN</a>
-    <div class="header-divider"></div>
-  </header>
+  {{ partial "header-left.html" }}
   
   {{ with site.GetPage "sidebar" }}
       <div>{{ partial "content-parsed.html" . }}</div>
   {{ end }}
 
-  <footer class="mobile-hidden">
-    &copy; {{ now.Year }} Paul Hofmann, <a href="https://github.com/paulinprogress/Portfolio-Website"
-    target="_blank" rel="noopener noreferrer" class="external">GitHub</a>
-  </footer>
+  {{ partial "footer.html" }}
   
 </aside>

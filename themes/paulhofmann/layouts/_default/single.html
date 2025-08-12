@@ -1,14 +1,7 @@
 {{ define "main" }}
 <section class="col center">
 
-  <header>
-    <div class="header-center">
-    <a href="{{ "/" | relURL }}">PORTFOLIO</a>
-    /
-    {{ .Title }}
-    </div>
-    <div class="header-divider"></div>
-  </header>
+  {{ partial "header-single.html" . }}
 
   <article>
     {{ if .Content }}

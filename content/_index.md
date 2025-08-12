@@ -1,6 +1,5 @@
 ---
 ---
-{{< portfolio-grid >}}
 
 {{< feature project="Gem Valley">}}
 
