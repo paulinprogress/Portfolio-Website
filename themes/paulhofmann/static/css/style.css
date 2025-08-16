@@ -566,6 +566,10 @@ img {
     border-bottom: 1px solid var(--dividers);
     border-bottom-color: rgba(204, 204, 204, var(--show-hdivider));
   }
+  .header-single {
+    border-bottom: none;
+    height: calc(var(--header-height) - 3lh);
+  }
   /* Hide sidebar text on single pages */
   .sidebar-single {
     display: none;
