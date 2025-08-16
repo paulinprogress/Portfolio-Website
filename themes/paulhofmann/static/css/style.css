@@ -149,6 +149,18 @@ footer > a {
 footer > a.external {
   color: var(--footer);
 }
+.footer-center {
+  position: relative;
+  width: 100%;
+  height: var(--header-height);
+  padding-top: 0;
+  /* Align text to bottom */
+  display: flex;
+  align-items: flex-end;
+  /* Divider */
+  border-top: 1px solid var(--dividers);
+  border-top-color: rgba(204, 204, 204, var(--show-hdivider));
+}
 
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
