@@ -25,7 +25,7 @@
   --col-width-left: 25%; /* 25% */
   --col-width-center: 45%; /* 45% | 38% */
   --col-width-center-transition: 55%; /* When transitioning to mobile layout (before it gets full-width) */
-  --col-width-right: 20%; /* 30% */
+  --col-width-right: 30%; /* 30% */
   --col-spacing: 1.5rem;
   --show-vdivider: 1; /* Divider between left and center column; show/hide */
   --show-hdivider: 1; /* Divider(s) under header; show/hide */

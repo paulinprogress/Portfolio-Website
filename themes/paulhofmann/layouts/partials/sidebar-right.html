@@ -3,25 +3,26 @@
 
   {{ partial "headers/header-right.html" . }}
 
+  {{ with site.GetPage "sidebar-right" }}
+      <div>{{ partial "content-parsed.html" . }}</div>
+  {{ end }}
+
+  <!--
   {{ if .Content }}
   
-    <!-- Show "recent" listing on home page -->
     {{ if .IsHome }}
       {{ partial "listings/recent.html" . }}
     
     {{ else if not .IsSection }}
 
-      <!-- Show "toc" listing for portfolio & posts -->
       {{ if or (eq $section "projects") (eq $section "posts") }}
         {{ partial "listings/toc.html" . }}
 
-        <!-- Also show "backlinks" listing for posts -->
         {{ if eq $section "posts" }}
           <div class="listings-divider"></div>
           {{ partial "listings/backlinks.html" . }}
         {{ end }}
 
-      <!-- Show only "backlinks" listing for notes -->
       {{ else if eq $section "notes" }}
         {{ partial "listings/backlinks.html" . }}
       {{ end }}
@@ -31,4 +32,5 @@
     {{ end }}
 
   {{ end }}
+  -->
 </aside>
