@@ -1,14 +1,12 @@
-{{ $class := "col left" }}
-{{ if not .IsHome }}
-  {{ $class = "col left mobile-hidden" }}
-{{ end }}
+{{- $single := not (or .IsHome .IsSection) -}}
+{{- $class := cond $single "sidebar-single" "sidebar-home" -}}
 
-<aside class="{{ $class }}">
+<aside class="col left">
 
   {{ partial "headers/header-left.html" }}
   
   {{ with site.GetPage "sidebar-left" }}
-      <div>{{ partial "content-parsed.html" . }}</div>
+      <div class="{{$class}}">{{ partial "content-parsed.html" . }}</div>
   {{ end }}
 
   {{ partial "footer.html" }}

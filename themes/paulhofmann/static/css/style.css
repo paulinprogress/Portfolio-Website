@@ -20,6 +20,7 @@
   --indentation: 6ch; /* For lists, blockquotes, etc. */
   /* Layout options */
   --header-height: 5rem;
+  --header-height-mobile: 4rem;
   --col-width-left: 25%; /* 25% */
   --col-width-center: 45%; /* 45% | 38% */
   --col-width-center-transition: 55%; /* When transitioning to mobile layout (before it gets full-width) */
@@ -532,13 +533,39 @@ img {
     position: relative;
     top: 0;
     border-right: none;
-    margin-bottom: 1lh;
   }
   header {
-    height: 4rem;
+    /* Less height */
+    height: auto;
+    margin-bottom: 2lh;
+    /* Remove divider */
+    border-bottom: none;
   }
-  /* Hide */
-  .mobile-hidden {
+  /* Hide "center" header text on home ("PROJECTS")  */
+  .header-home > div {
+    display: none;
+  }
+  /* But use it to add back divider here */
+  .header-home {
+    height: 0;
+    margin-top: 1lh;
+    margin-bottom: 2lh;
+    border-bottom: 1px solid var(--dividers);
+    border-bottom-color: rgba(204, 204, 204, var(--show-hdivider));
+  }
+  /* Hide sidebar text on single pages */
+  .sidebar-single {
+    display: none;
+  }
+  /* And add divider again */
+  .header-single {
+    border-bottom: 1px solid var(--dividers);
+    border-bottom-color: rgba(204, 204, 204, var(--show-hdivider));
+    padding-bottom: 2lh;
+    margin-bottom: 2lh;
+  }
+  /* Hide footer */
+  footer {
     display: none;
   }
 }
