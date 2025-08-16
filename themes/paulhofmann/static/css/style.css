@@ -21,6 +21,7 @@
   /* Layout options */
   --header-height: 5rem;
   --header-height-mobile: 4rem;
+  --header-spacing-mobile: 2lh;
   --col-width-left: 25%; /* 25% */
   --col-width-center: 45%; /* 45% | 38% */
   --col-width-center-transition: 55%; /* When transitioning to mobile layout (before it gets full-width) */
@@ -537,7 +538,7 @@ img {
   header {
     /* Less height */
     height: auto;
-    margin-bottom: 2lh;
+    margin-bottom: var(--header-spacing-mobile);
     /* Remove divider */
     border-bottom: none;
   }
@@ -548,8 +549,8 @@ img {
   /* But use it to add back divider here */
   .header-home {
     height: 0;
-    margin-top: 1lh;
-    margin-bottom: 2lh;
+    margin-top: calc(var(--header-spacing-mobile) - 1lh);
+    margin-bottom: var(--header-spacing-mobile);
     border-bottom: 1px solid var(--dividers);
     border-bottom-color: rgba(204, 204, 204, var(--show-hdivider));
   }
@@ -561,8 +562,8 @@ img {
   .header-single {
     border-bottom: 1px solid var(--dividers);
     border-bottom-color: rgba(204, 204, 204, var(--show-hdivider));
-    padding-bottom: 2lh;
-    margin-bottom: 2lh;
+    padding-bottom: var(--header-spacing-mobile);
+    margin-bottom: var(--header-spacing-mobile);
   }
   /* Hide footer */
   footer {
