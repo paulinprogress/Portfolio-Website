@@ -152,7 +152,7 @@ footer > a.external {
 .footer-center {
   position: relative;
   width: 100%;
-  height: var(--header-height);
+  height: calc(var(--header-height) + 1lh);
   padding-top: 0;
   /* Align text to bottom */
   display: flex;
