@@ -1,4 +1,4 @@
-{{- $section := .section | default "portfolio" -}}
+{{- $section := .section | default "projects" -}}
 {{- $groupBy := .groupBy | default "year" -}}
 
 {{- $pages := where .Site.RegularPages "Section" $section -}}

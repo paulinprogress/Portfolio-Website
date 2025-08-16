@@ -30,7 +30,7 @@ SOURCES = [
         # PORTFOLIO
         "publish": True,
         "source_dir": OBSIDIAN_ROOT / "projects" / "portfolio",
-        "target_dir": CONTENT_DIR / "portfolio",
+        "target_dir": CONTENT_DIR / "projects",
         "include_subdirs": True,
     },
     {

@@ -1,7 +1,7 @@
 <aside class="col right">
   {{ $section := .Section }}
 
-  {{ partial "header-right.html" . }}
+  {{ partial "headers/header-right.html" . }}
 
   {{ if .Content }}
   
@@ -12,7 +12,7 @@
     {{ else if not .IsSection }}
 
       <!-- Show "toc" listing for portfolio & posts -->
-      {{ if or (eq $section "portfolio") (eq $section "posts") }}
+      {{ if or (eq $section "projects") (eq $section "posts") }}
         {{ partial "listings/toc.html" . }}
 
         <!-- Also show "backlinks" listing for posts -->

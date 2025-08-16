@@ -2,14 +2,14 @@
 {{ $type := .Get "type" }}
 
 <div class="portfolio-grid">
-  {{ $pages := where site.RegularPages "Section" "portfolio" }}
+  {{ $pages := where site.RegularPages "Section" "projects" }}
 
   {{ if $type }}
     {{ $pages = where $pages "Params.project-type" "intersect" (slice $type) }}
   {{ end }}
 
   {{ range first $limit $pages }}
-    {{ if eq .Section "portfolio" }}
+    {{ if eq .Section "projects" }}
       <div class="portfolio-item">
         <a href="{{ .RelPermalink }}">
           <div class="thumb">

@@ -1,7 +1,7 @@
 {{ define "main" }}
 <section class="col center">
 
-  {{ partial "header-single.html" . }}
+  {{ partial "headers/header-single.html" . }}
 
   <article>
     {{ if .Content }}
@@ -10,5 +10,6 @@
       📌 This page is being worked on...
     {{ end }}
   </article>
+
 </section>
 {{ end }}

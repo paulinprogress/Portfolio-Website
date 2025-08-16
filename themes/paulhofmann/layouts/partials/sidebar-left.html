@@ -5,9 +5,9 @@
 
 <aside class="{{ $class }}">
 
-  {{ partial "header-left.html" }}
+  {{ partial "headers/header-left.html" }}
   
-  {{ with site.GetPage "sidebar" }}
+  {{ with site.GetPage "sidebar-left" }}
       <div>{{ partial "content-parsed.html" . }}</div>
   {{ end }}
 

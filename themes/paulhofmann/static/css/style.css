@@ -73,22 +73,12 @@ header {
   flex-direction: column;
   height: var(--header-height);
   margin-bottom: 1lh;
-}
-/*
-.header-left {}
-.header-list {}
-*/
-.header-single {
-  margin-bottom: 0;
+  /* Divider */
+  border-bottom: 1px solid var(--dividers);
+  border-bottom-color: rgba(204, 204, 204, var(--show-hdivider));
 }
 .header-single > div {
   flex-direction: row;
-}
-.header-divider {
-  border-bottom: 1px solid var(--dividers);
-  border-bottom-color: rgba(204, 204, 204, var(--show-hdivider));
-  height: 100%;
-  width: 100%;
 }
 
 /* The three main columns */
@@ -270,7 +260,7 @@ h1.solo-heading {
 
 /* Paragraphs */
 p {
-  margin-top: 1lh; /* One line above */
+  /*margin-top: 1lh;  One line above */
   margin-bottom: 1lh; /* One line below */
   text-indent: 0; /* No indent on first line */
 }
