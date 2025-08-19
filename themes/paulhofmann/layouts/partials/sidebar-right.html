@@ -1,34 +1,38 @@
 <aside class="col right">
   {{ $section := .Section }}
 
-  {{ partial "headers/header-right.html" . }}
+  {{ partial "headers/header-right.html" }}
 
+  <!--
   {{ with site.GetPage "sidebar-right" }}
       <div>{{ partial "content-parsed.html" . }}</div>
   {{ end }}
+  -->
+
+  {{ partial "misc/grouped-index.html" (dict "section" "projects" "groupBy" "year" "Site" .Site) }}
 
   <!--
   {{ if .Content }}
   
     {{ if .IsHome }}
-      {{ partial "listings/recent.html" . }}
+      {{ partial "misc/listing-recent.html" . }}
     
     {{ else if not .IsSection }}
 
       {{ if or (eq $section "projects") (eq $section "posts") }}
-        {{ partial "listings/toc.html" . }}
+        {{ partial "misc/listing-toc.html" . }}
 
         {{ if eq $section "posts" }}
           <div class="listings-divider"></div>
-          {{ partial "listings/backlinks.html" . }}
+          {{ partial "misc/listing-backlinks.html" . }}
         {{ end }}
 
       {{ else if eq $section "notes" }}
-        {{ partial "listings/backlinks.html" . }}
+        {{ partial "misc/listing-backlinks.html" . }}
       {{ end }}
 
     {{ else }}
-      {{ partial "groups/grouped-index.html" (dict "section" .Section "groupBy" "year" "Site" .Site) }}
+      {{ partial "misc/grouped-index.html" (dict "section" .Section "groupBy" "year" "Site" .Site) }}
     {{ end }}
 
   {{ end }}

@@ -23,8 +23,8 @@
           <img src="{{ .Params.image }}" alt="{{ .Title }}">
           {{ if eq $twocol "true" }}
               <div class="twocol">
-                  <p>{{ .Title }}</p>
-                  <p>{{ $description | markdownify }}</p>
+                  <p class="twocol-left">{{ .Title }}</p>
+                  <p class="twocol-right">{{ $description | markdownify }}</p>
               </div>
           {{ else }}
               <p>{{ $description | markdownify }}</p>

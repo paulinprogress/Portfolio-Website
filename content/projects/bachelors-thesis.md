@@ -12,6 +12,8 @@ publish: true
 title: Bachelor's thesis
 year: '2024'
 ---
+# Bachelor's thesis
+
 The title for my bachelor’s thesis has quite an intimidating title:
 
 >“[[Contrastive Learning]] with [[Stable Diffusion]]-based [[Datenaugmentation|Data Augmentation]] – Improvement of [[Bildklassifikation|Image Classification]] with [[Synthetische Daten|Synthetic Data]]”

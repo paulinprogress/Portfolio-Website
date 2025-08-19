@@ -2,7 +2,7 @@
 ---
 {{< feature project="Bachelor's thesis">}}
 
-{{< feature project="Bachelor's thesis">}}
+{{< feature project="Last Block Standing">}}
 
 # Game Jams
 

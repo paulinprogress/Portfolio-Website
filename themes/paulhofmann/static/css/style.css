@@ -82,6 +82,10 @@ header {
 .header-single > div {
   flex-direction: row;
 }
+.header-single {
+  border-bottom: none;
+  height: calc(var(--header-height) - 3lh);
+}
 
 /* The three main columns */
 .col {
@@ -130,7 +134,7 @@ header {
 }
 
 article {
-  padding-bottom: 6rem; /* Space below articles */
+  padding-bottom: 3lh; /* Space below articles */
 }
 
 /* Footer */
@@ -173,11 +177,12 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Reset counters at each heading level */
 h1 {
-  text-align: left;
-  text-decoration: none;
+  text-align: center; /* alt: center */
+  /* Underline */
+  text-decoration: none; /* Remove default underline */
   border-bottom: 1px solid var(--dividers);
   border-bottom-color: rgb(204, 204, 204);
-  background-color: var(--bg);
+  background-color: var(--bg); /* Only important when sticky */
   height: 2lh; /* More space for underline */
   margin-bottom: 1lh;
 }
@@ -304,6 +309,24 @@ li ul, li ol { /* Nested lists */
   margin-bottom: 0;
 }
 
+/* Two-column layouts */
+.twocol {
+  display: flex;
+  justify-content: left;
+  margin-top: 0lh;
+  margin-bottom: 1lh;
+}
+.twocol > p {
+  margin: 0; /* Remove default margin */
+}
+.twocol > p > img {
+  margin: 0; /* Remove default margin */
+}
+.twocol-left {
+  width: 50%;
+  padding-right: 4ch;
+}
+
 /* Highlighted text */
 mark {
   background-color: var(--highlight-bg);
@@ -326,6 +349,7 @@ a {
   text-decoration: underline;
   text-decoration-color: var(--link-underline);
   text-decoration-thickness: 1px;
+  /*white-space: nowrap;  Prevent line breaks in links */
 }
 a:hover {
   color: var(--link-hover);
@@ -363,6 +387,9 @@ img {
   margin-left: auto;
   margin-right: auto;
 }
+article > p:first-of-type > img {
+  margin-top: 0; /* No top margin for first image in article */
+}
 
 /* Portfolio */
 .feature {
@@ -375,7 +402,7 @@ img {
   color: var(--link);
 }
 .feature a:hover {
-  color: var(--link-hover);
+  color: var(--link-hover); 
   text-decoration: underline;
   text-decoration-color: var(--link-hover-underline);
 }
@@ -415,7 +442,7 @@ img {
 .thumb img {
   margin: 0; /* Remove default margin */
   width: 100%;
-  height: 17lh;;
+  height: 18lh;;
   object-fit: cover; /* Cover the entire area */
   object-position: center; /* Center the image */
 }
@@ -423,10 +450,7 @@ img {
   margin-top: 1lh;
 }
 
-/* Grouped index (in sidebar in right column) */
-/*.grouped-index {
-  padding-top: 1lh;
-}*/
+/* Grouped index */
 .grouped-index details summary {
   list-style: none;
   cursor: pointer;
@@ -458,6 +482,9 @@ img {
 .grouped-index ul {
   list-style: none; /* No bullets */
 }
+.grouped-index > .twocol > .twocol-left {
+  width: 30%;
+}
 
 /* Listings (as sidebar in right column) */
 .listings-items {
@@ -478,27 +505,6 @@ img {
 }
 .toc ul li ul {
   margin-left: 4ch;
-}
-
-/* Two-column layout for center page */
-.twocol {
-  display: flex;
-  justify-content: space-between;
-  gap: 3ch;
-  margin-top: 1lh;
-  margin-bottom: 1lh;
-}
-.twocol > p {
-  width: 50%;
-  margin: 0; /* Remove default margin */
-}
-.twocol > p > img {
-  margin: 0; /* Remove default margin */
-}
-
-/* Utilities */
-.spacer {
-  height: 3em;
 }
 
 
@@ -547,6 +553,8 @@ img {
     top: 0;
     border-right: none;
   }
+
+  /* Header default */
   header {
     /* Less height */
     height: auto;
@@ -554,35 +562,55 @@ img {
     /* Remove divider */
     border-bottom: none;
   }
-  /* Hide "center" header text on home ("PROJECTS")  */
-  .header-home > div {
-    display: none;
+  .header-left {
+    width: fit-content;
   }
-  /* But use it to add back divider here */
+
+  /* Home */
   .header-home {
-    height: 0;
-    margin-top: calc(var(--header-spacing-mobile) - 1lh);
-    margin-bottom: var(--header-spacing-mobile);
+    text-align: right; /* For "PROJECTS" */
+    margin-top: 1lh;
+    margin-bottom: 1lh;
+    /* Sticky behavior? 
+    position: sticky;
+    top: 0;
+    background-color: var(--bg);*/
+  }
+  .sidebar-home {
+    padding-bottom: calc(var(--header-spacing-mobile) - 1lh);
+    /* Add divider */
     border-bottom: 1px solid var(--dividers);
     border-bottom-color: rgba(204, 204, 204, var(--show-hdivider));
   }
-  .header-single {
-    border-bottom: none;
-    height: calc(var(--header-height) - 3lh);
-  }
-  /* Hide sidebar text on single pages */
+
+  /* Single */
   .sidebar-single {
-    display: none;
+    display: none; /* Hide sidebar text */
   }
-  /* And add divider again */
   .header-single {
-    border-bottom: 1px solid var(--dividers);
-    border-bottom-color: rgba(204, 204, 204, var(--show-hdivider));
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 1rem;
+    margin-right: 1rem;
+    /*height: calc(var(--header-height) - 3lh);
     padding-bottom: var(--header-spacing-mobile);
     margin-bottom: var(--header-spacing-mobile);
+    border-bottom: 1px solid var(--dividers);
+    border-bottom-color: rgba(204, 204, 204, var(--show-hdivider));*/
   }
+  h1 {
+    text-align: left;
+    margin-top: 1lh;
+  }  
+
   /* Hide footer */
   footer {
     display: none;
+  }
+
+  /* Two-column layout */
+  .twocol-left {
+    width: 40%;
   }
 }

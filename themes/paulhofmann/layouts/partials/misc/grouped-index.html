@@ -20,15 +20,25 @@
 {{ $groups = $reversed }}
 
 <div class="grouped-index">
-  <h1 class="solo-heading">All projects</h1>
+  <!--<h1 class="solo-heading">All projects</h1>-->
   {{- range $group := $groups }}
-    <details>
+    <!--<details>
       <summary>{{ $group }}</summary>
       <ul>
         {{- range where $pages (printf "Params.%s" $groupBy) $group }}
           <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
         {{- end }}
       </ul>
-    </details>
+    </details>-->
+    <div class="twocol">
+      <p class="twocol-left">
+        {{ $group }}
+      </p>
+      <p class="twocol-right">
+        {{- range where $pages (printf "Params.%s" $groupBy) $group }}
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a><br>
+        {{- end }}
+      </p>
+    </div>
   {{- end }}
 </div>

@@ -2,10 +2,10 @@
 {{ $right := .Get "right" | default "Right Column" }}
 
 <div class="twocol">
-  <p>
+  <p class="twocol-left">
     {{ .Get "left" | markdownify }}
   </p>
-  <p>
+  <p class="twocol-right">
     {{ .Get "right" | markdownify }}
   </p>
 </div>
