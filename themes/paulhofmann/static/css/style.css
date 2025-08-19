@@ -33,7 +33,8 @@
   --img-radius: 4px;
 }
 
-/* Reset & Base Styles */
+/* ------------------------------------------------------------------------------------------------------------------------------------ */
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -46,11 +47,11 @@ html, body {
   scrollbar-gutter: stable; /* Prevents layout shift when scrollbar appears */
 }
 body {
-  /* Colors */
+  /* Background */
   background-color: var(--bg);
-  /* Font options */
+  /* Text */
   font-family: 'Reddit Mono', monospace;
-  /* 'Geist Mono', monospace;
+  /*
     Mono:
       Reddit, Geist, Roboto, IBM Plex, Noto Sans, JetBrains, Plaid S
     Sans:
@@ -61,30 +62,11 @@ body {
   line-height: var(--line-height);
 }
 
-/* Main layout */
 main {
-  flex: 1; /* Fills remaining space */
+  flex: 1;
 }
 .page {
   display: flex;
-}
-
-/* Header & Navigation */
-header {
-  display: flex;
-  flex-direction: column;
-  height: var(--header-height);
-  margin-bottom: 1lh;
-  /* Divider */
-  border-bottom: 1px solid var(--dividers);
-  border-bottom-color: rgba(204, 204, 204, var(--show-hdivider));
-}
-.header-single > div {
-  flex-direction: row;
-}
-.header-single {
-  border-bottom: none;
-  height: calc(var(--header-height) - 3lh);
 }
 
 /* The three main columns */
@@ -133,8 +115,24 @@ header {
   border-left-color: rgba(204, 204, 204, var(--show-vdivider));
 }
 
-article {
-  padding-bottom: 3lh; /* Space below articles */
+/* ------------------------------------------------------------------------------------------------------------------------------------ */
+
+/* Header */
+header {
+  display: flex;
+  flex-direction: column;
+  height: var(--header-height);
+  margin-bottom: 1lh;
+  /* Divider */
+  border-bottom: 1px solid var(--dividers);
+  border-bottom-color: rgba(204, 204, 204, var(--show-hdivider));
+}
+.header-single > div {
+  flex-direction: row;
+}
+.header-single {
+  border-bottom: none;
+  height: calc(var(--header-height) - 3lh);
 }
 
 /* Footer */
@@ -166,6 +164,8 @@ footer > a.external {
   border-top-color: rgba(204, 204, 204, var(--show-hdivider));
 }
 
+/* ------------------------------------------------------------------------------------------------------------------------------------ */
+
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
   font-size: var(--font-size);
@@ -177,7 +177,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Reset counters at each heading level */
 h1 {
-  text-align: center; /* alt: center */
+  text-align: left; /* alt: center */
   /* Underline */
   text-decoration: none; /* Remove default underline */
   border-bottom: 1px solid var(--dividers);
@@ -258,23 +258,6 @@ h6:hover .heading-anchor {
 h1.solo-heading {
   text-align: left;
   margin-bottom: 1lh;
-}
-
-/* Frontmatter */
-.frontmatter {
-  color: var(--link-faded);
-  /*margin-top: 1lh;*/
-  margin-bottom: 1lh;
-}
-.frontmatter-row {
-  display: flex;
-}
-.frontmatter-label {
-  min-width: 10ch;
-  text-align: left;
-}
-.frontmatter-value {
-  flex: 1;
 }
 
 /* Paragraphs */
@@ -387,11 +370,34 @@ img {
   margin-left: auto;
   margin-right: auto;
 }
+
+/* ------------------------------------------------------------------------------------------------------------------------------------ */
+
+/* Articles; Main page content */
+article {
+  padding-bottom: 3lh; /* Space below articles */
+}
 article > p:first-of-type > img {
   margin-top: 0; /* No top margin for first image in article */
 }
 
-/* Portfolio */
+/* Frontmatter */
+.frontmatter {
+  color: var(--link-faded);
+  margin-bottom: 1lh;
+}
+.frontmatter-row {
+  display: flex;
+}
+.frontmatter-label {
+  min-width: 10ch;
+  text-align: left;
+}
+.frontmatter-value {
+  flex: 1;
+}
+
+/* Portfolio feature */
 .feature {
   padding-top: 0;
   margin-top: 0;
@@ -413,6 +419,7 @@ article > p:first-of-type > img {
   margin-top: 1lh;
 }
 
+/* Portfolio grid */
 .portfolio-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -490,8 +497,6 @@ article > p:first-of-type > img {
 .listings-items {
   display: flex;
   flex-direction: column;
-  /*list-style: none;
-  gap: 0.3lh;*/
   padding-right: 3rem;
 }
 .listings-divider {
@@ -507,8 +512,7 @@ article > p:first-of-type > img {
   margin-left: 4ch;
 }
 
-
-/* Mobile responsive layouts */
+/* ------------------------------------------------------------------------------------------------------------------------------------ */
 
 @media (max-width: 1600px) {
   /* Disable right column/sidebar entirely */
