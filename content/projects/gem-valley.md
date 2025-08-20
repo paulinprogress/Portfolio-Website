@@ -30,8 +30,8 @@ Key Learnings:
 - Audio & music implementation, including randomized footstep sounds
 - Menus & other basic UI elements
 
-![[(2025, NFTS) Gem Valley (Intro).gif]]
+![[(2025, NFTS) Gem Valley (Intro).webm]]
 
-![[(2025, NFTS) Gem Valley (Demo).gif]]
+![[(2025, NFTS) Gem Valley (Demo).webm]]
 
 [Play on Itch.io](https://paultoast.itch.io/gem-valley)

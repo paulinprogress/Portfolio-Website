@@ -2,7 +2,10 @@ import frontmatter
 import re
 from pathlib import Path
 import shutil
+from PIL import Image
 from datetime import datetime
+import fnmatch
+import unicodedata
 
 """
 This script imports markdown files from an Obsidian vault into a Hugo-based portfolio website.
@@ -50,59 +53,14 @@ SOURCES = [
 ]
 
 # Define frontmatter properties/keys that should be imported; rest will be removed
-ALLOWED_KEYS = {"anchors", "created", "last updated", "year", "published",
+ALLOWED_KEYS = {"anchors", "created", "last updated", "year", "published", "date",
                 "publish", "title", "description", "image", "feature-image", "thumb-image", "project-type"}
 
-# Define frontmatter properties that are image links
-IMAGE_KEYS = {"image", "feature-image", "thumb-image"}
-
-# Define image link pattern for collecting attached image files
-IMAGE_LINK_PATTERN = re.compile(r'!\[\[(.+?\.(?:png|jpg|jpeg|gif|webp|svg))\]\]', re.IGNORECASE)
+# Define media link patterns for handling attached media files
+IMAGE_LINK_PATTERN = re.compile(r'\[\[(.+?\.(?:webp|jpg|jpeg|png|svg))\]\]', re.IGNORECASE)
+VIDEO_LINK_PATTERN = re.compile(r'\[\[(.+?\.(?:webm|mp4|gif))\]\]', re.IGNORECASE)
 
 
-
-def collect_md_files(source_dir: Path):
-    """Collect all markdown files recursively from given source directory."""
-    return list(source_dir.rglob("*.md"))
-
-def clean_comments(text: str) -> str:
-    """Remove all %% comments, multiline or inline."""
-    return re.sub(r"%%.*?%%", "", text, flags=re.DOTALL)
-
-def filter_frontmatter(post: frontmatter.Post) -> frontmatter.Post:
-    """Keep only allowed frontmatter keys."""
-    keys_to_remove = set(post.metadata.keys()) - ALLOWED_KEYS
-    for key in keys_to_remove:
-        del post.metadata[key]
-    return post
-
-def ensure_frontmatter(post: frontmatter.Post, filepath: Path) -> frontmatter.Post:
-    """Ensure minimum required frontmatter fields exist."""
-    if "title" not in post.metadata:
-        post.metadata["title"] = filepath.stem
-    #if "date" not in post.metadata:
-    #    post.metadata["date"] = datetime.fromtimestamp(filepath.stat().st_mtime).isoformat()
-    if "publish" not in post.metadata:
-        post.metadata["publish"] = False
-    
-    # Convert image links before hugo parsing
-    for prop in IMAGE_KEYS:
-        if prop in post.metadata:
-            # Get the raw value
-            raw = post.metadata[prop]
-
-            # Extract filename from [[...]]
-            match = re.match(r"\[\[(.+?)\]\]", str(raw))
-            if match:
-                filename = match.group(1)
-            else:
-                filename = str(raw)  # If no brackets
-            
-            # Update path if not already absolute
-            if not filename.startswith("/images/attachments/"):
-                post.metadata[prop] = f"/images/attachments/{filename}"
-
-    return post
 
 def clean_target_dir(target_dir: Path, preserve_patterns):
     """
@@ -115,7 +73,7 @@ def clean_target_dir(target_dir: Path, preserve_patterns):
         rel_path = item.relative_to(target_dir).as_posix()
 
         # If path is protected through preserve_patterns
-        if any(Path(rel_path).match(pat) for pat in preserve_patterns):
+        if any(fnmatch.fnmatch(rel_path, pattern) for pattern in preserve_patterns):
             continue
 
         # Delete
@@ -123,6 +81,8 @@ def clean_target_dir(target_dir: Path, preserve_patterns):
             item.unlink()
         elif item.is_dir():
             shutil.rmtree(item, ignore_errors=True)
+
+
 
 def clean_attachments_dir():
     """
@@ -134,32 +94,143 @@ def clean_attachments_dir():
         elif item.is_dir():
             shutil.rmtree(item)
 
-def collect_image_filenames(frontmatter, content):
-    """Extract all image filenames from content and frontmatter 'image'."""
+
+
+def collect_md_files(source_dir: Path):
+    """Collect all markdown files recursively from given source directory."""
+    return list(source_dir.rglob("*.md"))
+
+
+
+def collect_attachment_filenames(frontmatter, content):
+    """Extract all image filenames from content and frontmatter."""
     filenames = set()
 
-    # 1. From content: ![[filename.jpg]]
+    # From content
     wikilink_images = re.findall(r'!\[\[([^\]]+)\]\]', content)
     filenames.update(wikilink_images)
 
-    # 2. From frontmatter, fox ex. image: '[[filename.jpg]]'
-    for prop in IMAGE_KEYS:
-        frontmatter_image = frontmatter.get(prop, "")
-        if isinstance(frontmatter_image, str):
-            match = re.match(r"\[\[(.+?)\]\]", frontmatter_image)
-            if match:
-                filenames.add(match.group(1))
+    # From frontmatter
+    for property in frontmatter:
+        raw = str(frontmatter[property] or "")
+        image_match = re.match(IMAGE_LINK_PATTERN, raw)
+        video_match = re.match(VIDEO_LINK_PATTERN, raw)
+        if image_match:
+            filenames.add(image_match.group(1))
+        elif video_match:
+            filenames.add(video_match.group(1))      
 
     return filenames
 
-def find_and_copy_images(filenames):
+
+
+def find_and_copy_attachments(filenames):
+    """Find and copy images from source to target dir."""
     for filename in filenames:
         # Recursively look through attachments folder to find file
-        for path in ATTACHMENTS_SOURCE_DIR.rglob(filename):
-            target_path = ATTACHMENTS_TARGET_DIR / filename
-            shutil.copy2(path, target_path)
-            print(f"→ Image copied: {filename}")
+        found = None
+        for source_path in ATTACHMENTS_SOURCE_DIR.rglob("*"):
+            if source_path.name.lower() == filename.lower():
+                found = source_path
+                break
+
+        if not found:
+            print(f"⚠ File not found: {filename}")
+            continue
+    
+        extension = source_path.suffix.lower()
+
+        # --- Images ---
+        if extension in [".jpg", ".jpeg", ".png", ".svg", ".webp"]:
+            target_path = ATTACHMENTS_TARGET_DIR / f"{source_path.stem}.webp"
+
+            if extension != ".webp":
+                try:
+                    img = Image.open(source_path)
+                    img.save(target_path, "webp")
+                    print(f"→ Image converted & imported: {source_path.name} → {target_path.name}")
+                except Exception as e:
+                    print(f"Error converting image {source_path}: {e}")
+            else:
+                shutil.copy2(source_path, target_path)
+                print(f"→ Image imported: {filename}")
+
+        # --- Videos ---
+        elif extension in [".mp4", ".gif", ".webm"]:
+            target_path = ATTACHMENTS_TARGET_DIR / f"{source_path.stem}.webm"
+
+            if extension == ".webm":
+                shutil.copy2(source_path, target_path)
+                print(f"→ Video imported: {filename}")
+            else:
+                # TODO: needs ffmpeg for real conversion
+                print(f"⚠ Skipping video conversion (requires ffmpeg): {source_path.name}")
+
             break  # Only copy first match
+
+
+
+def prepare_content(text: str) -> str:
+    """Prepare & clean up content."""
+    # Remove all %% comments, multiline or inline
+    text = re.sub(r"%%.*?%%", "", text, flags=re.DOTALL)
+
+    # Convert attachment links (ensure WebP/WebM)
+    def replace_image(match):
+        filename = Path(match.group(1))
+        new_filename = f"{filename.stem}.webp"
+        return f"[[{new_filename}]]"
+
+    def replace_video(match):
+        filename = Path(match.group(1))
+        new_filename = f"{filename.stem}.webm"
+        return f"[[{new_filename}]]"
+
+    text = re.sub(IMAGE_LINK_PATTERN, replace_image, text)
+    text = re.sub(VIDEO_LINK_PATTERN, replace_video, text)
+
+    return text
+
+
+
+def prepare_frontmatter(post: frontmatter.Post, filepath: Path) -> frontmatter.Post:
+    """Prepare & clean up frontmatter."""
+    # Keep only allowed frontmatter keys
+    keys_to_remove = set(post.metadata.keys()) - ALLOWED_KEYS
+    for key in keys_to_remove:
+        del post.metadata[key]
+    
+    # Ensure minimum required frontmatter fields exist
+    if "title" not in post.metadata:
+        post.metadata["title"] = filepath.stem
+    if "publish" not in post.metadata:
+        post.metadata["publish"] = False
+    
+    # Convert attachment links
+    relative_attach_dir = ATTACHMENTS_TARGET_DIR.relative_to(WEBSITE_ROOT / "static")
+
+    for property in list(post.metadata.keys()):
+        # Get the raw value
+        raw = post.metadata[property]
+        raw_str = str(raw)
+
+        image_match = re.match(IMAGE_LINK_PATTERN, raw_str)
+        video_match = re.match(VIDEO_LINK_PATTERN, raw_str)
+
+        filename = None
+        if image_match:
+            f = Path(image_match.group(1))
+            filename = f"{f.stem}.webp"
+        elif video_match:
+            f = Path(video_match.group(1))
+            filename = f"{f.stem}.webm"
+
+        if filename:
+            if not raw_str.startswith(str(relative_attach_dir)):
+                post.metadata[property] = "/" + str((relative_attach_dir / filename).as_posix())
+
+
+    return post
 
 
 
@@ -181,23 +252,29 @@ def export_notes():
 
         if group["publish"]:
             for file in collect_md_files(src):
-                rel_path = file.relative_to(src)
+
                 post = frontmatter.load(file)
-
-                # Remove comments
-                post.content = clean_comments(post.content)
-                # Copy image filenames (before potentially modifying frontmatter)
-                image_filenames = collect_image_filenames(post.metadata, post.content)
-                # Filter & prepare frontmatter
-                post = filter_frontmatter(post)
-                post = ensure_frontmatter(post, file)
-
-                # Gerenrate new file names from "title" property
-                safe_title = post.metadata["title"].strip().lower().replace(" ", "-")
-                safe_title = re.sub(r"[^\w\-]", "", safe_title)  # Nur Buchstaben, Zahlen, - und _
-                target_file = dst_root / f"{safe_title}.md"
-
+                
                 if post.metadata.get("publish", False):
+                    # Copy attached media files
+                    attachment_filenames = collect_attachment_filenames(post.metadata, post.content)
+                    find_and_copy_attachments(attachment_filenames)
+
+                    # Remove comments & convert links
+                    post.content = prepare_content(post.content)
+                    # Filter properties & convert links
+                    post = prepare_frontmatter(post, file)
+
+                    # Gerenrate new file names from "title" property
+                    safe_title = post.metadata["title"].strip().lower()
+                    safe_title = unicodedata.normalize("NFKD", safe_title)
+                    safe_title = safe_title.replace(" ", "-")
+                    safe_title = re.sub(r"[^\w\-]", "", safe_title)
+                    target_file = dst_root / f"{safe_title}.md"
+
+                    # Set target file path based on whether subdirectories are included
+                    rel_path = file.relative_to(src)
+
                     if group["include_subdirs"]:
                         rel_path = file.relative_to(src)
                         target_file = dst_root / rel_path.parent / f"{safe_title}.md"
@@ -205,9 +282,6 @@ def export_notes():
                         target_file = dst_root / f"{safe_title}.md"
 
                     target_file.parent.mkdir(parents=True, exist_ok=True)
-
-                    # Copy all attached images
-                    find_and_copy_images(image_filenames)
 
                     with open(target_file, "w", encoding="utf-8") as f:
                         f.write(frontmatter.dumps(post))

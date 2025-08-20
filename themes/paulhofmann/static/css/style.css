@@ -352,6 +352,19 @@ img {
   margin-left: auto;
   margin-right: auto;
 }
+/* Videos */
+video {
+  border-radius: var(--img-radius);
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: 2lh;
+  margin-bottom: 2lh;
+  /* Center */
+  margin-left: auto;
+  margin-right: auto;
+  /* Auto-play like GIF */
+}
 
 /* ------------------------------------------------------------------------------------------------------------------------------------ */
 

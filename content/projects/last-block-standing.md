@@ -6,7 +6,7 @@ anchors:
 - '[[Game Programmierung]]'
 - '[[Prototyping]]'
 - '[[Unity]]'
-description: A bullet hell minigame for PULS GAME JAM, this is a just a second line, whatever
+description: A bullet hell minigame for PULS GAME JAM
 feature-image: /images/attachments/(2025) Last Block Standing (Feature).webp
 project-type:
 - game
@@ -23,6 +23,6 @@ A simple [[bullet hell]] game where you place blocks to shield yourself from inc
 
 Created solo in 48 hours for the [PULS GAME JAM](https://itch.io/jam/puls-game-jam), under the theme *Kaputt*. Given the limited time, I focused on building a simple but escalating challenge, with a core mechanic that encourages quick thinking and spatial strategy.
 
-![[(2025) Last Block Standing (Demo).gif]]
+![[(2025) Last Block Standing (Demo).webm]]
 
 [Play on Itch.io](https://paultoast.itch.io/protect-the-walls)

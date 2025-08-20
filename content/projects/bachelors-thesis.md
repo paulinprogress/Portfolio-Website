@@ -6,7 +6,7 @@ anchors:
 - '[[Synthetische Daten]]'
 - '[[Contrastive Learning]]'
 description: null
-image: /images/attachments/(2024, BA) Flowchart Versuchsaufbau.png
+image: /images/attachments/(2024, BA) Flowchart Versuchsaufbau.webp
 project-type:
 - other
 publish: true
@@ -30,7 +30,7 @@ I made some decent progress, but took away a key learning: It’s *really* hard 
 
 Using the [[Text-to-Image-Personalisierung|text-to-image customization]] framework *[[Perfusion]]*, this was the best I could get:
 
-![[(2024, @IPK) Perfusion - Bestes Ergebnis (Testing, rostig).png]]
+![[(2024, @IPK) Perfusion - Bestes Ergebnis (Testing, rostig).webp]]
 
 Afterwards, it only made sense to write my bachelor’s thesis there too, about the same project. After lots of further research, two topics stood out to me as particularly promising for the given use case:
 
@@ -47,16 +47,16 @@ In short: the _good_ augmentations improved performance, but the _bad_ ones didn
 
 Here are some of the *in-distribution* augmentations:
 
-![[(2024, BA) Vergrößerte Ausschnitte von einigen der In-Distribution-Augmentationen (2).png]]
+![[(2024, BA) Vergrößerte Ausschnitte von einigen der In-Distribution-Augmentationen (2).webp]]
 
-![[(2024, BA) Beispiele der In-Distribution-Augmentationen.png]]
+![[(2024, BA) Beispiele der In-Distribution-Augmentationen.webp]]
 
 Here some of the *out-of-distribution* ones:
 
-![[(2024, BA) Beispiele der Near Out-of-Distribution-Augmentationen (2).png]]
+![[(2024, BA) Beispiele der Near Out-of-Distribution-Augmentationen (2).webp]]
 
 And here some of the bad out-of-distribution ones:
 
-![[(2024, BA) Beispiele für mangelhafte Out-of-Distribution-Augmentationen (2).png]]
+![[(2024, BA) Beispiele für mangelhafte Out-of-Distribution-Augmentationen (2).webp]]
 
 For implementation details, the code is available on [GitHub](https://github.com/paulinprogress/BA-Synthetic-Data).

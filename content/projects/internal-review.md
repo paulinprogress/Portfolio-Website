@@ -5,7 +5,7 @@ anchors:
 - '[[Game Design]]'
 - '[[Game Programmierung]]'
 - '[[Prototyping]]'
-description:
+description: null
 feature-image: /images/attachments/(2025) Internal Review (Feature).webp
 project-type:
 - game

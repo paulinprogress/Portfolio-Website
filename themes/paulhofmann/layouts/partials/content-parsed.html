@@ -2,15 +2,24 @@
 {{- $patternWikilink := `\[\[([^\|\]]+)(\|([^\]]+))?\]\]` -}}
 {{- $patternHighlightedLink := `==\[(.*?)\]\((.*?)\)==` -}} <!-- Highlighted Links -->
 {{- $patternHighlightedText := `==([^=\[][^=]+?)==` -}} <!-- Highlighted Text -->
-{{- $patternImg := `!\[\[([^\]]+?)\]\]` -}}
+{{- $patternImage := `!\[\[(.+?\.(?:webp|jpg|jpeg|png|svg))\]\]` -}}
+{{- $patternVideo := `!\[\[(.+?\.(?:webm|mp4|gif))\]\]` -}}
 
 {{- $out := $content -}}
 
 <!-- Image Wikilinks -->
-{{ range findRE $patternImg $out }}
+{{ range findRE $patternImage $out }}
   {{ $match := . }}
-  {{ $img := replaceRE $patternImg "$1" $match }}
-  {{ $replacement := printf `<img src="/images/attachments/%s"></img>` $img }}
+  {{ $file := replaceRE $patternImage "$1" $match }}
+  {{ $replacement := printf `<img src="/images/attachments/%s" />` $file }}
+  {{ $out = replace $out $match $replacement }}
+{{ end }}
+
+<!-- Video Wikilinks -->
+{{ range findRE $patternVideo $out }}
+  {{ $match := . }}
+  {{ $file := replaceRE $patternVideo "$1" $match }}
+  {{ $replacement := printf `<video autoplay loop muted playsinline><source src="/images/attachments/%s" />` $file }}
   {{ $out = replace $out $match $replacement }}
 {{ end }}
 
