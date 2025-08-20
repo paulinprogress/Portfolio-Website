@@ -6,15 +6,17 @@ anchors:
 - '[[Game Programmierung]]'
 - '[[Prototyping]]'
 - '[[Unity]]'
-description: A bullet hell minigame for PULS GAME JAM
-image: /images/attachments/(2025) Last Block Standing (Title).png
+description: A bullet hell minigame for PULS GAME JAM, this is a just a second line, whatever
+feature-image: /images/attachments/(2025) Last Block Standing (Feature).webp
 project-type:
 - game
 - game-jam
 publish: true
+thumb-image: /images/attachments/(2025) Last Block Standing (Thumb).webp
 title: Last Block Standing
 year: '2025'
 ---
+
 # Last Block Standing
 
 A simple [[bullet hell]] game where you place blocks to shield yourself from incoming projectiles.

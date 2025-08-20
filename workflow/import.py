@@ -51,7 +51,10 @@ SOURCES = [
 
 # Define frontmatter properties/keys that should be imported; rest will be removed
 ALLOWED_KEYS = {"anchors", "created", "last updated", "year", "published",
-                "publish", "title", "description", "image", "project-type"}
+                "publish", "title", "description", "image", "feature-image", "thumb-image", "project-type"}
+
+# Define frontmatter properties that are image links
+IMAGE_KEYS = {"image", "feature-image", "thumb-image"}
 
 # Define image link pattern for collecting attached image files
 IMAGE_LINK_PATTERN = re.compile(r'!\[\[(.+?\.(?:png|jpg|jpeg|gif|webp|svg))\]\]', re.IGNORECASE)
@@ -83,19 +86,21 @@ def ensure_frontmatter(post: frontmatter.Post, filepath: Path) -> frontmatter.Po
         post.metadata["publish"] = False
     
     # Convert image links before hugo parsing
-    if "image" in post.metadata:
-        raw = post.metadata["image"]
-        
-        # Extract filename from [[...]]
-        match = re.match(r"\[\[(.+?)\]\]", raw)
-        if match:
-            filename = match.group(1)
-        else:
-            filename = raw  # If no brackets
-        
-        # Update path if not already absolute
-        if not filename.startswith("/images/attachments/"):
-            post.metadata["image"] = f"/images/attachments/{filename}"
+    for prop in IMAGE_KEYS:
+        if prop in post.metadata:
+            # Get the raw value
+            raw = post.metadata[prop]
+
+            # Extract filename from [[...]]
+            match = re.match(r"\[\[(.+?)\]\]", str(raw))
+            if match:
+                filename = match.group(1)
+            else:
+                filename = str(raw)  # If no brackets
+            
+            # Update path if not already absolute
+            if not filename.startswith("/images/attachments/"):
+                post.metadata[prop] = f"/images/attachments/{filename}"
 
     return post
 
@@ -137,12 +142,13 @@ def collect_image_filenames(frontmatter, content):
     wikilink_images = re.findall(r'!\[\[([^\]]+)\]\]', content)
     filenames.update(wikilink_images)
 
-    # 2. From frontmatter: image: '[[filename.jpg]]'
-    frontmatter_image = frontmatter.get("image", "")
-    if isinstance(frontmatter_image, str):
-        match = re.match(r"\[\[(.+?)\]\]", frontmatter_image)
-        if match:
-            filenames.add(match.group(1))
+    # 2. From frontmatter, fox ex. image: '[[filename.jpg]]'
+    for prop in IMAGE_KEYS:
+        frontmatter_image = frontmatter.get(prop, "")
+        if isinstance(frontmatter_image, str):
+            match = re.match(r"\[\[(.+?)\]\]", frontmatter_image)
+            if match:
+                filenames.add(match.group(1))
 
     return filenames
 

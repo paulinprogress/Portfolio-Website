@@ -1,9 +1,19 @@
 {{ $project := .Get "project"}}
+{{ $title := .Get "title" | default $project }}
 {{ $description := .Get "description" }}
+{{ $image := .Get "image" }}
 {{ $twocol := .Get "twocol" | default "true" }}
 
 {{ $matches := where site.RegularPages "Params.title" $project }}
 {{ $page := index (first 1 $matches) 0 }}
+
+{{ if not $page }}
+  {{ $page = site.GetPage "projects" $project }}
+{{ end }}
+
+{{ if not $page }}
+  {{ $page = site.GetPage "projects" (lower $project) }}
+{{ end }}
 
 {{ if not $page }}
   <em>Didn't find a project with this title.</em>
@@ -17,13 +27,23 @@
   {{ end }}
 {{ end }}
 
+{{ if not $image }}
+  {{ if index $page.Params "feature-image" }}
+    {{ $image = index $page.Params "feature-image" }}
+  {{ else if $page.Params.image }}
+    {{ $image = $page.Params.image }}
+  {{ else }}
+    {{ $image = "/images/test/test.jpg" }}
+  {{ end }}
+{{ end }}
+
 <div class="feature">
     {{ with $page }}
       <a href="{{ .RelPermalink }}">
-          <img src="{{ .Params.image }}" alt="{{ .Title }}">
+          <img src="{{ $image }}" alt="{{ .Title }}">
           {{ if eq $twocol "true" }}
               <div class="twocol">
-                  <p class="twocol-left">{{ .Title }}</p>
+                  <p class="twocol-left">{{ $title | markdownify }}</p>
                   <p class="twocol-right">{{ $description | markdownify }}</p>
               </div>
           {{ else }}

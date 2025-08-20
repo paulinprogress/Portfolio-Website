@@ -1,5 +1,12 @@
-{{ $limit := .Get "limit" | default 6 }}
 {{ $type := .Get "type" }}
+{{ $limit := .Get "limit" | default 6 }}
+{{ $titles := .Get "titles" | default "false" }}
+
+{{ if eq $titles "false" }}
+  {{ $titles = false }}
+{{ else }}
+  {{ $titles = true }}
+{{ end }}
 
 <div class="portfolio-grid">
   {{ $pages := where site.RegularPages "Section" "projects" }}
@@ -10,12 +17,24 @@
 
   {{ range first $limit $pages }}
     {{ if eq .Section "projects" }}
+
+      {{ $image := "" }}
+      {{ if index .Params "thumb-image" }}
+        {{ $image = index .Params "thumb-image" }}
+      {{ else if .Params.image }}
+        {{ $image = .Params.image }}
+      {{ else }}
+        {{ $image = "/images/test/test.jpg" }}
+      {{ end }}
+
       <div class="portfolio-item">
         <a href="{{ .RelPermalink }}">
           <div class="thumb">
-            <img src="{{ .Params.image }}" alt="{{ .Title }}">
+            <img src="{{ $image }}" alt="{{ .Title }}">
           </div>
-          <div class="title">{{ .Title }}</div>
+          {{ if $titles }}
+            <div class="title">{{ .Title }}</div>
+          {{ end }}
         </a>
       </div>
     {{ end }}

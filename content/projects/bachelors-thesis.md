@@ -5,18 +5,20 @@ anchors:
 - '[[Generative Modelle]]'
 - '[[Synthetische Daten]]'
 - '[[Contrastive Learning]]'
-image: /images/test/test.jpg
+description: null
+image: /images/attachments/(2024, BA) Flowchart Versuchsaufbau.png
 project-type:
 - other
 publish: true
 title: Bachelor's thesis
 year: '2024'
 ---
-# Bachelor's thesis
 
-The title for my bachelor’s thesis has quite an intimidating title:
+# Bachelor’s thesis
 
->“[[Contrastive Learning]] with [[Stable Diffusion]]-based [[Datenaugmentation|Data Augmentation]] – Improvement of [[Bildklassifikation|Image Classification]] with [[Synthetische Daten|Synthetic Data]]”
+This one has quite an intimidating title:
+
+>*“[[Contrastive Learning]] with [[Stable Diffusion]]-based [[Datenaugmentation|Data Augmentation]] – Improvement of [[Bildklassifikation|Image Classification]] with [[Synthetische Daten|Synthetic Data]]”*
 
 I’ll have to explain a little bit…
 

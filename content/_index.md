@@ -1,12 +1,12 @@
 ---
 ---
-{{< feature project="Bachelor's thesis">}}
+{{< feature project="Internal Review">}}
 
 {{< feature project="Last Block Standing">}}
 
 # Game Jams
 
-{{< portfolio-grid >}}
+{{< portfolio-grid type="game-jam">}}
 
 # Other stuff
 

@@ -7,16 +7,16 @@ anchors:
 - '[[Level Design]]'
 - '[[Unity]]'
 description: A 2D platformer from my course in indie games development
-image: /images/attachments/(2025, NFTS) Gem Valley (Title).png
+feature-image: /images/attachments/(2025, NFTS) Gem Valley (Feature).webp
 project-type:
 - game
 publish: true
+thumb-image: /images/attachments/(2025, NFTS) Gem Valley (Thumb).webp
 title: Gem Valley
 year: '2025'
 ---
-# Gem Valley
 
-![[(2025, NFTS) Gem Valley (Intro).gif]]
+# Gem Valley
 
 This is a short 2D [[platformer]] built in [[Unity]] as part of a workshop during my NFTS indie game development certificate course (early 2025).
 
@@ -29,6 +29,8 @@ Key Learnings:
 - Using timelines for intro animation, win & game over screens, etc.
 - Audio & music implementation, including randomized footstep sounds
 - Menus & other basic UI elements
+
+![[(2025, NFTS) Gem Valley (Intro).gif]]
 
 ![[(2025, NFTS) Gem Valley (Demo).gif]]
 
