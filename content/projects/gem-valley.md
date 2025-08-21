@@ -6,12 +6,12 @@ anchors:
 - '[[Game Design]]'
 - '[[Level Design]]'
 - '[[Unity]]'
-description: A 2D platformer from my course in indie games development
-feature-image: /images/attachments/(2025, NFTS) Gem Valley (Feature).webp
+description: 2D platformer from my course in indie games development
+feature-image: /attachments/(2025, NFTS) Gem Valley (Feature).webp
 project-type:
 - game
 publish: true
-thumb-image: /images/attachments/(2025, NFTS) Gem Valley (Thumb).webp
+thumb-image: /attachments/(2025, NFTS) Gem Valley (Thumb).webp
 title: Gem Valley
 year: '2025'
 ---

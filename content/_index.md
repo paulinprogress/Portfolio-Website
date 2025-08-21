@@ -2,12 +2,12 @@
 ---
 {{< feature project="Internal Review">}}
 
-{{< feature project="Last Block Standing">}}
+{{< feature project="Flat Frenzy">}}
 
 # Game Jams
 
 {{< portfolio-grid type="game-jam">}}
 
-# Other stuff
+# Everything
 
-{{< portfolio-grid type="game" >}}
+{{< portfolio-grid >}}

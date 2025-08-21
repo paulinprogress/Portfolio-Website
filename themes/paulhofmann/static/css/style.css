@@ -363,7 +363,18 @@ video {
   /* Center */
   margin-left: auto;
   margin-right: auto;
-  /* Auto-play like GIF */
+}
+/* PDFs */
+embed {
+  border-radius: var(--img-radius);
+  display: block;
+  width: 100%;
+  height: 600px;
+  margin-top: 2lh;
+  margin-bottom: 2lh;
+  /* Center */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* ------------------------------------------------------------------------------------------------------------------------------------ */

@@ -25,7 +25,7 @@ WEBSITE_ROOT = Path("~/Repositories/Portfolio-Website").expanduser()
 CONTENT_DIR = WEBSITE_ROOT / "content"
 
 ATTACHMENTS_SOURCE_DIR = OBSIDIAN_ROOT / "+" / "media"
-ATTACHMENTS_TARGET_DIR = WEBSITE_ROOT / "static" / "images" / "attachments"
+ATTACHMENTS_TARGET_DIR = WEBSITE_ROOT / "static" / "attachments"
 
 # Define content to be imported
 SOURCES = [
@@ -59,6 +59,7 @@ ALLOWED_KEYS = {"anchors", "created", "last updated", "year", "published", "date
 # Define media link patterns for handling attached media files
 IMAGE_LINK_PATTERN = re.compile(r'\[\[(.+?\.(?:webp|jpg|jpeg|png|svg))\]\]', re.IGNORECASE)
 VIDEO_LINK_PATTERN = re.compile(r'\[\[(.+?\.(?:webm|mp4|gif))\]\]', re.IGNORECASE)
+PDF_LINK_PATTERN = re.compile(r'\[\[(.+?\.(?:pdf))\]\]', re.IGNORECASE)
 
 
 
@@ -86,7 +87,7 @@ def clean_target_dir(target_dir: Path, preserve_patterns):
 
 def clean_attachments_dir():
     """
-    Delete all files and folders in static/images/attachments dir.
+    Delete all files and folders in attachments dir.
     """
     for item in ATTACHMENTS_TARGET_DIR.glob("*"):
         if item.is_file():
@@ -115,10 +116,13 @@ def collect_attachment_filenames(frontmatter, content):
         raw = str(frontmatter[property] or "")
         image_match = re.match(IMAGE_LINK_PATTERN, raw)
         video_match = re.match(VIDEO_LINK_PATTERN, raw)
+        pdf_match = re.match(PDF_LINK_PATTERN, raw)
         if image_match:
             filenames.add(image_match.group(1))
         elif video_match:
-            filenames.add(video_match.group(1))      
+            filenames.add(video_match.group(1))
+        elif pdf_match:
+            filenames.add(pdf_match.group(1))  
 
     return filenames
 
@@ -165,8 +169,12 @@ def find_and_copy_attachments(filenames):
             else:
                 # TODO: needs ffmpeg for real conversion
                 print(f"⚠ Skipping video conversion (requires ffmpeg): {source_path.name}")
-
-            break  # Only copy first match
+        
+        # --- PDFs ---
+        elif extension == ".pdf":
+            target_path = ATTACHMENTS_TARGET_DIR / f"{source_path.name}"
+            shutil.copy2(source_path, target_path)
+            print(f"→ PDF imported: {filename}")
 
 
 

@@ -4,6 +4,7 @@
 {{- $patternHighlightedText := `==([^=\[][^=]+?)==` -}} <!-- Highlighted Text -->
 {{- $patternImage := `!\[\[(.+?\.(?:webp|jpg|jpeg|png|svg))\]\]` -}}
 {{- $patternVideo := `!\[\[(.+?\.(?:webm|mp4|gif))\]\]` -}}
+{{- $patternPDF := `!\[\[(.+?\.(?:pdf))\]\]` -}}
 
 {{- $out := $content -}}
 
@@ -11,7 +12,7 @@
 {{ range findRE $patternImage $out }}
   {{ $match := . }}
   {{ $file := replaceRE $patternImage "$1" $match }}
-  {{ $replacement := printf `<img src="/images/attachments/%s" />` $file }}
+  {{ $replacement := printf `<img src="/attachments/%s" />` $file }}
   {{ $out = replace $out $match $replacement }}
 {{ end }}
 
@@ -19,7 +20,15 @@
 {{ range findRE $patternVideo $out }}
   {{ $match := . }}
   {{ $file := replaceRE $patternVideo "$1" $match }}
-  {{ $replacement := printf `<video autoplay loop muted playsinline><source src="/images/attachments/%s" />` $file }}
+  {{ $replacement := printf `<video autoplay loop muted playsinline><source src="/attachments/%s" />` $file }}
+  {{ $out = replace $out $match $replacement }}
+{{ end }}
+
+<!-- PDF Wikilinks -->
+{{ range findRE $patternPDF $out }}
+  {{ $match := . }}
+  {{ $file := replaceRE $patternPDF "$1" $match }}
+  {{ $replacement := printf `<embed src="/attachments/%s" type="application/pdf" />` $file }}
   {{ $out = replace $out $match $replacement }}
 {{ end }}
 

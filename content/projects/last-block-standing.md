@@ -6,13 +6,13 @@ anchors:
 - '[[Game Programmierung]]'
 - '[[Prototyping]]'
 - '[[Unity]]'
-description: A bullet hell minigame for PULS GAME JAM
-feature-image: /images/attachments/(2025) Last Block Standing (Feature).webp
+description: Bullet Hell minigame for PULS GAME JAM
+feature-image: /attachments/(2025) Last Block Standing (Feature).webp
 project-type:
 - game
 - game-jam
 publish: true
-thumb-image: /images/attachments/(2025) Last Block Standing (Thumb).webp
+thumb-image: /attachments/(2025) Last Block Standing (Thumb).webp
 title: Last Block Standing
 year: '2025'
 ---

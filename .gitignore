@@ -19,4 +19,4 @@ hugo.linux
 ### Other ###
 _temp/
 archetypes/
-static/images/test
+static/test
