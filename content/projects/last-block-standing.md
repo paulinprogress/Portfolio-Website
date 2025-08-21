@@ -6,8 +6,10 @@ anchors:
 - '[[Game Programmierung]]'
 - '[[Prototyping]]'
 - '[[Unity]]'
+closed: 2025-03-20
 description: Bullet Hell minigame for PULS GAME JAM
 feature-image: /attachments/(2025) Last Block Standing (Feature).webp
+opened: 2025-03-13
 project-type:
 - game
 - game-jam

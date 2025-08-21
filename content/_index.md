@@ -6,8 +6,8 @@
 
 # Game Jams
 
-{{< portfolio-grid type="game-jam">}}
+{{< portfolio-grid type="game-jam" >}}
 
-# Everything
+# Other Projects
 
-{{< portfolio-grid >}}
+{{< portfolio-grid type="nfts" >}}

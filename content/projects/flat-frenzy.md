@@ -3,10 +3,13 @@ anchors:
 - '[[Game Development]]'
 - '[[Game Design]]'
 - '[[Game Design Documents]]'
+closed: 2025-04-17
 description: Game Design Document from my course in indie games development
 feature-image: /attachments/(2025) Flat Frenzy (Feature).webp
+opened: 2025-03-18
 project-type:
 - game-design
+- nfts
 publish: true
 thumb-image: /attachments/(2025) Flat Frenzy (Thumb).webp
 title: Flat Frenzy

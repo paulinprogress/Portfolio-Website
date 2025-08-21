@@ -53,7 +53,7 @@ SOURCES = [
 ]
 
 # Define frontmatter properties/keys that should be imported; rest will be removed
-ALLOWED_KEYS = {"anchors", "created", "last updated", "year", "published", "date",
+ALLOWED_KEYS = {"anchors", "created", "last updated", "year", "published", "date", "opened", "closed",
                 "publish", "title", "description", "image", "feature-image", "thumb-image", "project-type"}
 
 # Define media link patterns for handling attached media files
