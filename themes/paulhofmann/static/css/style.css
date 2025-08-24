@@ -501,14 +501,14 @@ article > p:first-of-type > img {
   content: none; /* Hide default triangle for firefox */
 }
 .grouped-index details summary::before {
-  content: "+ ";
+  content: "[+] ";
   color: var(--link);
   position: relative;
   bottom: 0.1ch; /* Adjust vertical position */
   user-select: none;
 }
 .grouped-index details[open] summary::before {
-  content: "− ";
+  content: "[−] ";
   color: var(--link);
   position: relative;
   bottom: 0.2ch;
