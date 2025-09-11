@@ -1,6 +1,6 @@
 :root {
   /* Color options */
-  --bg: #fffdf8;
+  --bg: #d5d8df; /* dark: #c2c6d7, og template: #fffdf8 */
   --text: #1e1e1e;
   --link: #282d43;
   --link-underline: #2729385a;
@@ -12,10 +12,10 @@
   --link-highlight-faded: #3537518b;
   --link-highlight-faded-hover: #353751b3;
   --highlight-bg: #8879ff33;
-  --dividers: #ccc;
+  --dividers: #000000; /* #ccc */
   --footer: #888;
   /* Font & text options */
-  --font-size: 14px; /* 13.5px */
+  --font-size: 13.5px;
   --line-height: 1.1;
   --indentation: 6ch; /* For lists, blockquotes, etc. */
   /* Layout options */
@@ -27,8 +27,8 @@
   --col-width-center-transition: 55%; /* When transitioning to mobile layout (before it gets full-width) */
   --col-width-right: 30%; /* 30% */
   --col-spacing: 1.5rem;
-  --show-vdivider: 1; /* Divider between left and center column; show/hide */
-  --show-hdivider: 1; /* Divider(s) under header; show/hide */
+  --vdivider-transparency: 20%; /* Divider between the three columns */
+  --hdivider-transparency: 20%; /* Divider(s) under header */
   /* Other options */
   --img-radius: 4px;
 }
@@ -84,8 +84,7 @@ main {
   padding-left: 1rem;
   padding-right: var(--col-spacing);
   /* Border on right side of left column */
-  border-right: 1px solid var(--dividers);
-  border-right-color: rgba(204, 204, 204, var(--show-vdivider));
+  border-right: 1px solid color-mix(in srgb, var(--dividers) var(--vdivider-transparency), transparent);
   /* Enable scrolling if content overflows */
   overflow-y: auto;
   /* Hide scrollbar */
@@ -110,9 +109,8 @@ main {
   padding-left: var(--col-spacing);
   padding-right: 2rem;
   color: var(--link);
-  /* Border on left side of left column & left header */
-  border-left: 1px solid var(--dividers);
-  border-left-color: rgba(204, 204, 204, var(--show-vdivider));
+  /* Border on left side of right column & right header */
+  border-left: 1px solid color-mix(in srgb, var(--dividers) var(--vdivider-transparency), transparent);
 }
 
 /* ------------------------------------------------------------------------------------------------------------------------------------ */
@@ -124,8 +122,7 @@ header {
   height: var(--header-height);
   margin-bottom: 1lh;
   /* Divider */
-  border-bottom: 1px solid var(--dividers);
-  border-bottom-color: rgba(204, 204, 204, var(--show-hdivider));
+  border-bottom: 1px solid color-mix(in srgb, var(--dividers) var(--hdivider-transparency), transparent);
 }
 .header-single > div {
   flex-direction: row;
@@ -160,8 +157,7 @@ footer > a.external {
   display: flex;
   align-items: flex-end;
   /* Divider */
-  border-top: 1px solid var(--dividers);
-  border-top-color: rgba(204, 204, 204, var(--show-hdivider));
+  border-top: 1px solid color-mix(in srgb, var(--dividers) var(--hdivider-transparency), transparent);
 }
 
 /* ------------------------------------------------------------------------------------------------------------------------------------ */
@@ -180,8 +176,7 @@ h1 {
   text-align: left; /* alt: center */
   /* Underline */
   text-decoration: none; /* Remove default underline */
-  border-bottom: 1px solid var(--dividers);
-  border-bottom-color: rgb(204, 204, 204);
+  border-bottom: 1px solid color-mix(in srgb, var(--dividers) var(--vdivider-transparency), transparent);
   background-color: var(--bg); /* Only important when sticky */
   height: 2lh; /* More space for underline */
   margin-bottom: 1lh;
@@ -625,8 +620,7 @@ article > p:first-of-type > img {
   .sidebar-home {
     padding-bottom: calc(var(--header-spacing-mobile) - 1lh);
     /* Add divider */
-    border-bottom: 1px solid var(--dividers);
-    border-bottom-color: rgba(204, 204, 204, var(--show-hdivider));
+    border-bottom: 1px solid color-mix(in srgb, var(--dividers) var(--hdivider-transparency), transparent);
   }
 
   /* Single */
@@ -642,8 +636,7 @@ article > p:first-of-type > img {
     /*height: calc(var(--header-height) - 3lh);
     padding-bottom: var(--header-spacing-mobile);
     margin-bottom: var(--header-spacing-mobile);
-    border-bottom: 1px solid var(--dividers);
-    border-bottom-color: rgba(204, 204, 204, var(--show-hdivider));*/
+    border-bottom: 1px solid color-mix(in srgb, var(--dividers) var(--hdivider-transparency), transparent);*/
   }
   h1 {
     text-align: left;
