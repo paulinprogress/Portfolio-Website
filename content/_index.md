@@ -4,10 +4,6 @@
 
 {{< feature project="Flat Frenzy">}}
 
-# Game Jams
+# All projects
 
-{{< portfolio-grid type="game-jam" >}}
-
-# Other Projects
-
-{{< portfolio-grid type="nfts" >}}
+{{< portfolio-grid >}}
