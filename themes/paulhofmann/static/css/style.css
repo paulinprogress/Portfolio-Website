@@ -107,7 +107,7 @@ main {
   right: calc(100% - (var(--col-width-left) + var(--col-width-center) + var(--col-width-right)));
   top: 1rem;
   padding-left: var(--col-spacing);
-  padding-right: 2rem;
+  padding-right: 1rem;
   color: var(--link);
   /* Border on left side of right column & right header */
   border-left: 1px solid color-mix(in srgb, var(--dividers) var(--vdivider-transparency), transparent);
@@ -552,11 +552,10 @@ article > p:first-of-type > img {
 /* ------------------------------------------------------------------------------------------------------------------------------------ */
 
 @media (max-width: 1600px) {
-  /* Disable right column/sidebar entirely */
+  /* Scale down right column/sidebar */
   .col.right {
-    display: none;
-    /* position: relative;
-    right: auto; */
+    width: calc(100% - (var(--col-width-left) + var(--col-width-center-transition)));
+    right: 0;
   }
   .col.center {
     width: var(--col-width-center-transition);
@@ -564,14 +563,19 @@ article > p:first-of-type > img {
 }
 
 @media (max-width: 1280px) {
-  /* Disable portfolio grid layout → just use columns */
+  /* Disable right column/sidebar entirely */
+  .col.right {
+    display: none;
+  }
+
+  /* Disable portfolio grid layout → just use column
   .portfolio-grid {
     display: flex;
     flex-direction: column;
   }
   .portfolio-item > a > .thumb > img {
     height: auto;
-  }
+  } */
 }
 
 @media (max-width: 940px) { /* 768px */
