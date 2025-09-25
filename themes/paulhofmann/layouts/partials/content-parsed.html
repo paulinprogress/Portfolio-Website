@@ -73,4 +73,7 @@
   {{ $out = replace $out $match $replacement }}
 {{ end }}
 
+<!-- Fix spaces between links and punctuation directly after -->
+{{ $out = replaceRE `</a>\s+([,.;:!?)])` "</a>$1" $out }}
+
 {{ $out | safeHTML }}
