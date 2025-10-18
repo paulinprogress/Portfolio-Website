@@ -173,7 +173,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Reset counters at each heading level */
 h1 {
-  text-align: left; /* alt: center */
+  text-align: center; /* alt: center */
   /* Underline */
   text-decoration: none; /* Remove default underline */
   border-bottom: 1px solid color-mix(in srgb, var(--dividers) var(--vdivider-transparency), transparent);
