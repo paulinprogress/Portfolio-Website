@@ -4,6 +4,6 @@
 
 {{< feature project="Flat Frenzy">}}
 
-# All projects
+{{< feature project="Gem Valley">}}
 
-{{< portfolio-grid >}}
+{{< feature project="Last Block Standing">}}

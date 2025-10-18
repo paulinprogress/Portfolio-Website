@@ -7,7 +7,7 @@ anchors:
 - '[[Prototyping]]'
 - '[[Exploration]]'
 closed: 2025-08-21
-description: Surreal first-person game for GMTK Jam
+description: Surreal first-person game for GMTK Jam 2025
 feature-image: /attachments/(2025) Internal Review (Feature).webp
 opened: 2025-07-30
 project-type:
@@ -33,4 +33,4 @@ I also made use of [Twine](https://twinery.org/) for mapping out all the differe
 
 ![[(2025) Internal Review (Twine).webp]]
 
-The game is available to download [here on Itch.io](https://paultoast.itch.io/internal-review).
+Available for download [here on Itch.io](https://paultoast.itch.io/internal-review).
