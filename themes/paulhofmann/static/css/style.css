@@ -186,7 +186,7 @@ h1 {
   text-align: center; /* alt: center */
   /* Underline */
   text-decoration: none; /* Remove default underline */
-  border-bottom: 1px solid color-mix(in srgb, var(--dividers) var(--vdivider-transparency), transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--dividers) var(--hdivider-transparency), transparent);
   background-color: var(--bg); /* Only important when sticky */
   height: 2lh; /* More space for underline */
   margin-bottom: 1lh;
