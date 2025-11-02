@@ -118,18 +118,28 @@ main {
 /* Header */
 header {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   height: var(--header-height);
   margin-bottom: 1lh;
   /* Divider */
   border-bottom: 1px solid color-mix(in srgb, var(--dividers) var(--hdivider-transparency), transparent);
 }
-.header-single > div {
-  flex-direction: row;
-}
 .header-single {
   border-bottom: none;
   height: calc(var(--header-height) - 3lh);
+}
+.header-single > div {
+  display: flex;
+}
+.header-single > div::before
+{
+  content: "↖";
+  padding-right: 1ch;
+}
+.header-home > div::before
+{
+  content: "↘";
+  padding-right: 1ch;
 }
 
 /* Footer */
@@ -613,14 +623,26 @@ article > p:first-of-type > img {
 
   /* Home */
   .header-home {
+    flex-direction: column;
     text-align: right; /* For "PROJECTS" */
     margin-top: 1lh;
     margin-bottom: 1lh;
-    /* Sticky behavior? 
-    position: sticky;
-    top: 0;
-    background-color: var(--bg);*/
   }
+  .header-home > div::before
+  {
+    content: none;
+  }
+  .header-home > div::after
+  {
+    content: "↓";
+    padding-left: 1ch;
+  }
+  .header-single > div::before
+  {
+    content: "↑";
+    padding-right: 1ch;
+  }
+  
   .sidebar-home {
     padding-bottom: calc(var(--header-spacing-mobile) - 1lh);
     /* Add divider */
