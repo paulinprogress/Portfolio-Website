@@ -10,7 +10,12 @@
   -->
 
   <!--{{ partial "misc/cv.html" . }}-->
-  {{ partial "misc/grouped-index.html" (dict "section" "projects" "groupBy" "year" "Site" .Site) }}
+  {{ partial "misc/grouped-index.html" (dict
+    "section" "projects"
+    "projectType" ""
+    "groupBy" "year"
+    "Site" .Site "Params" .Params)
+  }}
 
   <!--
   {{ if .Content }}

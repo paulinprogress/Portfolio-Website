@@ -1,7 +1,12 @@
 {{- $section := .section | default "projects" -}}
+{{- $type := .projectType -}}
 {{- $groupBy := .groupBy | default "year" -}}
 
 {{- $pages := where .Site.RegularPages "Section" $section -}}
+
+{{- if $type -}}
+  {{- $pages = where $pages "Params.project-type" "intersect" (slice $type) -}}
+{{- end -}}
 
 {{- $groups := slice -}}
 {{- range $pages }}
