@@ -2,4 +2,10 @@
 ---
 {{< feature project="Internal Review">}}
 
-{{< portfolio-grid >}}
+{{< feature project="JetQuest">}}
+
+{{< feature project="Flat Frenzy">}}
+
+{{< feature project="Gem Valley">}}
+
+{{< feature project="Last Block Standing">}}

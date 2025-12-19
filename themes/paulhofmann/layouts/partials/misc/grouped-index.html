@@ -1,5 +1,5 @@
 {{- $section := .section | default "projects" -}}
-{{- $type := .projectType -}}
+{{- $type := .type -}}
 {{- $groupBy := .groupBy | default "year" -}}
 
 {{- $pages := where .Site.RegularPages "Section" $section -}}
