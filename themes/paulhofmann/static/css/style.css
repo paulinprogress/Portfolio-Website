@@ -27,8 +27,8 @@
   --col-width-center-transition: 55%; /* When transitioning to mobile layout (before it gets full-width) */
   --col-width-right: 25%; /* 30% */
   --col-spacing: 1.5rem;
-  --vdivider-transparency: 20%; /* Divider between the three columns */
-  --hdivider-transparency: 20%; /* Divider(s) under header */
+  --vdivider-transparency: 00%; /* Divider between the three columns */
+  --hdivider-transparency: 00%; /* Divider(s) under header */
   /* Other options */
   --img-radius: 4px;
 }
