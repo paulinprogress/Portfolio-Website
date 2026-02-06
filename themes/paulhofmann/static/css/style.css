@@ -671,7 +671,8 @@ article > p:first-of-type > img {
   h1 {
     text-align: left;
     margin-top: 1lh;
-  }  
+    border-bottom: 1px solid color-mix(in srgb, var(--dividers) 20%, transparent);
+  }
 
   /* Hide footer */
   footer {
