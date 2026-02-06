@@ -131,6 +131,7 @@ header {
 .header-single > div {
   display: flex;
 }
+/*
 .header-single > div::before
 {
   content: "↖";
@@ -141,6 +142,7 @@ header {
   content: "↘";
   padding-right: 1ch;
 }
+*/
 
 /* Footer */
 footer {
@@ -632,6 +634,7 @@ article > p:first-of-type > img {
   {
     content: none;
   }
+  /*
   .header-home > div::after
   {
     content: "↓";
@@ -642,6 +645,7 @@ article > p:first-of-type > img {
     content: "↑";
     padding-right: 1ch;
   }
+  */
   
   .sidebar-home {
     padding-bottom: calc(var(--header-spacing-mobile) - 1lh);
