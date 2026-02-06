@@ -23,9 +23,9 @@
   --header-height-mobile: 4rem;
   --header-spacing-mobile: 2lh;
   --col-width-left: 25%; /* 25% */
-  --col-width-center: 45%; /* 45% | 38% */
+  --col-width-center: 50%; /* 45% | 38% */
   --col-width-center-transition: 55%; /* When transitioning to mobile layout (before it gets full-width) */
-  --col-width-right: 30%; /* 30% */
+  --col-width-right: 25%; /* 30% */
   --col-spacing: 1.5rem;
   --vdivider-transparency: 20%; /* Divider between the three columns */
   --hdivider-transparency: 20%; /* Divider(s) under header */
@@ -456,7 +456,7 @@ article > p:first-of-type > img {
 /* Portfolio grid */
 .portfolio-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
 
   gap: var(--col-spacing);
   /*column-gap: 3ch;
