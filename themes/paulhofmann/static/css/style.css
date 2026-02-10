@@ -16,7 +16,7 @@
   --footer: #888;
   /* Font & text options */
   --font-size: 13.5px;
-  --line-height: 1.1;
+  --line-height: 1.15;
   --indentation: 6ch; /* For lists, blockquotes, etc. */
   /* Layout options */
   --header-height: 5rem;
@@ -185,9 +185,9 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Reset counters at each heading level */
 h1 {
-  text-align: center; /* alt: center */
+  text-align: center; /* left/center */
   /* Underline */
-  text-decoration: none; /* Remove default underline */
+  /*text-decoration: none;*/ /* Remove default underline? */
   border-bottom: 1px solid color-mix(in srgb, var(--dividers) var(--hdivider-transparency), transparent);
   background-color: var(--bg); /* Only important when sticky */
   height: 2lh; /* More space for underline */
@@ -671,6 +671,7 @@ article > p:first-of-type > img {
   h1 {
     text-align: left;
     margin-top: 1lh;
+    text-decoration: none;
     border-bottom: 1px solid color-mix(in srgb, var(--dividers) 20%, transparent);
   }
 
