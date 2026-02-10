@@ -22,11 +22,11 @@ year: '2024'
 
 Looking back, my 2024 bachelor’s thesis has quite an intimidating title:
 
->*“[[Contrastive Learning]] with [[Stable Diffusion]]-based [[Datenaugmentation|Data Augmentation]] – Improvement of [[Bildklassifikation|Image Classification]] with [[Synthetische Daten|Synthetic Data]]”*
+>*“Contrastive Learning with Stable Diffusion-based Data Augmentation – Improvement of Image Classification with Synthetic Data”*
 
 I’ll have to explain a little bit…
 
-During my Media Technology studies, I discovered an interest in [[Machine Learning]] after taking an introductory course. I found it surprisingly intuitive and hands-on; in one project, two classmates and I built a web app that connected to Spotify and let you control it with hand gestures via your webcam (see: [[(2021~2022) SpotifAI|SpotifAI]]).
+During my Media Technology studies, I discovered an interest in machine learning after taking an introductory course. I enjoyed how quickly we could get hands-on experience; in one project, two classmates and I built a web app that connected to Spotify and let you control it with hand gestures via your webcam (see: [[(2021~2022) SpotifAI|SpotifAI]]).
 
 So when the time came to do my student internship, I landed a spot at Berlin’s [Fraunhofer Institute for Production Systems and Design Technology](https://www.ipk.fraunhofer.de/en.html), working on a computer vision research project for the recycling industry. The goal was to improve a classier for identifying used parts. Specifically, my job was to explore different methods for *synthetic data generation using generative AI* – i.e. generating new images to be used for training the classifier, in order to increase data variety, especially for different object conditions, wear & tear, etc.
 
@@ -38,10 +38,10 @@ Using the text-to-image personalization framework [Perfusion](https://research.n
 
 Despite the challenges – or maybe because of them – it only made sense to write my bachelor’s thesis on the same project. After lots of further research, two topics stood out to me as particularly promising for the given use case:
 
-1. [[DA-Fusion]]: A [[Stable Diffusion]]-based method for data augmentation, which takes images of your new object classes and automatically generates semantically meaningful variations of it – all without having to fine-tune the actual diffusion model with tons of new examples per class (instead, it fine-tunes a *token* that describes your new class, leveraging all the existing knowledge of the pre-trained model).
-2. [[Contrastive Learning]]: A method for learning representations of input data, so that similar samples are close together in the representation space and dissimilar examples further apart. This was interesting, because it learns by comparing “positive” and “negative” examples, which gave me an idea: Can I use *sub-optimal* synthetic data *only* as negative examples and thereby increase model performance after all?
+1. DA-Fusion: A Stable Diffusion-based method for data augmentation, which takes images of your new object classes and automatically generates semantically meaningful variations of it – all without having to fine-tune the actual diffusion model with tons of new examples per class (instead, it fine-tunes a *token* that describes your new class, leveraging all the existing knowledge of the pre-trained model).
+2. Contrastive Learning: A method for learning representations of input data, so that similar samples are close together in the representation space and dissimilar examples further apart. This was interesting, because it learns by comparing “positive” and “negative” examples, which gave me an idea: Can I use *sub-optimal* synthetic data *only* as negative examples and thereby increase model performance after all?
 
-This led to an experiment in which I trained a Supervised Contrastive Learning classifier and compared it’s [[accuracy]] as well as [[out-of-distribution]] detection across three different training setups:
+This led to an experiment in which I trained a Supervised Contrastive Learning classifier and compared it’s accuracy as well as out-of-distribution detection across three different training setups:
 
 1. Using only real data,
 2. Using “normal” augmentations from DA-Fusion as synthetic data, and
