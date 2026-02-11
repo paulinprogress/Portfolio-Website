@@ -20,9 +20,7 @@ year: '2024'
 
 # Bachelor’s thesis
 
-Looking back, my 2024 bachelor’s thesis has quite an intimidating title:
-
->*“Contrastive Learning with Stable Diffusion-based Data Augmentation – Improvement of Image Classification with Synthetic Data”*
+Looking back, my 2024 bachelor’s thesis has quite an intimidating title: *“Contrastive Learning with Stable Diffusion-based Data Augmentation – Improvement of Image Classification with Synthetic Data”*
 
 I’ll have to explain a little bit…
 

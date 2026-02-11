@@ -26,7 +26,7 @@
   --col-width-center: 50%; /* 45% | 38% */
   --col-width-center-transition: 55%; /* When transitioning to mobile layout (before it gets full-width) */
   --col-width-right: 25%; /* 30% */
-  --col-spacing: 1.5rem;
+  --col-spacing: 2.0rem;
   --vdivider-transparency: 00%; /* Divider between the three columns */
   --hdivider-transparency: 00%; /* Divider(s) under header */
   /* Other options */
@@ -131,18 +131,6 @@ header {
 .header-single > div {
   display: flex;
 }
-/*
-.header-single > div::before
-{
-  content: "↖";
-  padding-right: 1ch;
-}
-.header-home > div::before
-{
-  content: "↘";
-  padding-right: 1ch;
-}
-*/
 
 /* Footer */
 footer {
@@ -186,8 +174,6 @@ h1, h2, h3, h4, h5, h6 {
 /* Reset counters at each heading level */
 h1 {
   text-align: center; /* left/center */
-  /* Underline */
-  /*text-decoration: none;*/ /* Remove default underline? */
   border-bottom: 1px solid color-mix(in srgb, var(--dividers) var(--hdivider-transparency), transparent);
   background-color: var(--bg); /* Only important when sticky */
   height: 2lh; /* More space for underline */
@@ -528,18 +514,18 @@ article > p:first-of-type > img {
   list-style: none; /* No bullets */
 }
 .grouped-index > .twocol > .twocol-left {
-  width: 30%;
+  width: 20%;
 }
 .grouped-index > .twocol > .twocol-right {
-  width: 70%;
+  width: 80%;
 }
 
 /* CV */
 .cv > .twocol > .twocol-left {
-  width: 30%;
+  width: 20%;
 }
 .cv > .twocol > .twocol-right {
-  width: 70%;
+  width: 80%;
 }
 
 /* Listings (as sidebar in right column) */
@@ -579,15 +565,6 @@ article > p:first-of-type > img {
   .col.right {
     display: none;
   }
-
-  /* Disable portfolio grid layout → just use column
-  .portfolio-grid {
-    display: flex;
-    flex-direction: column;
-  }
-  .portfolio-item > a > .thumb > img {
-    height: auto;
-  } */
 }
 
 @media (max-width: 940px) { /* 768px */
@@ -634,18 +611,6 @@ article > p:first-of-type > img {
   {
     content: none;
   }
-  /*
-  .header-home > div::after
-  {
-    content: "↓";
-    padding-left: 1ch;
-  }
-  .header-single > div::before
-  {
-    content: "↑";
-    padding-right: 1ch;
-  }
-  */
   
   .sidebar-home {
     padding-bottom: calc(var(--header-spacing-mobile) - 1lh);
@@ -663,10 +628,6 @@ article > p:first-of-type > img {
     right: 0;
     margin-top: 1rem;
     margin-right: 1rem;
-    /*height: calc(var(--header-height) - 3lh);
-    padding-bottom: var(--header-spacing-mobile);
-    margin-bottom: var(--header-spacing-mobile);
-    border-bottom: 1px solid color-mix(in srgb, var(--dividers) var(--hdivider-transparency), transparent);*/
   }
   h1 {
     text-align: left;
@@ -686,5 +647,11 @@ article > p:first-of-type > img {
   }
   .twocol-right {
     width: 60%;
+  }
+}
+
+@media (max-width: 580px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
