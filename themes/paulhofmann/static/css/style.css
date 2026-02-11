@@ -140,24 +140,14 @@ footer {
   bottom: 0;
   padding-top: 0.5rem;
   padding-bottom: 1rem;
+  padding-left: 1rem;
   color: var(--footer); /* Grayed out */
 }
 footer > a {
   color: var(--footer);
 }
-footer > a.external {
+footer > a.external, footer > div > a.external {
   color: var(--footer);
-}
-.footer-center {
-  position: relative;
-  width: 100%;
-  height: calc(var(--header-height) + 1lh);
-  padding-top: 0;
-  /* Align text to bottom */
-  display: flex;
-  align-items: flex-end;
-  /* Divider */
-  border-top: 1px solid color-mix(in srgb, var(--dividers) var(--hdivider-transparency), transparent);
 }
 
 /* ------------------------------------------------------------------------------------------------------------------------------------ */
@@ -549,6 +539,7 @@ article > p:first-of-type > img {
 
 /* ------------------------------------------------------------------------------------------------------------------------------------ */
 
+/* Transition layouts */
 @media (max-width: 1600px) {
   /* Scale down right column/sidebar */
   .col.right {
@@ -559,7 +550,6 @@ article > p:first-of-type > img {
     width: var(--col-width-center-transition);
   }
 }
-
 @media (max-width: 1280px) {
   /* Disable right column/sidebar entirely */
   .col.right {
@@ -567,6 +557,7 @@ article > p:first-of-type > img {
   }
 }
 
+/* MAIN MOBILE LAYOUT */
 @media (max-width: 940px) { /* 768px */
   /* Set page flex direction so main columns are below each other */
   .page {
@@ -587,8 +578,17 @@ article > p:first-of-type > img {
     top: 0;
     border-right: none;
   }
+  /* Re-enable right column/sidebar, position relative (below) */
+  .col.right {
+    display: flex;
+    position: relative;
+    padding-bottom: 2lh;
+    color: var(--link-highlight-faded-hover)
+  }
+  .col.right > .grouped-index > .twocol > .twocol-right > a {
+    color: var(--link-highlight-faded-hover);
+  }
 
-  /* Header default */
   header {
     /* Less height */
     height: auto;
@@ -599,26 +599,36 @@ article > p:first-of-type > img {
   .header-left {
     width: fit-content;
   }
-
-  /* Home */
+  /* Make PROJECTS header/title right-aligned */
   .header-home {
     flex-direction: column;
-    text-align: right; /* For "PROJECTS" */
+    text-align: right;
     margin-top: 1lh;
     margin-bottom: 1lh;
   }
-  .header-home > div::before
-  {
-    content: none;
+  .header-right {
+    padding-top: 1lh;
+    /* Add divider above right sidebar/INDEX (now at the bottom) */
+    border-top: 1px solid color-mix(in srgb, var(--dividers) 20%, transparent);
+  }
+
+  .grouped-index > .twocol > .twocol-left {
+    width: 22%;
+  }
+  .grouped-index > .twocol > .twocol-right {
+    width: 78%;
+  }
+  
+  article {
+    padding-bottom: 0lh; /* Remove space below articles */
   }
   
   .sidebar-home {
     padding-bottom: calc(var(--header-spacing-mobile) - 1lh);
-    /* Add divider */
-    border-bottom: 1px solid color-mix(in srgb, var(--dividers) var(--hdivider-transparency), transparent);
+    /* Add divider below home sidebar (now at the top) */
+    border-bottom: 1px solid color-mix(in srgb, var(--dividers) 20%, transparent);
   }
 
-  /* Single */
   .sidebar-single {
     display: none; /* Hide sidebar text */
   }
@@ -636,9 +646,22 @@ article > p:first-of-type > img {
     border-bottom: 1px solid color-mix(in srgb, var(--dividers) 20%, transparent);
   }
 
-  /* Hide footer */
+  /* Fix footer */
   footer {
-    display: none;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    /* Add top border */
+    border-top: 1px solid color-mix(in srgb, var(--dividers) 20%, transparent);
+    /* Change default footer padding */
+    padding-left: 0;
+    padding-top: 1lh;
+    padding-bottom: 2lh;
+    color: var(--link-highlight-faded-hover);
+  }
+  footer > div > a.external {
+    color: var(--link-highlight-faded-hover);
   }
 
   /* Two-column layout */
@@ -650,7 +673,7 @@ article > p:first-of-type > img {
   }
 }
 
-@media (max-width: 580px) {
+@media (max-width: 720px) {
   .portfolio-grid {
     grid-template-columns: repeat(2, 1fr);
   }
