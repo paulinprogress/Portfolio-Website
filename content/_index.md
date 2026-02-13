@@ -1,5 +1,7 @@
 ---
 ---
-{{< feature project="Internal Review" >}}
+{{< highlight-reel >}}
 
-{{< portfolio-grid >}}
+---
+
+{{< portfolio-grid titles="true" limit="9999" >}}

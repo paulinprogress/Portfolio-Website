@@ -283,8 +283,10 @@ mark {
 
 /* Horizontal rules */
 hr {
-  border: none; /* Remove default border */
-  border-top: 1px solid var(--dividers); /* Custom horizontal rule */
+  /* Remove default border */
+  border: none;
+  /* Custom horizontal rule */
+  border-top: 1px solid color-mix(in srgb, var(--dividers) 20%, transparent);
   margin: 2lh 0;
 }
 
@@ -368,7 +370,10 @@ article {
   padding-bottom: 3lh; /* Space below articles */
 }
 article > p:first-of-type > img {
-  margin-top: 0; /* No top margin for first image in article */
+  margin-top: 0; /* No top margin for image if top of article */
+}
+article > video:first-child {
+  margin-top: 0; /* No top margin for video if top of article */
 }
 
 /* Two-column layouts */
