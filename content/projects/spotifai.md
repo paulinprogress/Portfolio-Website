@@ -5,14 +5,14 @@ anchors:
 - '[[Spotify]]'
 closed: 2022-01-01
 description: AI-powered web app for controlling Spotify with hand gestures
-feature-image: null
+feature-image: /attachments/(2021~2022) SpotifAI - Showcase.webp
 opened: 2021-01-01
 project-type:
 - other
 - web
 - ai
 publish: true
-thumb-image: null
+thumb-image: /attachments/(2021~2022) SpotifAI - Showcase.webp
 title: SpotifAI
 year: '2022'
 ---

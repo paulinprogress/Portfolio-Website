@@ -21,13 +21,11 @@ year: '2025'
 
 # Gem Valley
 
-A short 2D platformer built in Unity as part of a workshop during my NFTS indie game development certificate course (early 2025).
+A short 2D platformer built in Unity as part of a workshop during my NFTS certificate course in Indie Games Development (early 2025).
 
-The goal was to practice core Unity systems – like tilemaps, timelines, and animation. I took some time afterwards to finish the level and add some polish.
+Despite being familiar with Unity before, it deepened my understanding of many core systems:
 
-Key Learnings:
-
-- Level design with tilemaps
+- Level design with tilemaps (layered, animated, with collision)
 - Implementing collectable gems & power-ups
 - Using timelines for intro animation, win & game over screens, etc.
 - Audio & music implementation, including randomized footstep sounds
