@@ -631,8 +631,8 @@ article > video:first-child {
   
   .sidebar-home {
     padding-bottom: calc(var(--header-spacing-mobile) - 1lh);
-    /* Add divider below home sidebar (now at the top) */
-    border-bottom: 1px solid color-mix(in srgb, var(--dividers) 20%, transparent);
+    /* Add divider below home sidebar (now at the top) 
+    border-bottom: 1px solid color-mix(in srgb, var(--dividers) 20%, transparent);*/
   }
 
   .sidebar-single {
