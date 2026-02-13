@@ -15,8 +15,8 @@
   --dividers: #000000; /* #ccc */
   --footer: #888;
   /* Font & text options */
-  --font-size: 13.5px;
-  --line-height: 1.15;
+  --font-size: 13px;
+  --line-height: 1.2;
   --indentation: 6ch; /* For lists, blockquotes, etc. */
   /* Layout options */
   --header-height: 5rem;
@@ -50,7 +50,7 @@ body {
   /* Background */
   background-color: var(--bg);
   /* Text */
-  font-family: 'Reddit Mono', monospace;
+  font-family: 'Geist Mono', monospace;
   /*
     Mono:
       Reddit, Geist, Roboto, IBM Plex, Noto Sans, JetBrains, Plaid S
@@ -269,6 +269,7 @@ ul, ol {
 }
 li {
   text-indent: 0; /* No extra indent on wrapped lines */
+  margin-bottom: 0.5lh; /* Space between list items */
 }
 li ul, li ol { /* Nested lists */
   margin-top: 0;
