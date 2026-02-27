@@ -1,1 +1,28 @@
-<video autoplay loop muted playsinline><source src="/assets/highlight-reel.mp4" /></video>
+<div class="video-wrapper">
+    <video
+        id="highlightReel"
+        preload="metadata"
+        autoplay loop muted playsinline>
+        <source src="/assets/highlight-reel.mp4"/>
+    </video>
+
+    <div class="video-placeholder" id="videoPlaceholder">
+        <div class="spinner"></div>
+    </div>
+
+    <script>
+        const video = document.getElementById('highlightReel');
+        const placeholder = document.getElementById('videoPlaceholder');
+
+        function hidePlaceholder() {
+            placeholder.classList.add('hidden');
+        }
+
+        // If video is already ready (cache case)
+        if (video.readyState >= 2) {
+            hidePlaceholder();
+        } else {
+            video.addEventListener('canplay', hidePlaceholder);
+        }
+    </script>
+</div>

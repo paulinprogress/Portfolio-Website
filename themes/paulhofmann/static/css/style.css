@@ -1,6 +1,7 @@
 :root {
   /* Color options */
-  --bg: #d5d8df; /* dark: #c2c6d7, og template: #fffdf8 */
+  --bg: #d5d8df; /* og template: #fffdf8 */
+  --bg-dark: #c2c6d7;
   --text: #1e1e1e;
   --link: #282d43;
   --link-underline: #2729385a;
@@ -12,7 +13,7 @@
   --link-highlight-faded: #3537518b;
   --link-highlight-faded-hover: #353751b3;
   --highlight-bg: #8879ff33;
-  --dividers: #000000; /* #ccc */
+  --dividers: #000000;
   --footer: #888;
   /* Font & text options */
   --font-size: 13px;
@@ -344,12 +345,51 @@ video {
   display: block;
   width: 100%;
   height: auto;
-  margin-top: 2lh;
-  margin-bottom: 2lh;
   /* Center */
   margin-left: auto;
   margin-right: auto;
 }
+.video-wrapper {
+  border-radius: var(--img-radius);
+  position: relative;
+  margin-bottom: 2lh;
+  width: 100%;
+  aspect-ratio: 16 / 9; /* match video */
+  background: var(--bg);
+  overflow: hidden;
+}
+.video-wrapper video {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.video-placeholder {
+  position: absolute;
+  inset: 0;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease;
+}
+.video-placeholder.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(255,255,255,0.6);
+  border-top: 4px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+
 /* PDFs */
 embed {
   border-radius: var(--img-radius);
