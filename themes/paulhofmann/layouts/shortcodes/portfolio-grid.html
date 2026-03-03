@@ -1,5 +1,5 @@
-{{ $type := .Get "type" }}
-{{ $limit := .Get "limit" | default 6 }}
+{{ $type := .Get "type" | default "game, game-design" }}
+{{ $limit := .Get "limit" | default 9999 }}
 {{ $titles := .Get "titles" | default "false" }}
 
 {{ if eq $titles "false" }}
@@ -11,8 +11,9 @@
 <div class="portfolio-grid">
   {{ $pages := where site.RegularPages "Section" "projects" }}
 
-  {{ if $type }}
-    {{ $pages = where $pages "Params.project-type" "intersect" (slice $type) }}
+  {{ with $type }}
+    {{ $typeList := split (replace . " " "") "," }}
+    {{ $pages = where $pages "Params.project-type" "intersect" $typeList }}
   {{ end }}
 
   {{ $pages = sort $pages "Params.opened" "desc" }}

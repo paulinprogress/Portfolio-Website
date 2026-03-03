@@ -28,8 +28,8 @@
   --col-width-center-transition: 55%; /* When transitioning to mobile layout (before it gets full-width) */
   --col-width-right: 25%; /* 30% */
   --col-spacing: 2.0rem;
-  --vdivider-transparency: 00%; /* Divider between the three columns */
-  --hdivider-transparency: 00%; /* Divider(s) under header */
+  --vdivider-transparency: 0%; /* Divider between the three columns */
+  --hdivider-transparency: 0%; /* Divider(s) under header */
   /* Other options */
   --img-radius: 4px;
 }
@@ -482,9 +482,9 @@ article > video:first-child {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 
-  gap: var(--col-spacing);
-  /*column-gap: 3ch;
-  row-gap: 1lh;*/
+  /*gap: var(--col-spacing);*/
+  column-gap: 3ch;
+  row-gap: 1lh;
 
   margin-top: var(--col-spacing);
   margin-bottom: var(--col-spacing);

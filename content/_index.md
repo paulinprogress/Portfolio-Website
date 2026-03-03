@@ -2,6 +2,10 @@
 ---
 {{< highlight-reel >}}
 
-↓ Read more about all of my projects here!
+↓ Read more about each project here!
 
-{{< portfolio-grid titles="true" limit="9999" >}}
+{{< portfolio-grid type="game, game-design" titles="true" >}}
+
+↓ See also some of my non-games projects
+
+{{< portfolio-grid type="other" titles="true" >}}
