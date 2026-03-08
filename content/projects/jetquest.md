@@ -29,7 +29,7 @@ We opted for a fun, arcady flying game with a retro look, focused on risky, mobi
 
 After we settled on the general idea early on, we began by adopting a simple airplane controller, scripting the challenge system and building the level. In particular, I got familiar with the Unity’s Terrain tool, as well as Scriptable Objects for neatly organizing and handling the data for different ships and challenges.
 
-Once many of the individual elements for the game were prototyped, I got deeply involved with integrating and finalizing all of them to get the complete game loop running:
+Once many of the individual elements for the game were prototyped, I became deeply involved with integrating and finalizing all of them to get the complete game loop running:
 
 - **Challenge system:** Each challenge type checks for different conditions in order to calculate the progress of the challenge and whether it has been completed. If it is has and the player lands, the new challenge selection panel is activated. If it is uncompleted and the player crashes, the progress gets reset.
 - **Points system:** Player receives points for the active challenges, points get stashed when landing (or lost when crashing), and everything is synced with the UI.
