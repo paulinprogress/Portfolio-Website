@@ -21,7 +21,7 @@ markup:
     endLevel: 4
 
 # Theme configuration
-theme: 'paulhofmann'
+theme: 'custom-mono'
 
 #params:
 #  navbar:
