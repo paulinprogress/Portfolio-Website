@@ -5,7 +5,7 @@
 
   {{ partial "headers/header-left.html" }}
   
-  {{ with site.GetPage "sidebar-left" }}
+  {{ with site.GetPage "home.md" }}
       <div class="{{$class}}">{{ partial "content-parsed.html" . }}</div>
   {{ end }}
   

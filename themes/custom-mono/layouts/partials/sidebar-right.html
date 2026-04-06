@@ -3,12 +3,6 @@
 
   {{ partial "headers/header-right.html" }}
 
-  <!--
-  {{ with site.GetPage "sidebar-right" }}
-      <div>{{ partial "content-parsed.html" . }}</div>
-  {{ end }}
-  -->
-
   <!--{{ partial "misc/cv.html" . }}-->
   {{ partial "misc/grouped-index.html" (dict
     "section" "projects"
@@ -18,29 +12,31 @@
   }}
 
   <!--
-  {{ if .Content }}
+  {{ with site.GetPage "sidebar-right.md" }}
+      <div>{{ partial "content-parsed.html" . }}</div>
+  {{ end }}
+  -->
+
+  <!--
+  {{ if .IsHome }}
+    {{ partial "misc/listing-recent.html" . }}
   
-    {{ if .IsHome }}
-      {{ partial "misc/listing-recent.html" . }}
-    
-    {{ else if not .IsSection }}
+  {{ else if not .IsSection }}
 
-      {{ if or (eq $section "projects") (eq $section "posts") }}
-        {{ partial "misc/listing-toc.html" . }}
+    {{ if or (eq $section "projects") (eq $section "posts") }}
+      {{ partial "misc/listing-toc.html" . }}
 
-        {{ if eq $section "posts" }}
-          <div class="listings-divider"></div>
-          {{ partial "misc/listing-backlinks.html" . }}
-        {{ end }}
-
-      {{ else if eq $section "notes" }}
+      {{ if eq $section "posts" }}
+        <div class="listings-divider"></div>
         {{ partial "misc/listing-backlinks.html" . }}
       {{ end }}
 
-    {{ else }}
-      {{ partial "misc/grouped-index.html" (dict "section" .Section "groupBy" "year" "Site" .Site) }}
+    {{ else if eq $section "notes" }}
+      {{ partial "misc/listing-backlinks.html" . }}
     {{ end }}
 
+  {{ else }}
+    {{ partial "misc/grouped-index.html" (dict "section" .Section "groupBy" "year" "Site" .Site) }}
   {{ end }}
   -->
 

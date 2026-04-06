@@ -4,10 +4,12 @@
   {{ partial "headers/header-home.html" }}
 
   <article>
-    {{ if .Content }}
-      {{ partial "content-parsed.html" . }}
-    {{ else }}
-      📌 This page is being worked on...
+    {{ with site.GetPage "portfolio.md" }}
+      {{ if .Content }}
+        {{ partial "content-parsed.html" . }}
+      {{ else }}
+        📌 This page is being worked on...
+      {{ end }}
     {{ end }}
   </article>
 
