@@ -1,0 +1,13 @@
+{{ define "main" }}
+<section>
+
+  <article>
+    {{ if .Content }}
+        {{ partial "content-parsed.html" . }}
+    {{ else }}
+        📌 This page is being worked on...
+    {{ end }}
+  </article>
+
+</section>
+{{ end }}

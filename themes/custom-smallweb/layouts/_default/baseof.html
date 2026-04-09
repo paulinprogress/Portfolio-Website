@@ -13,8 +13,17 @@
 <body>
 
   <main class="page">
-    {{ block "main" . }}{{ end }}
+    <div class="column-left">
+      {{ block "main" . }}
+        {{ .Content }}
+      {{ end }}
+    </div>
+
+    <div class="column-right">
+      {{ partial "column-right.html" . }}
+    </div>
   </main>
+
 
 </body>
 </html>
