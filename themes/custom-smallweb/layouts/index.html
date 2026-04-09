@@ -1,7 +1,7 @@
 {{ define "main" }}
 <section>
 
-  <article>
+  <div class="home-greeting">
     {{ with site.GetPage "home.md" }}
       {{ if .Content }}
         {{ partial "content-parsed.html" . }}
@@ -9,6 +9,12 @@
         📌 This page is being worked on...
       {{ end }}
     {{ end }}
+  </div>
+
+  <h1>MOST RECENT PROJECTS</h1>
+
+  <article>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
   </article>
 
 </section>

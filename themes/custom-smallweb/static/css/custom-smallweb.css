@@ -10,6 +10,7 @@
   --line-height: normal;
   --indentation: 6ch; /* For lists, blockquotes, etc. */
   /* Layout options */
+  --column-split: 35%;
   /* Other options */
   --img-radius: 4px;
 }
@@ -45,9 +46,34 @@ main {
 /* ------------------------------------------------------------------------------------------------------------------------------------ */
 
 .column-left {
-  flex: 2; /* Takes up 2/5 of space */
+  flex: var(--column-split);
+}
+.column-right {
+  flex: calc(100% - var(--column-split));
 }
 
-.column-right {
-  flex: 3; /* Takes up 3/5 of space */
+p {
+  margin-bottom: 1lh;
+}
+p:last-of-type {
+  margin-bottom: 0;
+}
+
+h1 {
+  font-size: var(--font-size);
+  text-align: center;
+  margin-top: 1lh;
+  margin-bottom: 1lh;
+}
+
+.home-greeting {
+  padding-top: 2rem;
+  padding-left: 6rem;
+  padding-right: 6rem;
+  margin-bottom: 2lh;
+}
+
+article {
+  padding-left: 3rem;
+  padding-right: 3rem;
 }
