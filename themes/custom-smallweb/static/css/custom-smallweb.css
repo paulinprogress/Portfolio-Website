@@ -1,0 +1,43 @@
+:root {
+  /* Color options */
+  --bg: white; /* g&g: #d5d8df */
+  --text: black;
+  --link: blue;
+  --link-hover: #678cfa;
+  --dividers: black;
+  /* Font & text options */
+  --font-size: 14px;
+  --line-height: normal;
+  --indentation: 6ch; /* For lists, blockquotes, etc. */
+  /* Layout options */
+  /* Other options */
+  --img-radius: 4px;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------------------------ */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html, body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  scrollbar-gutter: stable; /* Prevents layout shift when scrollbar appears */
+}
+body {
+  background-color: var(--bg);
+  font-family: 'Times New Roman';
+  font-size: var(--font-size);
+  color: var(--text);
+  line-height: var(--line-height);
+}
+
+main {
+  flex: 1;
+}
+.page {
+  display: flex;
+}

@@ -1,0 +1,15 @@
+{{ define "main" }}
+<section>
+
+  <article>
+    {{ with site.GetPage "home.md" }}
+      {{ if .Content }}
+        {{ partial "content-parsed.html" . }}
+      {{ else }}
+        📌 This page is being worked on...
+      {{ end }}
+    {{ end }}
+  </article>
+
+</section>
+{{ end }}
